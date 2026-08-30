@@ -112,6 +112,15 @@ nav a.active {
   margin: 0 0 17px;
 }
 
+.about-copy .recent-link {
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.recent-link strong {
+  font-weight: 600;
+}
+
 .profile-links {
   margin-top: 25px;
   display: flex;
@@ -252,6 +261,10 @@ nav a.active {
   margin: 5px 0 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.public-item h3 a {
+  color: var(--link);
 }
 
 .public-item > a {
