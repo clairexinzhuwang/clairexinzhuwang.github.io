@@ -1,0 +1,16 @@
+{
+  "rating_rows": 100836,
+  "distinct_users": 610,
+  "rated_movies": 9724,
+  "min_rating": 0.5,
+  "max_rating": 5.0,
+  "min_timestamp": 828124615,
+  "max_timestamp": 1537799250,
+  "null_ratings": 0,
+  "out_of_range_ratings": 0,
+  "invalid_half_star_steps": 0,
+  "duplicate_user_movie_rows": 0,
+  "min_ratings_per_user": 20,
+  "movie_rows": 9742,
+  "distinct_movie_ids": 9742
+}

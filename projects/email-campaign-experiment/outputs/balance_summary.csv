@@ -1,0 +1,37 @@
+treatment,comparator,covariate,level,feature_type,mean_treatment,mean_comparator,difference,standardized_mean_difference
+Mens E-Mail,No E-Mail,recency,,numeric,5.77364246492,5.74969492162,0.0239475432993,0.00683153245426
+Mens E-Mail,No E-Mail,history,,numeric,242.835930915,240.882653243,1.9532776715,0.00761286832154
+Mens E-Mail,No E-Mail,mens,,binary,0.550945698597,0.553224443819,-0.00227874522194,-0.00458232563749
+Mens E-Mail,No E-Mail,womens,,binary,0.551415027925,0.547639162677,0.00377586524791,0.00758892969189
+Mens E-Mail,No E-Mail,newbie,,binary,0.501525320317,0.501971275697,-0.00044595537972,-0.000891895369654
+Mens E-Mail,No E-Mail,history_segment,1) $0 - $100,categorical_indicator,0.362509973248,0.357270252511,0.0052397207372,0.0109167205544
+Mens E-Mail,No E-Mail,history_segment,2) $100 - $200,categorical_indicator,0.220162387948,0.226978315967,-0.00681592801971,-0.0163595431738
+Mens E-Mail,No E-Mail,history_segment,3) $200 - $350,categorical_indicator,0.191955695311,0.189805688538,0.00215000677296,0.00547071358541
+Mens E-Mail,No E-Mail,history_segment,4) $350 - $500,categorical_indicator,0.0984183601633,0.0996902281048,-0.00127186794143,-0.00425742346318
+Mens E-Mail,No E-Mail,history_segment,5) $500 - $750,categorical_indicator,0.0749518937438,0.0775368440815,-0.00258495033764,-0.00974012938385
+Mens E-Mail,No E-Mail,history_segment,"6) $750 - $1,000",categorical_indicator,0.0302248087483,0.0291936543697,0.00103115437864,0.00607321759758
+Mens E-Mail,No E-Mail,history_segment,"7) $1,000 +",categorical_indicator,0.0217768808373,0.0195250164273,0.00225186440999,0.0158345928268
+Mens E-Mail,No E-Mail,zip_code,Rural,categorical_indicator,0.152203501197,0.147329390782,0.00487411041485,0.0136590003993
+Mens E-Mail,No E-Mail,zip_code,Suburban,categorical_indicator,0.445909794903,0.451750680559,-0.00584088565638,-0.0117433567261
+Mens E-Mail,No E-Mail,zip_code,Urban,categorical_indicator,0.4018867039,0.400919928659,0.000966775241533,0.00197223157685
+Mens E-Mail,No E-Mail,channel,Multichannel,categorical_indicator,0.120946167926,0.122312963484,-0.00136679555843,-0.00418153641963
+Mens E-Mail,No E-Mail,channel,Phone,categorical_indicator,0.433660299432,0.437764010138,-0.00410371070588,-0.00827599230712
+Mens E-Mail,No E-Mail,channel,Web,categorical_indicator,0.445393532642,0.439923026378,0.00547050626431,0.0110135883544
+Womens E-Mail,No E-Mail,recency,,numeric,5.76784962828,5.74969492162,0.0181547066605,0.00518001320569
+Womens E-Mail,No E-Mail,history,,numeric,242.536633469,240.882653243,1.65398022571,0.00651072245855
+Womens E-Mail,No E-Mail,mens,,binary,0.548931593959,0.553224443819,-0.0042928498597,-0.00863073120283
+Womens E-Mail,No E-Mail,womens,,binary,0.550100528358,0.547639162677,0.00246136568117,0.00494631399258
+Womens E-Mail,No E-Mail,newbie,,binary,0.50324963763,0.501971275697,0.00127836193335,0.00255670091408
+Womens E-Mail,No E-Mail,history_segment,1) $0 - $100,categorical_indicator,0.356945808201,0.357270252511,-0.000324444309786,-0.000677113082958
+Womens E-Mail,No E-Mail,history_segment,2) $100 - $200,categorical_indicator,0.221022116239,0.226978315967,-0.0059561997285,-0.0142861478545
+Womens E-Mail,No E-Mail,history_segment,3) $200 - $350,categorical_indicator,0.194276897181,0.189805688538,0.00447120864209,0.0113508886873
+Womens E-Mail,No E-Mail,history_segment,4) $350 - $500,categorical_indicator,0.102305138636,0.0996902281048,0.00261491053086,0.00867789994012
+Womens E-Mail,No E-Mail,history_segment,5) $500 - $750,categorical_indicator,0.0777107588722,0.0775368440815,0.000173914790733,0.000649942401897
+Womens E-Mail,No E-Mail,history_segment,"6) $750 - $1,000",categorical_indicator,0.0277271239538,0.0291936543697,-0.00146653041586,-0.00881930680184
+Womens E-Mail,No E-Mail,history_segment,"7) $1,000 +",categorical_indicator,0.0200121569178,0.0195250164273,0.000487140490456,0.00349939206457
+Womens E-Mail,No E-Mail,zip_code,Rural,categorical_indicator,0.14873521298,0.147329390782,0.00140582219791,0.00395850560137
+Womens E-Mail,No E-Mail,zip_code,Suburban,categorical_indicator,0.451208678169,0.451750680559,-0.000542002390486,-0.00108911973862
+Womens E-Mail,No E-Mail,zip_code,Urban,categorical_indicator,0.400056108851,0.400919928659,-0.000863819807423,-0.00176286662916
+Womens E-Mail,No E-Mail,channel,Multichannel,categorical_indicator,0.120587272642,0.122312963484,-0.00172569084221,-0.00528289712504
+Womens E-Mail,No E-Mail,channel,Phone,categorical_indicator,0.442044232478,0.437764010138,0.00428022233968,0.00862283328125
+Womens E-Mail,No E-Mail,channel,Web,categorical_indicator,0.43736849488,0.439923026378,-0.00255453149748,-0.00514786389742

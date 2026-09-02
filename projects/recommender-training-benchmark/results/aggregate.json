@@ -1,0 +1,189 @@
+{
+  "title": "Training-Budget Trade-offs in a Standard Recommender",
+  "method": "Standard implicit-feedback matrix factorization trained with BPR logistic SGD",
+  "dataset": {
+    "name": "MovieLens latest-small",
+    "source_url": "https://files.grouplens.org/datasets/movielens/ml-latest-small.zip",
+    "archive_md5": "31a303aabbc519bd33d025e44d6c2570",
+    "rating_rows": 100836,
+    "users": 610,
+    "movies": 9742,
+    "eligible_users": 608,
+    "train_positive_interactions": 47971,
+    "heldout_positive_interactions": 608,
+    "positive_rating_threshold": 4.0,
+    "evaluation_negatives_per_user": 99
+  },
+  "evaluation": {
+    "split": "latest qualifying positive per eligible user",
+    "candidate_set": "one held-out positive plus fixed sampled unrated items",
+    "ranking_stability": "mean top-10 Jaccard across optimizer-seed pairs and users",
+    "optimizer_seeds": [
+      17,
+      29,
+      43
+    ]
+  },
+  "settings": [
+    {
+      "setting_id": "2ep_1neg",
+      "epochs": 2,
+      "negatives_per_positive": 1,
+      "updates": 95942,
+      "optimizer_seeds": 3,
+      "heldout_pairwise_accuracy": {
+        "mean": 0.858602,
+        "seed_sd": 0.00158,
+        "seed_range": 0.003705,
+        "min": 0.857074,
+        "max": 0.860779
+      },
+      "hit_rate_at_10": {
+        "mean": 0.629934,
+        "seed_sd": 0.004652,
+        "seed_range": 0.009868,
+        "min": 0.626645,
+        "max": 0.636513
+      },
+      "ndcg_at_10": {
+        "mean": 0.384921,
+        "seed_sd": 0.001774,
+        "seed_range": 0.003903,
+        "min": 0.383521,
+        "max": 0.387424
+      },
+      "runtime_seconds": {
+        "mean": 1.887054,
+        "seed_sd": 0.007411,
+        "seed_range": 0.018038,
+        "min": 1.878626,
+        "max": 1.896665
+      },
+      "ranking_stability": {
+        "top10_jaccard_mean": 0.860325,
+        "top10_jaccard_min": 0.333333,
+        "top10_jaccard_max": 1.0
+      }
+    },
+    {
+      "setting_id": "5ep_1neg",
+      "epochs": 5,
+      "negatives_per_positive": 1,
+      "updates": 239855,
+      "optimizer_seeds": 3,
+      "heldout_pairwise_accuracy": {
+        "mean": 0.86295,
+        "seed_sd": 0.001741,
+        "seed_range": 0.004253,
+        "min": 0.860912,
+        "max": 0.865165
+      },
+      "hit_rate_at_10": {
+        "mean": 0.635965,
+        "seed_sd": 0.001551,
+        "seed_range": 0.003289,
+        "min": 0.634868,
+        "max": 0.638158
+      },
+      "ndcg_at_10": {
+        "mean": 0.387679,
+        "seed_sd": 0.002528,
+        "seed_range": 0.006032,
+        "min": 0.385067,
+        "max": 0.391099
+      },
+      "runtime_seconds": {
+        "mean": 4.572653,
+        "seed_sd": 0.092716,
+        "seed_range": 0.21024,
+        "min": 4.44274,
+        "max": 4.65298
+      },
+      "ranking_stability": {
+        "top10_jaccard_mean": 0.898192,
+        "top10_jaccard_min": 0.333333,
+        "top10_jaccard_max": 1.0
+      }
+    },
+    {
+      "setting_id": "5ep_3neg",
+      "epochs": 5,
+      "negatives_per_positive": 3,
+      "updates": 719565,
+      "optimizer_seeds": 3,
+      "heldout_pairwise_accuracy": {
+        "mean": 0.873544,
+        "seed_sd": 0.000803,
+        "seed_range": 0.001944,
+        "min": 0.872657,
+        "max": 0.874601
+      },
+      "hit_rate_at_10": {
+        "mean": 0.656798,
+        "seed_sd": 0.004716,
+        "seed_range": 0.011513,
+        "min": 0.651316,
+        "max": 0.662829
+      },
+      "ndcg_at_10": {
+        "mean": 0.403608,
+        "seed_sd": 0.00237,
+        "seed_range": 0.005566,
+        "min": 0.401301,
+        "max": 0.406867
+      },
+      "runtime_seconds": {
+        "mean": 13.184195,
+        "seed_sd": 0.068014,
+        "seed_range": 0.163467,
+        "min": 13.093179,
+        "max": 13.256646
+      },
+      "ranking_stability": {
+        "top10_jaccard_mean": 0.869768,
+        "top10_jaccard_min": 0.111111,
+        "top10_jaccard_max": 1.0
+      }
+    },
+    {
+      "setting_id": "10ep_1neg",
+      "epochs": 10,
+      "negatives_per_positive": 1,
+      "updates": 479710,
+      "optimizer_seeds": 3,
+      "heldout_pairwise_accuracy": {
+        "mean": 0.866344,
+        "seed_sd": 0.001562,
+        "seed_range": 0.003323,
+        "min": 0.865231,
+        "max": 0.868554
+      },
+      "hit_rate_at_10": {
+        "mean": 0.641447,
+        "seed_sd": 0.001343,
+        "seed_range": 0.003289,
+        "min": 0.639803,
+        "max": 0.643092
+      },
+      "ndcg_at_10": {
+        "mean": 0.390599,
+        "seed_sd": 0.000832,
+        "seed_range": 0.001895,
+        "min": 0.389868,
+        "max": 0.391763
+      },
+      "runtime_seconds": {
+        "mean": 9.21179,
+        "seed_sd": 0.052875,
+        "seed_range": 0.124855,
+        "min": 9.139422,
+        "max": 9.264277
+      },
+      "ranking_stability": {
+        "top10_jaccard_mean": 0.89688,
+        "top10_jaccard_min": 0.428571,
+        "top10_jaccard_max": 1.0
+      }
+    }
+  ]
+}
