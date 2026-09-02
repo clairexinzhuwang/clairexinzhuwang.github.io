@@ -1,0 +1,77 @@
+PAPER_NUMBERS — regenerated 2026-09-01 strictly from canonical_cell_table.json
+source: build_canonical_cell_table.py -> canonical_cell_table.json (schema canonical-cell-table-v1)
+gate4 freeze: aac4a95d20f782ac61f7cb389b4269a76001ed6af5c6732bf078adb254eee3b9
+360 (cell,route) rows x 1000 replications = 360000 records; 65 non-ok records.
+
+DENOMINATOR CONVENTIONS (every rate below is labelled)
+  [all]        denominator = ALL records of the tier (n_records).  A non-ok
+               record (status != 'ok') counts as NEITHER contained NOR
+               recovered NOR covered.  The superseded file computed recovery
+               as set(selected)==set(support), which wrongly counted the 16
+               numerical_failure records (selected=None, support=None) as
+               recoveries; the producer boolean 'exact_recovery' is the
+               authority (0 mismatches vs recomputation on ok records).
+  [rep]        denominator/scope = reportable records only (status=='ok',
+               identical to interval_reportable).
+  containment  candidate_contains_truth AND status=='ok', over [all].
+  recovery     exact_recovery AND status=='ok', over [all].
+  coverage     strict_simultaneous_coverage (exact recovery AND computational
+               success AND joint coverage of all s active coords), over [all].
+  FN[rep]      sum len(false_negatives) over reportable records only.
+  FN[incl-empty]  FN[rep] + s * n_empty_selection (an empty selection misses
+               all s active coordinates).
+  FP[rep]      sum len(false_positives) over reportable records only.
+  +-2SE        2*sqrt(p(1-p)/n) binomial MC error at the stated denominator.
+  scope        frozen cell-level C2 classification (23 boundary cells);
+               records carry no per-record interior/boundary field.
+
+=== TABLE 1  formal R=1000, known-s route (180,000 records; all rates over [all] unless labelled) ===
+inst      N     p   s  n[all] |  contain recovery coverage   +-2SE | FN[rep] FN[incl-empty] FP[rep] non-ok
+auc     500  1000   3   18000 |   0.9996   0.9996   0.9409  0.0035 |       0              0       0      8
+auc    1000  2000   3   18000 |   1.0000   1.0000   0.9461  0.0034 |       0              0       0      0
+auc    2000  5000   3   18000 |   1.0000   1.0000   0.9483  0.0033 |       0              0       0      0
+auc    6000  8000  20   18000 |   1.0000   1.0000   0.9503  0.0032 |       0              0       0      0
+rank    500  1000   3   18000 |   1.0000   1.0000   0.9600  0.0029 |       0              0       0      0
+rank    500  1000  20   18000 |   1.0000   1.0000   0.9660  0.0027 |       0              0       0      0
+rank   1000  2000   3   18000 |   1.0000   1.0000   0.9561  0.0031 |       0              0       0      0
+rank   1000  2000  20   18000 |   1.0000   1.0000   0.9621  0.0028 |       0              0       0      0
+rank   2000  5000   3   18000 |   1.0000   1.0000   0.9543  0.0031 |       0              0       0      0
+rank   2000  5000  20   18000 |   1.0000   1.0000   0.9614  0.0029 |       0              0       0      0
+known-route recoveries: 179992/180000 [all] = 0.999956; containment 179992/180000 [all]; non-ok 8
+
+=== TABLE 2  unknown-s route (180,000 records), split by the pre-locked C2 scope (cell-level; all rates over [all] unless labelled) ===
+inst      N   s scope cells  n[all] | recovery coverage   +-2SE | FN[rep] FN[incl-empty] FP[rep] empty non-ok
+auc     500   3 INT       1    1000 |   0.9950   0.9600  0.0124 |       0              0       3     0      2
+auc     500   3 BND      17   17000 |   0.9665   0.9081  0.0044 |     575            722      46    49     55
+auc    1000   3 INT      12   12000 |   0.9998   0.9490  0.0040 |       0              0       2     0      0
+auc    1000   3 BND       6    6000 |   0.9995   0.9395  0.0062 |       1              1       2     0      0
+auc    2000   3 INT      18   18000 |   1.0000   0.9483  0.0033 |       0              0       0     0      0
+auc    6000  20 INT      18   18000 |   0.9999   0.9502  0.0032 |       0              0       1     0      0
+rank    500   3 INT      18   18000 |   0.9987   0.9587  0.0030 |       0              0      23     0      0
+rank    500  20 INT      18   18000 |   0.9868   0.9536  0.0031 |       0              0     241     0      0
+rank   1000   3 INT      18   18000 |   0.9998   0.9559  0.0031 |       0              0       4     0      0
+rank   1000  20 INT      18   18000 |   0.9991   0.9612  0.0029 |       0              0      17     0      0
+rank   2000   3 INT      18   18000 |   0.9999   0.9542  0.0031 |       0              0       1     0      0
+rank   2000  20 INT      18   18000 |   0.9999   0.9613  0.0029 |       0              0       2     0      0
+unknown-route recoveries: 179134/180000 [all] = 0.995189; non-ok 57
+
+=== TABLE 3  failure accounting (denominator [all]; every non-ok record counts as non-containment, non-recovery, and strict noncoverage) ===
+  numerical_failure: 16  (known_s route: 8, unknown_s route: 8)
+  selection_failure_empty: 49  (known_s route: 0, unknown_s route: 49)
+  total non-ok records: 65 / 360000 [all]
+  (cell,route) rows affected: 18 / 360 -> {"auc_N500_p1000_s3_identity_law1|known_s": 2, "auc_N500_p1000_s3_identity_law1|unknown_s": 2, "auc_N500_p1000_s3_identity_law4|known_s": 1, "auc_N500_p1000_s3_identity_law4|unknown_s": 1, "auc_N500_p1000_s3_identity_law5|unknown_s": 5, "auc_N500_p1000_s3_identity_law6|unknown_s": 14, "auc_N500_p1000_s3_toeplitz_law2|known_s": 2, "auc_N500_p1000_s3_toeplitz_law2|unknown_s": 3, "auc_N500_p1000_s3_toeplitz_law3|known_s": 1, "auc_N500_p1000_s3_toeplitz_law3|unknown_s": 1, "auc_N500_p1000_s3_toeplitz_law4|known_s": 1, "auc_N500_p1000_s3_toeplitz_law4|unknown_s": 3, "auc_N500_p1000_s3_toeplitz_law5|unknown_s": 7, "auc_N500_p1000_s3_toeplitz_law6|unknown_s": 8, "auc_N500_p1000_s3_tridiag_law2|unknown_s": 1, "auc_N500_p1000_s3_tridiag_law5|unknown_s": 3, "auc_N500_p1000_s3_tridiag_law6|known_s": 1, "auc_N500_p1000_s3_tridiag_law6|unknown_s": 9}
+  naive set-equality recovery bug (superseded convention) over-counts by 16 records (= the 16 numerical_failure records, selected=None==support=None)
+
+=== HEADLINE NUMBERS (as cited in the manuscript; explicit fractions) ===
+  known_s AUC(N=500,p=1000,s=3): containment 17992/18000 [all] = 0.9996; recovery 17992/18000 [all] = 0.9996; coverage 16937/18000 [all] = 0.9409
+  unknown_s interior AUC(N=500,p=1000,s=3): recovery 995/1000 [all] = 0.9950
+  unknown_s boundary AUC(N=500,p=1000,s=3): recovery 16430/17000 [all] = 0.9665; coverage 15438/17000 [all] = 0.9081; FN 575 [rep, over 16945 reportable records] / 722 [incl-empty; = 575 + 3 x 49 empty selections]
+  known-route recoveries: 179992/180000 [all]
+
+=== NOT REGENERATED HERE ===
+  The prospective b/Q check at the AUC N=2000 tier (TABLE 4 of the superseded
+  file) is not derivable from the canonical count table; its observed b/Q come
+  from the analyzer per-cell output (analyze_formal_grid.py) and its
+  predictions from FROZEN_PREDICTION_auc_N2000.md.  The 'oracle' column of the
+  superseded TABLE 1 is likewise outside the canonical count table.
+

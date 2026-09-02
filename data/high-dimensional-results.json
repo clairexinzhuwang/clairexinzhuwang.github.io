@@ -1,11 +1,41 @@
 {
-  "title": "High-Dimensional Pairwise Risk Models: Scalable Support Recovery and Post-Recovery Simultaneous Inference",
+  "title": "Support Recovery and Post-Recovery Simultaneous Inference for High-Dimensional Pairwise U-Statistic M-Estimators",
   "canonical_source_date": "2026-09-02",
-  "formal_study": {"cells": 180, "replications_per_cell": 1000, "pruning_routes": 2, "total_records": 360000, "all_failures_retained": true},
+  "source_status": {
+    "source_archive": "JASA_PAIRWISE_v26_1h_FULL.zip",
+    "source_archive_sha256": "fcddebfce7992a7c02a829d2b6ebf830b21103a9a1d750aa4dc72d3d50f5597f",
+    "source_archive_sidecar_verified": true,
+    "freeze_id": "aac4a95d20f782ac61f7cb389b4269a76001ed6af5c6732bf078adb254eee3b9",
+    "formal_grid_sha256": "7a54d434a2f9e4dc5468d342e667b92ea420e1994380dd19ea7970c7e066202d",
+    "formal_evidence_seal_sha256": "e281afb94a2ad06c54dd94b375fd7d2645695c34ea0fcad98f3f97b57d8103b4",
+    "public_snapshot_type": "curated inspection snapshot",
+    "public_snapshot_url": "https://github.com/clairexinzhuwang/clairexinzhuwang.github.io/tree/main/research-code/high-dimensional-pairwise-inference",
+    "canonical_aggregate_included": true,
+    "raw_replication_records_included": false,
+    "raw_record_store_external_size_gb_approx": 13,
+    "record_level_rebuild_possible_from_public_snapshot": false,
+    "manuscript_included": false,
+    "reuse_license_granted": false
+  },
+  "formal_study": {
+    "cells": 180,
+    "replications_per_cell": 1000,
+    "pruning_routes": 2,
+    "total_records": 360000,
+    "all_failures_retained": true,
+    "status_counts": {
+      "ok": 359935,
+      "numerical_failure": 16,
+      "selection_failure_empty": 49,
+      "program_or_schema_error": 0
+    }
+  },
   "known_s": {
     "exact_recovery_records": 179992,
+    "strict_coverage_records": 171820,
     "total_records": 180000,
     "numerical_failures": 8,
+    "selection_failure_empty": 0,
     "selected_rows": [
       {"instance": "AUC", "N": 500, "p": 1000, "s": 3, "recovery": 0.9996, "strict_coverage": 0.9409, "failures": 8},
       {"instance": "AUC", "N": 1000, "p": 2000, "s": 3, "recovery": 1.0, "strict_coverage": 0.9461, "failures": 0},
@@ -15,13 +45,21 @@
       {"instance": "Rank", "N": 2000, "p": 5000, "s": 20, "recovery": 1.0, "strict_coverage": 0.9614, "failures": 0}
     ]
   },
+  "capped_unknown_s": {
+    "cap_policy": "K is an externally supplied informative cap; the formal grid uses K=2s.",
+    "exact_recovery_records": 179134,
+    "strict_coverage_records": 171004,
+    "total_records": 180000,
+    "numerical_failures": 8,
+    "selection_failure_empty": 49
+  },
   "sample_split_sensitivity": [
-    {"cell": "AUC · tridiagonal · contaminated · N=500", "unknown_s_recovery_full": 0.882, "unknown_s_recovery_split": 0.320, "unknown_s_coverage_full": 0.804, "unknown_s_coverage_split": 0.282, "known_s_median_width_split_over_full": 1.40},
-    {"cell": "AUC · identity · contaminated · N=500", "unknown_s_recovery_full": 0.904, "unknown_s_recovery_split": 0.326, "unknown_s_coverage_full": 0.832, "unknown_s_coverage_split": 0.284, "known_s_median_width_split_over_full": 1.39},
-    {"cell": "AUC · identity · Gaussian · N=500", "unknown_s_recovery_full": 0.996, "unknown_s_recovery_split": 0.720, "unknown_s_coverage_full": 0.954, "unknown_s_coverage_split": 0.702, "known_s_median_width_split_over_full": 1.47},
-    {"cell": "Rank · identity · Gaussian · N=500 · s=20", "unknown_s_recovery_full": 0.976, "unknown_s_recovery_split": 0.792, "unknown_s_coverage_full": 0.936, "unknown_s_coverage_split": 0.734, "known_s_median_width_split_over_full": 1.47},
-    {"cell": "Rank · identity · Gaussian · N=1000 · s=20", "unknown_s_recovery_full": 0.994, "unknown_s_recovery_split": 0.970, "unknown_s_coverage_full": 0.946, "unknown_s_coverage_split": 0.920, "known_s_median_width_split_over_full": 1.44},
-    {"cell": "AUC · identity · contaminated · N=1000", "unknown_s_recovery_full": 1.0, "unknown_s_recovery_split": 0.860, "unknown_s_coverage_full": 0.956, "unknown_s_coverage_split": 0.806, "known_s_median_width_split_over_full": 1.41}
+    {"cell": "AUC · tridiagonal · contaminated · N=500", "capped_unknown_s_recovery_full": 0.882, "capped_unknown_s_recovery_split": 0.320, "capped_unknown_s_coverage_full": 0.804, "capped_unknown_s_coverage_split": 0.282, "known_s_median_width_split_over_full": 1.40},
+    {"cell": "AUC · identity · contaminated · N=500", "capped_unknown_s_recovery_full": 0.904, "capped_unknown_s_recovery_split": 0.326, "capped_unknown_s_coverage_full": 0.832, "capped_unknown_s_coverage_split": 0.284, "known_s_median_width_split_over_full": 1.39},
+    {"cell": "AUC · identity · Gaussian · N=500", "capped_unknown_s_recovery_full": 0.996, "capped_unknown_s_recovery_split": 0.720, "capped_unknown_s_coverage_full": 0.954, "capped_unknown_s_coverage_split": 0.702, "known_s_median_width_split_over_full": 1.47},
+    {"cell": "Rank · identity · Gaussian · N=500 · s=20", "capped_unknown_s_recovery_full": 0.976, "capped_unknown_s_recovery_split": 0.792, "capped_unknown_s_coverage_full": 0.936, "capped_unknown_s_coverage_split": 0.734, "known_s_median_width_split_over_full": 1.47},
+    {"cell": "Rank · identity · Gaussian · N=1000 · s=20", "capped_unknown_s_recovery_full": 0.994, "capped_unknown_s_recovery_split": 0.970, "capped_unknown_s_coverage_full": 0.946, "capped_unknown_s_coverage_split": 0.920, "known_s_median_width_split_over_full": 1.44},
+    {"cell": "AUC · identity · contaminated · N=1000", "capped_unknown_s_recovery_full": 1.0, "capped_unknown_s_recovery_split": 0.860, "capped_unknown_s_coverage_full": 0.956, "capped_unknown_s_coverage_split": 0.806, "known_s_median_width_split_over_full": 1.41}
   ],
   "stress_findings": {
     "one_shot_containment_at_gap_0_048": 0.0,
@@ -31,10 +69,18 @@
     "practical_class_prevalence_breakpoint_at_or_below": 0.10,
     "global_null_empty_selection_per_instance": "399/400"
   },
+  "scope": [
+    "Exact fixed sparsity, fixed signal separation, and an externally supplied fixed cap K for the capped unknown-s route.",
+    "Independent base observations and a fixed or independently learned pair representation.",
+    "Gaussian covariates in the formal designs; identity cells are theorem-anchored, while Toeplitz and tridiagonal cells are stress panels.",
+    "Root-N pair-SGD coupling adds log p = o(N^(1/3)(log N)^(4/3)); support recovery does not require that additional condition.",
+    "The bipartite-ranking coefficient target is the pairwise-logistic surrogate-risk target, not the AUC functional itself.",
+    "The results are pointwise and do not cover growing sparsity, local-to-zero signals, extreme imbalance, clustered or temporal units, approximate sparsity, or same-sample representation learning."
+  ],
   "caveats": [
     "The N=6000, p=8000, s=20 AUC design is a fixed stress tier, not a fourth convergence point.",
-    "The guarantee is unconditional oracleization after exact recovery, not conditional validity after arbitrary selection.",
-    "Theory assumes exact sparsity, fixed separation, independent base units, and a fixed or independently learned pair representation.",
-    "An August 27 implementation snapshot has not been verified as the exact source for the September 2 canonical manuscript."
+    "The inferential guarantee is unconditional oracleization after exact recovery, not conditional validity after arbitrary selection.",
+    "Response-noise contamination does not establish heavy-tailed covariate robustness.",
+    "The public snapshot is curated and excludes manuscripts, internal history, unfinished application work, third-party material, and the externally stored replication-level records."
   ]
 }

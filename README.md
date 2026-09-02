@@ -9,11 +9,12 @@ models. It also includes role-specific entry points for product data science and
 health/biostatistics, public talks and artifacts, a web CV, and machine-readable
 result summaries.
 
-The finite-compute project includes a public inspection snapshot of its code,
-frozen configuration, audit scripts, and stored result records. The manuscript
-PDF and source are not distributed. The high-dimensional implementation archive
-is not published because the available source is not an exact match to the
-current canonical result set.
+The finite-compute project includes both the checksum-verified code-only archive
+from the August 31, 2026 research bundle and a browser-friendly curated
+derivative. The high-dimensional project includes a curated snapshot copied
+byte-for-byte from selected members of the checksum-verified September 2, 2026
+archive, together with the formal design, canonical aggregate, and provenance
+manifest. Manuscript PDFs and source are not distributed.
 
 The static pages are exported from the companion Sites source project. Run the
 repository checks with:

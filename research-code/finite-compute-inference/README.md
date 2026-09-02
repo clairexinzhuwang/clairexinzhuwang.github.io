@@ -1,9 +1,12 @@
 # Inference from stochastic gradient descent for U-statistics
 
-> Public inspection snapshot, synchronized with the numerical package bundled on
-> August 31, 2026. The manuscript itself is intentionally not included. Public
-> visibility does not grant a license to copy, modify, or redistribute the code;
-> see `NOTICE.md`.
+> Browser-friendly curated derivative of the numerical package bundled on
+> August 31, 2026. Executable logic and stored numerical records are unchanged,
+> while presentation-only comments were edited and legacy/manuscript-sync files
+> were omitted. This tree is therefore not byte-identical to the separately
+> published code archive. The manuscript itself is intentionally not included.
+> Public visibility does not grant a license to copy, modify, or redistribute the
+> code; see `NOTICE.md`.
 
 The shipped replication-level Parquet files require the pinned `pyarrow` dependency.
 

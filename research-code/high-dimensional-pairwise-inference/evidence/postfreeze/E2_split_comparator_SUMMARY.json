@@ -1,0 +1,1014 @@
+{
+ "study": "E2_split_comparator",
+ "description": "E2: honest sample-splitting comparator on sealed-grid datasets.",
+ "date": "2026-09-01 20:07:16",
+ "alpha": 0.05,
+ "seed_convention": "seed = 10000000 + cell_index*10000 + rep (sealed formal grid)",
+ "rng_derivation": {
+  "data": "generate_rank/generate_auc(seed,...) frozen convention",
+  "full_method": "np.random.default_rng(seed + 2000000000) == frozen method_arm",
+  "split_method": "np.random.default_rng(seed + 2500000000) NEW honest_split_arm",
+  "full_gaussian_max": "seed + 6000000000 (known/shared), seed + 7000000000 (unknown) frozen",
+  "split_gaussian_max": "seed + 6500000000 (known/shared), seed + 7500000000 (unknown) NEW",
+  "interval_se_base_n": "N (full) / inference-half size (split)"
+ },
+ "failure_accounting": "pipeline failures and empty selections count as strict noncoverage, non-recovery and non-containment and stay in the denominator; widths are undefined for such reps",
+ "cells": {
+  "auc_N500_p1000_s3_tridiag_law6": {
+   "cell_index": 125,
+   "n_reps": 500,
+   "methods": {
+    "full": {
+     "pipeline_failure_count": 1,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 0.998,
+      "se": 0.001997998998998749,
+      "n": 500,
+      "count": 499
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 0.998,
+        "se": 0.001997998998998749,
+        "n": 500,
+        "count": 499
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.914,
+        "se": 0.01253826144248077,
+        "n": 500,
+        "count": 457
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.4335599088214692,
+        "boot_se": 0.014762770059131871,
+        "n": 499
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.882,
+        "se": 0.014427473791346842,
+        "n": 500,
+        "count": 441
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.804,
+        "se": 0.01775297158224504,
+        "n": 500,
+        "count": 402
+       },
+       "empty_selection_count": 4,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.3688505501371562,
+        "boot_se": 0.01615661881577268,
+        "n": 495
+       }
+      }
+     }
+    },
+    "split": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.886,
+        "se": 0.014212951839783317,
+        "n": 500,
+        "count": 443
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 2.0078870026011257,
+        "boot_se": 0.023582165090223543,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.32,
+        "se": 0.020861447696648473,
+        "n": 500,
+        "count": 160
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.282,
+        "se": 0.020123419192572618,
+        "n": 500,
+        "count": 141
+       },
+       "empty_selection_count": 97,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.0827237803845478,
+        "boot_se": 0.030728292603391646,
+        "n": 403
+       }
+      }
+     }
+    }
+   },
+   "paired": {
+    "known_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 1,
+      "discordant": 1,
+      "exact_p_two_sided": 1.0
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 41,
+      "full_no_split_yes": 27,
+      "discordant": 68,
+      "exact_p_two_sided": 0.11425430684992328
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.3968948378563475,
+      "boot_se": 0.017384014711226754,
+      "n": 499
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 1,
+      "discordant": 1,
+      "exact_p_two_sided": 1.0
+     }
+    },
+    "unknown_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 298,
+      "full_no_split_yes": 17,
+      "discordant": 315,
+      "exact_p_two_sided": 1.7031389988557142e-67
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 285,
+      "full_no_split_yes": 24,
+      "discordant": 309,
+      "exact_p_two_sided": 7.741451525387913e-58
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 0.8816872268984273,
+      "boot_se": 0.041857778288116675,
+      "n": 400
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 1,
+      "discordant": 1,
+      "exact_p_two_sided": 1.0
+     }
+    }
+   }
+  },
+  "auc_N500_p1000_s3_identity_law6": {
+   "cell_index": 113,
+   "n_reps": 500,
+   "methods": {
+    "full": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.922,
+        "se": 0.01199299795714149,
+        "n": 500,
+        "count": 461
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.4083121019918938,
+        "boot_se": 0.015491234903317585,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.904,
+        "se": 0.013174520864152895,
+        "n": 500,
+        "count": 452
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.832,
+        "se": 0.01671980861134481,
+        "n": 500,
+        "count": 416
+       },
+       "empty_selection_count": 7,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.3710043958745999,
+        "boot_se": 0.011903130949803437,
+        "n": 493
+       }
+      }
+     }
+    },
+    "split": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.876,
+        "se": 0.014739335127474372,
+        "n": 500,
+        "count": 438
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.983922841547725,
+        "boot_se": 0.028096020888810885,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.326,
+        "se": 0.020963015050321363,
+        "n": 500,
+        "count": 163
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.284,
+        "se": 0.020166506886419373,
+        "n": 500,
+        "count": 142
+       },
+       "empty_selection_count": 114,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.1244745779818934,
+        "boot_se": 0.03568441991008938,
+        "n": 386
+       }
+      }
+     }
+    }
+   },
+   "paired": {
+    "known_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 41,
+      "full_no_split_yes": 18,
+      "discordant": 59,
+      "exact_p_two_sided": 0.0037937056353716074
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.3942012467376212,
+      "boot_se": 0.015839278406835834,
+      "n": 500
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    },
+    "unknown_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 302,
+      "full_no_split_yes": 13,
+      "discordant": 315,
+      "exact_p_two_sided": 1.175770879039229e-72
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 292,
+      "full_no_split_yes": 18,
+      "discordant": 310,
+      "exact_p_two_sided": 6.742653749403366e-65
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 0.8946867782737965,
+      "boot_se": 0.05754617338226053,
+      "n": 383
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    }
+   }
+  },
+  "auc_N500_p1000_s3_identity_law1": {
+   "cell_index": 108,
+   "n_reps": 500,
+   "methods": {
+    "full": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.958,
+        "se": 0.00897061870775924,
+        "n": 500,
+        "count": 479
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.2340404086962877,
+        "boot_se": 0.00955218717907029,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.996,
+        "se": 0.002822764602300377,
+        "n": 500,
+        "count": 498
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.954,
+        "se": 0.009368457717255283,
+        "n": 500,
+        "count": 477
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.2361082652784074,
+        "boot_se": 0.009477485883639593,
+        "n": 500
+       }
+      }
+     }
+    },
+    "split": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.97,
+        "se": 0.007628892449104264,
+        "n": 500,
+        "count": 485
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.8012204839323394,
+        "boot_se": 0.01745406447380668,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.72,
+        "se": 0.020079840636817812,
+        "n": 500,
+        "count": 360
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.702,
+        "se": 0.020454632727086548,
+        "n": 500,
+        "count": 351
+       },
+       "empty_selection_count": 29,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.6997512185756916,
+        "boot_se": 0.0230701957762261,
+        "n": 471
+       }
+      }
+     }
+    }
+   },
+   "paired": {
+    "known_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 9,
+      "full_no_split_yes": 15,
+      "discordant": 24,
+      "exact_p_two_sided": 0.30745625495910645
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.4706312622672755,
+      "boot_se": 0.013811844788744991,
+      "n": 500
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    },
+    "unknown_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 140,
+      "full_no_split_yes": 2,
+      "discordant": 142,
+      "exact_p_two_sided": 3.642568859329073e-39
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 137,
+      "full_no_split_yes": 11,
+      "discordant": 148,
+      "exact_p_two_sided": 7.775470971507245e-29
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.3986049808654755,
+      "boot_se": 0.01475605443833495,
+      "n": 471
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    }
+   }
+  },
+  "rank_N500_p1000_s20_identity_law1": {
+   "cell_index": 18,
+   "n_reps": 500,
+   "methods": {
+    "full": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.958,
+        "se": 0.00897061870775924,
+        "n": 500,
+        "count": 479
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 0.2900779445606325,
+        "boot_se": 0.000557624334877656,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.976,
+        "se": 0.006844559883586383,
+        "n": 500,
+        "count": 488
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.936,
+        "se": 0.01094568408095172,
+        "n": 500,
+        "count": 468
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 0.29001380973939106,
+        "boot_se": 0.000562182198621416,
+        "n": 500
+       }
+      }
+     }
+    },
+    "split": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.934,
+        "se": 0.01110351295761841,
+        "n": 500,
+        "count": 467
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 0.42549029646058795,
+        "boot_se": 0.0017597194887799383,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.792,
+        "se": 0.018151363585141474,
+        "n": 500,
+        "count": 396
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.734,
+        "se": 0.019760769215797242,
+        "n": 500,
+        "count": 367
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 0.42587636110913013,
+        "boot_se": 0.001622522746002754,
+        "n": 500
+       }
+      }
+     }
+    }
+   },
+   "paired": {
+    "known_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 31,
+      "full_no_split_yes": 19,
+      "discordant": 50,
+      "exact_p_two_sided": 0.11892045255943628
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.4657657286277788,
+      "boot_se": 0.004117063733720884,
+      "n": 500
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    },
+    "unknown_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 101,
+      "full_no_split_yes": 9,
+      "discordant": 110,
+      "exact_p_two_sided": 7.837961736461263e-21
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 124,
+      "full_no_split_yes": 23,
+      "discordant": 147,
+      "exact_p_two_sided": 6.078995135268125e-18
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.467006539835428,
+      "boot_se": 0.004102371892847366,
+      "n": 500
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    }
+   }
+  },
+  "rank_N1000_p2000_s20_identity_law1": {
+   "cell_index": 54,
+   "n_reps": 500,
+   "methods": {
+    "full": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.952,
+        "se": 0.009559916317625384,
+        "n": 500,
+        "count": 476
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 0.2017616952054322,
+        "boot_se": 0.000568737399967522,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.994,
+        "se": 0.0034536936748935927,
+        "n": 500,
+        "count": 497
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.946,
+        "se": 0.010107818755794947,
+        "n": 500,
+        "count": 473
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 0.2017616952054322,
+        "boot_se": 0.0005475410183983183,
+        "n": 500
+       }
+      }
+     }
+    },
+    "split": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.948,
+        "se": 0.009929350431926557,
+        "n": 500,
+        "count": 474
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 0.28925963262516896,
+        "boot_se": 0.0007590324742276747,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.97,
+        "se": 0.007628892449104264,
+        "n": 500,
+        "count": 485
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.92,
+        "se": 0.012132600710482479,
+        "n": 500,
+        "count": 460
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 0.2896379516914761,
+        "boot_se": 0.0007154831814312339,
+        "n": 500
+       }
+      }
+     }
+    }
+   },
+   "paired": {
+    "known_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 19,
+      "full_no_split_yes": 17,
+      "discordant": 36,
+      "exact_p_two_sided": 0.8679394004284404
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.4399641958738634,
+      "boot_se": 0.0024385551840631903,
+      "n": 500
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    },
+    "unknown_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 15,
+      "full_no_split_yes": 3,
+      "discordant": 18,
+      "exact_p_two_sided": 0.007537841796875
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 31,
+      "full_no_split_yes": 18,
+      "discordant": 49,
+      "exact_p_two_sided": 0.08543313315739454
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.4399641958738634,
+      "boot_se": 0.0025896558143546572,
+      "n": 500
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    }
+   }
+  },
+  "auc_N1000_p2000_s3_identity_law6": {
+   "cell_index": 131,
+   "n_reps": 500,
+   "methods": {
+    "full": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.956,
+        "se": 0.009172131704244116,
+        "n": 500,
+        "count": 478
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.0095666512816075,
+        "boot_se": 0.007295417576112039,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.956,
+        "se": 0.009172131704244116,
+        "n": 500,
+        "count": 478
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.0095666512816075,
+        "boot_se": 0.007278567080269274,
+        "n": 500
+       }
+      }
+     }
+    },
+    "split": {
+     "pipeline_failure_count": 0,
+     "dgp_failure_count": 0,
+     "containment": {
+      "rate": 1.0,
+      "se": 0.0,
+      "n": 500,
+      "count": 500
+     },
+     "routes": {
+      "known_s": {
+       "exact_recovery": {
+        "rate": 1.0,
+        "se": 0.0,
+        "n": 500,
+        "count": 500
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.932,
+        "se": 0.01125841907196565,
+        "n": 500,
+        "count": 466
+       },
+       "empty_selection_count": 0,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.409395669941908,
+        "boot_se": 0.010892068358792651,
+        "n": 500
+       }
+      },
+      "unknown_s": {
+       "exact_recovery": {
+        "rate": 0.86,
+        "se": 0.01551773179301666,
+        "n": 500,
+        "count": 430
+       },
+       "strict_simultaneous_coverage": {
+        "rate": 0.806,
+        "se": 0.017684117167673367,
+        "n": 500,
+        "count": 403
+       },
+       "empty_selection_count": 7,
+       "route_numerics_failure_count": 0,
+       "median_interval_width": {
+        "median": 1.3746516440406402,
+        "boot_se": 0.014968974478611785,
+        "n": 493
+       }
+      }
+     }
+    }
+   },
+   "paired": {
+    "known_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 27,
+      "full_no_split_yes": 15,
+      "discordant": 42,
+      "exact_p_two_sided": 0.08842954698775429
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.4120206701871294,
+      "boot_se": 0.010524494823404475,
+      "n": 500
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    },
+    "unknown_s": {
+     "recovery_mcnemar": {
+      "full_yes_split_no": 70,
+      "full_no_split_yes": 0,
+      "discordant": 70,
+      "exact_p_two_sided": 1.6940658945086007e-21
+     },
+     "coverage_mcnemar": {
+      "full_yes_split_no": 87,
+      "full_no_split_yes": 12,
+      "discordant": 99,
+      "exact_p_two_sided": 3.3697570742087657e-15
+     },
+     "paired_width_ratio_split_over_full": {
+      "median": 1.4001695484481715,
+      "boot_se": 0.01489791259142859,
+      "n": 493
+     },
+     "containment_mcnemar": {
+      "full_yes_split_no": 0,
+      "full_no_split_yes": 0,
+      "discordant": 0,
+      "exact_p_two_sided": 1.0
+     }
+    }
+   }
+  }
+ }
+}
