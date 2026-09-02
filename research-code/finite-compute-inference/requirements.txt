@@ -1,0 +1,9 @@
+# The versions the reported results were produced under.
+numpy==1.26.4
+scipy==1.14.1
+pandas==2.2.2
+pyarrow==21.0.0
+matplotlib==3.11.0
+ray==2.47.1
+psutil==5.9.0
+scikit-learn==1.5.1

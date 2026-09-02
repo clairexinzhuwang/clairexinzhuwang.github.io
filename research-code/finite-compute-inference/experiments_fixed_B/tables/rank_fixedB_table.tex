@@ -1,0 +1,24 @@
+\begin{table}[!tbp]
+\tbl{Smoothed rank regression ($p=2$, $\theta^\star=(0.5,1)^\top$). Each row is one asymptotic sequence: the minibatch size $B$ is held fixed and the number of iterations grows with $n$. The horizon is the primary numerical schedule $T=\lfloor(n/B)\log_2n\rfloor$, so rows sharing an $n$ share the tuple budget $BT=n\log_2n$ up to the integer part, and also the pilot budget $Bt_0$, the auxiliary budgets and the tuple draws themselves, so the comparison across $B$ is paired. $R=1000$ replications; Monte Carlo standard error of a coverage near $0.95$ is about $0.007$. Slash-separated entries list sampling with replacement first and sampling without replacement second; at $B=1$ the two schemes are one computation, since a minibatch of size one drawn without replacement is the with-replacement draw. Bias and the three variances are listed once: across the paired cells the two schemes differ in those columns by less than the Monte Carlo standard error of the quantity itself, so a pair would suggest a difference the design does not resolve. Times are medians of five serial runs of the reported procedure under each scheme, measured in one pass on an idle machine}{%
+\setlength{\tabcolsep}{3pt}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{rrccccccc}
+& & & & \multicolumn{3}{c}{Variance} & &\\[-1mm]
+$n$ & $B$ & $T$ & $|\text{Bias}|$ & Empirical & Data
+& Optimization & Coverage & Time (seconds)\\
+\addlinespace[2pt]
+$10^{3}$ & 1 & 9{,}965 & $1.75\times10^{-4}$ & 0.00121 & 0.00106 & $1.44\times10^{-4}$ & 0.948/0.948 & 0.134/0.134\\
+$10^{3}$ & 10 & 996 & $1.66\times10^{-4}$ & 0.00121 & 0.00106 & $1.44\times10^{-4}$ & 0.949/0.947 & 0.020/0.035\\
+$10^{3}$ & 100 & 99 & $1.33\times10^{-4}$ & 0.00121 & 0.00106 & $1.45\times10^{-4}$ & 0.947/0.950 & 0.0088/0.015\\
+\addlinespace
+$10^{4}$ & 1 & 132{,}877 & $3.93\times10^{-4}$ & $1.19\times10^{-4}$ & $1.05\times10^{-4}$ & $1.12\times10^{-5}$ & 0.949/0.949 & 1.08/1.08\\
+$10^{4}$ & 10 & 13{,}287 & $3.92\times10^{-4}$ & $1.19\times10^{-4}$ & $1.05\times10^{-4}$ & $1.13\times10^{-5}$ & 0.949/0.949 & 0.217/0.417\\
+$10^{4}$ & 100 & 1{,}328 & $3.92\times10^{-4}$ & $1.19\times10^{-4}$ & $1.05\times10^{-4}$ & $1.13\times10^{-5}$ & 0.950/0.944 & 0.070/0.103\\
+\addlinespace
+$10^{5}$ & 1 & 1{,}660{,}964 & $1.72\times10^{-4}$ & $1.20\times10^{-5}$ & $1.06\times10^{-5}$ & $9.27\times10^{-7}$ & 0.941/0.941 & 12.9/12.9\\
+$10^{5}$ & 10 & 166{,}096 & $1.72\times10^{-4}$ & $1.20\times10^{-5}$ & $1.06\times10^{-5}$ & $9.27\times10^{-7}$ & 0.941/0.947 & 1.84/3.43\\
+$10^{5}$ & 100 & 16{,}609 & $1.72\times10^{-4}$ & $1.20\times10^{-5}$ & $1.06\times10^{-5}$ & $9.27\times10^{-7}$ & 0.941/0.944 & 0.594/0.785\\
+\end{tabular}
+}}
+\label{tab:rank-fixedB}
+\end{table}

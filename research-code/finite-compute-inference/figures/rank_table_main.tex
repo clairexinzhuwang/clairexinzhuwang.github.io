@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{rrccccccc}
+\toprule
+$n$ & $B$ & $T$ & $|\text{Bias}|$ & $\var_{\text{emp}}$ & $\var_{\text{dat}}$
+& $\var_{\text{sgd}}$ & Cov.\ (WR/WOR) & Time (s, WR/WOR)\\
+\midrule
+$10^{3}$ & 256 & 38 & 7.25e-4 & 0.00119 & 0.00107 & 1.48e-4 & 0.947/0.948 & 0.0070/0.0071\\
+\addlinespace
+$10^{4}$ & 512 & 259 & 2.19e-4 & 1.20e-4 & 1.05e-4 & 1.13e-5 & 0.943/0.944 & 0.041/0.043\\
+\addlinespace
+$10^{5}$ & 1024 & 1{,}622 & 3.30e-5 & 1.13e-5 & 1.06e-5 & 9.25e-7 & 0.954/0.954 & 0.399/0.424\\
+\addlinespace
+$10^{6}$ & 4096 & 4{,}866 & 3.96e-5 & 1.15e-6 & 1.05e-6 & 7.79e-8 & 0.953/0.953 & 5.90/6.31\\
+\bottomrule
+\end{tabular}}
+\caption{Smoothed rank regression ($p=2$, $\theta^\star=(0.5,1)^\top$). $R=1000$ replications; Monte Carlo standard error of a coverage near $0.95$ is about $0.007$. Times are medians of five serial runs under each sampling scheme, measured in one pass on an idle machine.}
+\label{tab:rank-main}
+\end{table}

@@ -1,0 +1,40 @@
+{
+  "title": "Inference from stochastic gradient descent for U-statistics",
+  "canonical_source_date": "2026-08-31",
+  "primary_grid": {
+    "replications_per_cell": 1000,
+    "fixed_minibatches": [1, 10, 100],
+    "sample_sizes": [1000, 10000, 100000],
+    "coordinate_averaged_full_interval_coverage_range": [0.941, 0.959],
+    "data_only_coverage_range": [0.914, 0.956],
+    "optimization_share_percent_range": [3.7, 20.4],
+    "empirical_to_predicted_variance_ratio_range": [0.964, 1.038]
+  },
+  "finite_budget": [
+    {"budget_ratio_BT_over_n": 1, "iterations": 1000, "optimization_share_percent": 58.6, "full_coverage": 0.950, "data_only_coverage": 0.791},
+    {"budget_ratio_BT_over_n": 2, "iterations": 2000, "optimization_share_percent": 41.5, "full_coverage": 0.942, "data_only_coverage": 0.868},
+    {"budget_ratio_BT_over_n": 5, "iterations": 5000, "optimization_share_percent": 22.1, "full_coverage": 0.944, "data_only_coverage": 0.918},
+    {"budget_ratio_BT_over_n": 10, "iterations": 10000, "optimization_share_percent": 12.4, "full_coverage": 0.944, "data_only_coverage": 0.929},
+    {"budget_ratio_BT_over_n": 20, "iterations": 20000, "optimization_share_percent": 6.6, "full_coverage": 0.949, "data_only_coverage": 0.941}
+  ],
+  "primary_B10_cells": [
+    {"example": "smoothed rank regression", "n": 1000, "iterations": 996, "coordinate_averaged_full_coverage": 0.949, "coordinate_averaged_data_only_coverage": 0.931, "coordinate_averaged_optimization_share_percent": 12.0},
+    {"example": "smoothed rank regression", "n": 10000, "iterations": 13287, "coordinate_averaged_full_coverage": 0.949, "coordinate_averaged_data_only_coverage": 0.937, "coordinate_averaged_optimization_share_percent": 9.6},
+    {"example": "smoothed rank regression", "n": 100000, "iterations": 166096, "coordinate_averaged_full_coverage": 0.941, "coordinate_averaged_data_only_coverage": 0.931, "coordinate_averaged_optimization_share_percent": 8.1},
+    {"example": "triplet metric learning", "n": 1000, "iterations": 996, "coordinate_averaged_full_coverage": 0.946, "coordinate_averaged_data_only_coverage": 0.914, "coordinate_averaged_optimization_share_percent": 20.3},
+    {"example": "triplet metric learning", "n": 10000, "iterations": 13287, "coordinate_averaged_full_coverage": 0.947, "coordinate_averaged_data_only_coverage": 0.925, "coordinate_averaged_optimization_share_percent": 16.2},
+    {"example": "triplet metric learning", "n": 100000, "iterations": 166096, "coordinate_averaged_full_coverage": 0.950, "coordinate_averaged_data_only_coverage": 0.931, "coordinate_averaged_optimization_share_percent": 13.4},
+    {"example": "bipartite ranking / AUC", "n": 1000, "iterations": 996, "coordinate_averaged_full_coverage": 0.950, "coordinate_averaged_data_only_coverage": 0.941, "coordinate_averaged_optimization_share_percent": 6.0},
+    {"example": "bipartite ranking / AUC", "n": 10000, "iterations": 13287, "coordinate_averaged_full_coverage": 0.959, "coordinate_averaged_data_only_coverage": 0.956, "coordinate_averaged_optimization_share_percent": 4.6},
+    {"example": "bipartite ranking / AUC", "n": 100000, "iterations": 166096, "coordinate_averaged_full_coverage": 0.951, "coordinate_averaged_data_only_coverage": 0.947, "coordinate_averaged_optimization_share_percent": 3.7}
+  ],
+  "real_data": [
+    {"application": "30-day readmission ranking", "fit_n": 41984, "p": 42, "possible_pairs": 143928988, "evaluated_pairs": 644608, "fraction_percent": 0.45, "fit_seconds": 0.46, "plugin_to_resampling_standard_error_ratio_median": 0.992, "ratio_spread_type": "interquartile range", "ratio_spread": [0.956, 1.027], "resampling_repetitions": 300},
+    {"application": "insurance claim severity", "fit_n": 24944, "p": 31, "possible_pairs": 311089096, "evaluated_pairs": 364288, "fraction_percent": 0.12, "fit_seconds": 1.04, "plugin_to_resampling_standard_error_ratio_median": 1.037, "ratio_spread_type": "full range", "ratio_spread": [0.884, 1.228], "resampling_repetitions": 100}
+  ],
+  "caveats": [
+    "Real-data resampling checks assess standard-error agreement, not repeated-sample coverage.",
+    "Growing-minibatch experiments are stress tests outside the fixed-minibatch theorem design.",
+    "Simulation runtimes are omitted because timing depends on the execution environment."
+  ]
+}

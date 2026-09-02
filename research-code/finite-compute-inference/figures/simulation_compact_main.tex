@@ -1,0 +1,16 @@
+\begin{table}[H]
+\tbl{Coordinate-averaged summary of the primary fixed-minibatch grid, using sampling with replacement. Ranges are over total sample size $n_{\mathrm{tot}}=10^3,10^4,10^5$ and $B=1,10,100$. The variance ratio is $\widehat v_{\mathrm{emp}}/(\widehat v_{\mathrm{data}}+\widehat v_{\mathrm{opt}})$; maximum coverage loss is the largest decrease in coverage after omitting the stochastic-optimization component. $R=1000$ replications per cell}{%
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+Example & Full coverage & Data-only coverage & Optimization share & Variance ratio & Maximum coverage loss\\
+\midrule
+Rank regression & 0.941--0.950 & 0.930--0.937 & 8.1--12.1\% & 1.005--1.038 & 0.018\\
+Triplet metric learning & 0.946--0.950 & 0.914--0.931 & 13.4--20.4\% & 1.001--1.025 & 0.032\\
+Bipartite ranking & 0.949--0.959 & 0.941--0.956 & 3.7--6.1\% & 0.964--1.023 & 0.010\\
+\bottomrule
+\end{tabular}
+}}
+\label{tab:simulation-summary}
+\end{table}

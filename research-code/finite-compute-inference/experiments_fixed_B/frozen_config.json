@@ -1,0 +1,42 @@
+{
+ "BANDWIDTH_EXPONENT": 0.26,
+ "B_GRID": [
+  1,
+  10,
+  100
+ ],
+ "B_MAX": 100,
+ "HORIZON": "T = floor((n_total/B) log2 n_total)",
+ "L_ROUND": 100,
+ "N_GRID": [
+  1000,
+  10000,
+  100000
+ ],
+ "PILOT_EXPONENT": 0.6,
+ "P_ANCHOR": 16,
+ "R_BY_N": {
+  "1000": 1000,
+  "10000": 1000,
+  "100000": 1000
+ },
+ "R_FORMAL": 1000,
+ "WOR": {
+  "B": [
+   10,
+   100
+  ],
+  "R": 1000,
+  "n": 10000
+ },
+ "WOR_B_note": "B=1 omitted: a size-one minibatch without replacement is the with-replacement draw",
+ "alg_seed_base": 800000,
+ "data_seed_base": 700000,
+ "kernels": [
+  "rank",
+  "auc",
+  "triplet"
+ ],
+ "note": "Lambda = BT/n_1 is the tuple-budget ratio; lambda = T/n_1. L_ROUND is an integer-rounding device, not a tuning constant.",
+ "scheme_primary": "WR"
+}

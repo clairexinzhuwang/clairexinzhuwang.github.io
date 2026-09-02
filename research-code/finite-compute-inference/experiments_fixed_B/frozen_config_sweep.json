@@ -1,0 +1,22 @@
+{
+ "B": 10,
+ "B_MAX": 100,
+ "LAMBDA_TUPLE_SWEEP": [
+  1.0,
+  2.0,
+  5.0,
+  10.0,
+  20.0
+ ],
+ "L_ROUND": 100,
+ "PILOT_EXPONENT": 0.6,
+ "P_ANCHOR": 16,
+ "R": 1000,
+ "alg_seed_base": 800000,
+ "data_seed_base": 700000,
+ "experiment": "budget ratio, reported in the appendix",
+ "kernel": "rank",
+ "n_total": 10000,
+ "note": "B T is set directly as round_up(Lambda * n_1); the horizon of the primary study is the prescribed schedule instead.",
+ "scheme": "WR"
+}

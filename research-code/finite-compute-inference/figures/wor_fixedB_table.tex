@@ -1,0 +1,32 @@
+\begin{table}[!tbp]
+\tbl{Optimization variance under the two sampling schemes, over every reported cell. The finite-population correction is $1-O(B/N)$ with $N$ the number of distinct tuples, of order $n^2$ for the pairwise kernels and $n^3$ for the triplet kernel, so the two schemes are expected to be indistinguishable; the realized ratios in the last column differ from one only in the fourth decimal. $B=1$ is omitted: a minibatch of size one drawn without replacement is the with-replacement draw, returning the same tuple from the same generator state. $R=1000$ replications}{%
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lrrccc}
+\toprule
+Example & $n$ & $B$ & $\widehat v_{\mathrm{opt}}$ (WOR) & $\widehat v_{\mathrm{opt}}$ (WR) & Ratio\\
+\midrule
+Rank & $10^{3}$ & 10 & $1.44\times10^{-4}$ & $1.44\times10^{-4}$ & 0.9998\\
+ & $10^{3}$ & 100 & $1.45\times10^{-4}$ & $1.45\times10^{-4}$ & 0.9993\\
+ & $10^{4}$ & 10 & $1.12\times10^{-5}$ & $1.13\times10^{-5}$ & 1.0000\\
+ & $10^{4}$ & 100 & $1.13\times10^{-5}$ & $1.13\times10^{-5}$ & 1.0001\\
+ & $10^{5}$ & 10 & $9.27\times10^{-7}$ & $9.27\times10^{-7}$ & 0.9999\\
+ & $10^{5}$ & 100 & $9.27\times10^{-7}$ & $9.27\times10^{-7}$ & 0.9999\\
+\addlinespace
+Triplet & $10^{3}$ & 10 & $3.16\times10^{-5}$ & $3.16\times10^{-5}$ & 1.0015\\
+ & $10^{3}$ & 100 & $3.18\times10^{-5}$ & $3.18\times10^{-5}$ & 0.9992\\
+ & $10^{4}$ & 10 & $2.33\times10^{-6}$ & $2.34\times10^{-6}$ & 0.9993\\
+ & $10^{4}$ & 100 & $2.34\times10^{-6}$ & $2.34\times10^{-6}$ & 0.9996\\
+ & $10^{5}$ & 10 & $1.87\times10^{-7}$ & $1.87\times10^{-7}$ & 1.0001\\
+ & $10^{5}$ & 100 & $1.87\times10^{-7}$ & $1.87\times10^{-7}$ & 1.0001\\
+\addlinespace
+AUC & $10^{3}$ & 10 & $3.53\times10^{-4}$ & $3.53\times10^{-4}$ & 1.0005\\
+ & $10^{3}$ & 100 & $3.55\times10^{-4}$ & $3.55\times10^{-4}$ & 1.0009\\
+ & $10^{4}$ & 10 & $2.61\times10^{-5}$ & $2.61\times10^{-5}$ & 0.9997\\
+ & $10^{4}$ & 100 & $2.61\times10^{-5}$ & $2.61\times10^{-5}$ & 1.0004\\
+ & $10^{5}$ & 10 & $2.08\times10^{-6}$ & $2.08\times10^{-6}$ & 1.0000\\
+ & $10^{5}$ & 100 & $2.08\times10^{-6}$ & $2.08\times10^{-6}$ & 1.0000\\
+\bottomrule
+\end{tabular}
+}
+\label{tab:wor-fixedB}
+\end{table}
