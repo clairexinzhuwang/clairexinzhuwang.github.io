@@ -45,8 +45,12 @@ test("doctoral research pages remain preprint-stage teasers", async () => {
   const html = [overview, compute, dimension].join("\n");
 
   assert.match(overview, /technical materials will follow an approved public release/i);
-  assert.match(compute, /technical materials will follow an approved public release/i);
-  assert.match(dimension, /technical materials will follow an approved public release/i);
+  assert.match(compute, /inferential gap/i);
+  assert.match(compute, /computation–precision tradeoffs/i);
+  assert.match(dimension, /statistically dependent contributions/i);
+  assert.match(dimension, /post-selection uncertainty/i);
+  assert.match(compute, /Manuscript in preparation/i);
+  assert.match(dimension, /Manuscript in preparation/i);
   assert.doesNotMatch(html, /<table\b|<figure\b|\.zip\b|\.json\b|arxiv\.org/i);
 });
 
