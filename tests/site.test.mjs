@@ -30,7 +30,7 @@ test("all generated routes exist and contain no local paths", async () => {
 
 test("homepage presents a quiet, high-level research profile", async () => {
   const html = await read("index.html");
-  assert.match(html, /Statistical inference under computational constraints and high dimensionality/);
+  assert.match(html, /Reliable inference for modern statistical learning/);
   assert.match(html, /Two manuscripts in preparation/);
   assert.match(html, /Inference after high-dimensional variable selection/);
   assert.match(html, /Inference after stochastic optimization/);
