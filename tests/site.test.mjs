@@ -30,25 +30,24 @@ test("all generated routes exist and contain no local paths", async () => {
 
 test("homepage leads with the unified research program", async () => {
   const html = await read("index.html");
-  assert.match(html, /Reliable inference for learning from pairs and tuples/);
-  assert.match(html, /143\.9M/);
-  assert.match(html, /360,000 outcomes/);
-  assert.match(html, /One program, two questions/);
+  assert.match(html, /Statistical inference after stochastic optimization and model selection/);
+  assert.match(html, /uncertainty quantification when model fitting uses/i);
+  assert.match(html, /Two complementary manuscripts/);
   assert.match(html, /The Price of Safety in Multi-Objective Optimization/);
-  assert.doesNotMatch(html, /recommender|MovieLens|BPR-SGD/i);
+  assert.doesNotMatch(html, /pairs and tuples|143\.9M|360,000 outcomes|recommender|MovieLens|BPR-SGD/i);
 });
 
 test("research pages expose exact claims and explicit limits", async () => {
   const finite = await read("research/finite-compute-inference/index.html");
   const high = await read("research/high-dimensional-pairwise-inference/index.html");
-  assert.match(finite, /143,928,988/);
+  assert.match(finite, /0\.45%/);
+  assert.match(finite, /Objective evaluated/);
   assert.match(finite, /standard-error agreement, not repeated-sample coverage/i);
   assert.match(high, /Support Recovery and Post-Recovery Simultaneous Inference for High-Dimensional Pairwise U-Statistic M-Estimators/);
-  assert.match(high, /179,992 \/ 180,000/);
-  assert.match(high, /eight failures retained/i);
-  assert.match(high, /65 \/ 360,000/);
-  assert.match(high, /capped unknown-s route has 179,134 exact recoveries/i);
+  assert.match(high, /externally capped route/i);
+  assert.match(high, /Numerical and empty-selection failures remain in every denominator/i);
   assert.doesNotMatch(high, /(?<!capped )unknown-s/i);
+  assert.doesNotMatch(finite + high, /paper-key-facts|Inspect a primary simulation cell/i);
   assert.doesNotMatch(finite + high, /arxiv\.org|main2\.pdf|main_biometrika\.pdf/i);
 });
 
@@ -57,9 +56,10 @@ test("code page distinguishes exact downloads, curated source, and evidence limi
   assert.match(html, /Exact Round 11 numerical package/);
   assert.match(html, /finite-compute-inference-round11-code\.zip/);
   assert.match(html, /Curated code snapshot/);
-  assert.match(html, /13 GB replication-level record store is external/i);
+  assert.match(html, /Replication-level records remain external/i);
+  assert.match(html, /Canonical formal-study aggregate/i);
   assert.match(html, /canonical_cell_table\.json/);
-  assert.doesNotMatch(html, /August 27|not been verified|synchronization required/i);
+  assert.doesNotMatch(html, /13 GB|360 rows covering 360,000|August 27|not been verified|synchronization required/i);
 });
 
 test("static assets referenced by the HTML are present", async () => {

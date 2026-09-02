@@ -2,10 +2,10 @@
 
 Public research portfolio for Xinzhu (Claire) Wang.
 
-The site presents one doctoral research program across two connected projects:
-finite-compute inference for tuple-sampled stochastic optimization, and
-high-dimensional support recovery with simultaneous inference for pairwise risk
-models. It also includes role-specific entry points for product data science and
+The site presents two complementary doctoral manuscripts: uncertainty
+quantification after finite stochastic optimization, and high-dimensional
+support recovery with post-recovery simultaneous inference. It also includes
+role-specific entry points for product data science and
 health/biostatistics, public talks and artifacts, a web CV, and machine-readable
 result summaries.
 
