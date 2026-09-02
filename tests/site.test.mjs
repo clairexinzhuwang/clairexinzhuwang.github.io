@@ -6,8 +6,8 @@ const root = new URL("../", import.meta.url);
 const routeFiles = [
   "index.html",
   "research/index.html",
-  "research/finite-compute-inference/index.html",
-  "research/high-dimensional-pairwise-inference/index.html",
+  "research/computation-aware-inference/index.html",
+  "research/high-dimensional-inference/index.html",
   "product/index.html",
   "health/index.html",
   "code/index.html",
@@ -28,38 +28,35 @@ test("all generated routes exist and contain no local paths", async () => {
   }
 });
 
-test("homepage leads with the unified research program", async () => {
+test("homepage presents a quiet, high-level research profile", async () => {
   const html = await read("index.html");
-  assert.match(html, /Statistical inference after stochastic optimization and model selection/);
-  assert.match(html, /uncertainty quantification when model fitting uses/i);
-  assert.match(html, /Two complementary manuscripts/);
+  assert.match(html, /Statistical inference under computational constraints and high dimensionality/);
+  assert.match(html, /Two manuscripts in preparation/);
+  assert.match(html, /Inference after high-dimensional variable selection/);
+  assert.match(html, /Inference after stochastic optimization/);
   assert.match(html, /The Price of Safety in Multi-Objective Optimization/);
-  assert.doesNotMatch(html, /pairs and tuples|143\.9M|360,000 outcomes|recommender|MovieLens|BPR-SGD/i);
+  assert.doesNotMatch(html, /downloads\/|results\.json/i);
 });
 
-test("research pages expose exact claims and explicit limits", async () => {
-  const finite = await read("research/finite-compute-inference/index.html");
-  const high = await read("research/high-dimensional-pairwise-inference/index.html");
-  assert.match(finite, /0\.45%/);
-  assert.match(finite, /Objective evaluated/);
-  assert.match(finite, /standard-error agreement, not repeated-sample coverage/i);
-  assert.match(high, /Support Recovery and Post-Recovery Simultaneous Inference for High-Dimensional Pairwise U-Statistic M-Estimators/);
-  assert.match(high, /externally capped route/i);
-  assert.match(high, /Numerical and empty-selection failures remain in every denominator/i);
-  assert.doesNotMatch(high, /(?<!capped )unknown-s/i);
-  assert.doesNotMatch(finite + high, /paper-key-facts|Inspect a primary simulation cell/i);
-  assert.doesNotMatch(finite + high, /arxiv\.org|main2\.pdf|main_biometrika\.pdf/i);
+test("doctoral research pages remain preprint-stage teasers", async () => {
+  const overview = await read("research/index.html");
+  const compute = await read("research/computation-aware-inference/index.html");
+  const dimension = await read("research/high-dimensional-inference/index.html");
+  const html = [overview, compute, dimension].join("\n");
+
+  assert.match(overview, /technical materials will follow an approved public release/i);
+  assert.match(compute, /technical materials will follow an approved public release/i);
+  assert.match(dimension, /technical materials will follow an approved public release/i);
+  assert.doesNotMatch(html, /<table\b|<figure\b|\.zip\b|\.json\b|arxiv\.org/i);
 });
 
-test("code page distinguishes exact downloads, curated source, and evidence limits", async () => {
+test("code page exposes only the cleared public case", async () => {
   const html = await read("code/index.html");
-  assert.match(html, /Exact Round 11 numerical package/);
-  assert.match(html, /finite-compute-inference-round11-code\.zip/);
-  assert.match(html, /Curated code snapshot/);
-  assert.match(html, /Replication-level records remain external/i);
-  assert.match(html, /Canonical formal-study aggregate/i);
-  assert.match(html, /canonical_cell_table\.json/);
-  assert.doesNotMatch(html, /13 GB|360 rows covering 360,000|August 27|not been verified|synchronization required/i);
+  assert.match(html, /Public code and reproducible analyses/);
+  assert.match(html, /Manuscript code will follow an approved public release/);
+  assert.match(html, /Randomized campaign experiment/);
+  assert.match(html, /email-campaign-experiment/);
+  assert.doesNotMatch(html, /download code archive|result table|\.zip\b/i);
 });
 
 test("static assets referenced by the HTML are present", async () => {
@@ -72,55 +69,18 @@ test("static assets referenced by the HTML are present", async () => {
   await access(new URL(".nojekyll", root));
 });
 
-test("machine-readable research results agree with displayed headline facts", async () => {
-  const finite = JSON.parse(await read("data/finite-compute-results.json"));
-  const high = JSON.parse(await read("data/high-dimensional-results.json"));
-  assert.equal(finite.real_data[0].possible_pairs, 143_928_988);
-  assert.equal(finite.finite_budget[0].optimization_share_percent, 58.6);
-  assert.equal(high.formal_study.total_records, 360_000);
-  assert.equal(high.known_s.exact_recovery_records, 179_992);
-  assert.equal(high.capped_unknown_s.exact_recovery_records, 179_134);
-  assert.equal(high.formal_study.status_counts.ok, 359_935);
-  assert.equal(high.formal_study.status_counts.numerical_failure, 16);
-  assert.equal(high.formal_study.status_counts.selection_failure_empty, 49);
-  assert.equal(high.source_status.raw_replication_records_included, false);
-  assert.equal(finite.source_status.exact_code_archive_sha256, "40ed62ebbd7ae42eb0bf0d53545d7e582eb6ce7b74d2a93f59084dcef083244a");
-  assert.equal(high.formal_study.all_failures_retained, true);
-});
+test("the current public bundle contains only cleared data and documents", async () => {
+  const dataFiles = await readdir(new URL("data/", root));
+  const artifactFiles = await readdir(new URL("artifacts/", root));
+  assert.deepEqual(dataFiles.sort(), ["email-experiment.json"]);
+  assert.deepEqual(artifactFiles.sort(), ["email-campaign-decision-memo.pdf"]);
 
-test("finite-compute inspection source contains the algorithm, audit, frozen records, and notice", async () => {
-  const base = "research-code/finite-compute-inference/";
-  await access(new URL(base + "code/alg_paper.py", root));
-  await access(new URL(base + "code/audit_fixed_B.py", root));
-  await access(new URL(base + "experiments_fixed_B/frozen_config.sha256", root));
-  await access(new URL(base + "experiments_fixed_B/formal_runs/fixed_B_replications.parquet", root));
-  const notice = await read(base + "NOTICE.md");
-  assert.match(notice, /No copyright licence is granted/);
-  await access(new URL("downloads/finite-compute-inference-round11-code.zip", root));
-  const checksum = await read("downloads/finite-compute-inference-round11-code.zip.sha256");
-  assert.match(checksum, /40ed62ebbd7ae42eb0bf0d53545d7e582eb6ce7b74d2a93f59084dcef083244a/);
-});
-
-test("high-dimensional inspection source contains exact selected code and canonical evidence", async () => {
-  const base = "research-code/high-dimensional-pairwise-inference/";
-  await access(new URL(base + "source/src/htp_discovery.py", root));
-  await access(new URL(base + "source/src/simultaneous_inference.py", root));
-  await access(new URL(base + "source/FORMAL_GRID.json", root));
-  const aggregate = JSON.parse(await read(base + "evidence/formal/canonical_cell_table.json"));
-  assert.equal(aggregate.cells.length, 360);
-  assert.equal(aggregate.cells.reduce((sum, row) => sum + row.n_records, 0), 360_000);
-  assert.equal(aggregate.checks.n_ok_records_total, 359_935);
-  assert.equal(aggregate.checks.n_numerical_failure_total, 16);
-  assert.equal(aggregate.checks.n_selection_failure_empty_total, 49);
-  const provenance = JSON.parse(await read(base + "PROVENANCE.json"));
-  assert.equal(provenance.source_archive_sha256, "fcddebfce7992a7c02a829d2b6ebf830b21103a9a1d750aa4dc72d3d50f5597f");
-  assert.equal(provenance.replication_level_records_included, false);
-  const notice = await read(base + "NOTICE.md");
-  assert.match(notice, /No copyright licence is granted/);
-});
-
-test("no manuscript PDF is distributed in the public repository", async () => {
   const entries = await readdir(new URL(".", root), { recursive: true });
-  const forbidden = entries.filter((entry) => /(?:main2|supplement2|main_biometrika|supplement_biometrika|AAAI_price_of_safety)\.pdf$/i.test(entry));
-  assert.deepEqual(forbidden, []);
+  const restrictedTechnicalFiles = entries.filter((entry) => /\.(?:zip|tex|parquet)$/i.test(entry));
+  const publicDocuments = entries.filter((entry) => /\.pdf$/i.test(entry)).sort();
+  assert.deepEqual(restrictedTechnicalFiles, []);
+  assert.deepEqual(publicDocuments, [
+    "artifacts/email-campaign-decision-memo.pdf",
+    "claire-wang-sip-2026-poster.pdf",
+  ]);
 });

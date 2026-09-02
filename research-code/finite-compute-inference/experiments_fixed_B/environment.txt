@@ -1,4 +1,0 @@
-python 3.12.7
-platform macOS-15.0-arm64-arm-64bit
-numpy 1.26.4
-ray 2.47.1

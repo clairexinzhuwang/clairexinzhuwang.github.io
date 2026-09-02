@@ -1,5 +1,0 @@
-setting_id,epochs,negatives_per_positive,updates,optimizer_seeds,heldout_pairwise_accuracy_mean,heldout_pairwise_accuracy_seed_sd,heldout_pairwise_accuracy_seed_range,hit_rate_at_10_mean,hit_rate_at_10_seed_sd,hit_rate_at_10_seed_range,ndcg_at_10_mean,ndcg_at_10_seed_sd,ndcg_at_10_seed_range,runtime_seconds_mean,runtime_seconds_seed_sd,top10_jaccard_mean,top10_jaccard_min
-2ep_1neg,2,1,95942,3,0.858602,0.00158,0.003705,0.629934,0.004652,0.009868,0.384921,0.001774,0.003903,1.887054,0.007411,0.860325,0.333333
-5ep_1neg,5,1,239855,3,0.86295,0.001741,0.004253,0.635965,0.001551,0.003289,0.387679,0.002528,0.006032,4.572653,0.092716,0.898192,0.333333
-5ep_3neg,5,3,719565,3,0.873544,0.000803,0.001944,0.656798,0.004716,0.011513,0.403608,0.00237,0.005566,13.184195,0.068014,0.869768,0.111111
-10ep_1neg,10,1,479710,3,0.866344,0.001562,0.003323,0.641447,0.001343,0.003289,0.390599,0.000832,0.001895,9.21179,0.052875,0.89688,0.428571
