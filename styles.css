@@ -181,20 +181,6 @@ nav a.active {
   font-size: 13px;
 }
 
-.interests ul {
-  margin: 0;
-  padding-left: 23px;
-}
-
-.interests li {
-  margin: 8px 0;
-  padding-left: 4px;
-}
-
-.interests strong {
-  font-weight: 600;
-}
-
 .research-list,
 .public-list,
 .timeline {
@@ -238,6 +224,15 @@ nav a.active {
 }
 
 .question strong {
+  font-weight: 600;
+}
+
+.research-item .relevance {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.relevance strong {
   font-weight: 600;
 }
 

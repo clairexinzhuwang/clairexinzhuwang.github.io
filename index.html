@@ -4,23 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
-    <title>Xinzhu “Claire” Wang | Experimentation, Ranking &amp; Decision Systems</title>
-    <meta name="description" content="Statistics PhD candidate working on experimentation, ranking, and sequential decision systems." />
+    <title>Xinzhu “Claire” Wang | Statistical Learning &amp; Decision Systems</title>
+    <meta name="description" content="Statistics PhD candidate working on computational statistics, high-dimensional learning, stochastic optimization, and uncertainty-aware decisions." />
     <link rel="canonical" href="https://clairexinzhuwang.github.io/" />
     <link rel="preload" href="claire-wang-portrait.jpg" as="image" />
     <link rel="stylesheet" href="styles.css" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://clairexinzhuwang.github.io/" />
-    <meta property="og:title" content="Xinzhu “Claire” Wang | Experimentation, Ranking &amp; Decision Systems" />
-    <meta property="og:description" content="Statistics PhD candidate working on experimentation, ranking, and sequential decision systems." />
+    <meta property="og:title" content="Xinzhu “Claire” Wang | Statistical Learning &amp; Decision Systems" />
+    <meta property="og:description" content="Computational statistics, high-dimensional learning, stochastic optimization, and uncertainty-aware decisions." />
     <meta property="og:image" content="https://clairexinzhuwang.github.io/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Xinzhu Claire Wang — statistics and decision science" />
+    <meta property="og:image:alt" content="Xinzhu Claire Wang — statistical learning and decision systems" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Xinzhu “Claire” Wang | Experimentation, Ranking &amp; Decision Systems" />
-    <meta name="twitter:description" content="Statistics PhD candidate working on experimentation, ranking, and sequential decision systems." />
+    <meta name="twitter:title" content="Xinzhu “Claire” Wang | Statistical Learning &amp; Decision Systems" />
+    <meta name="twitter:description" content="Computational statistics, high-dimensional learning, stochastic optimization, and uncertainty-aware decisions." />
     <meta name="twitter:image" content="https://clairexinzhuwang.github.io/og.png" />
 
     <script type="application/ld+json">
@@ -45,8 +45,8 @@
       <div class="header-inner">
         <nav aria-label="Primary navigation">
           <a class="active" href="#about">about</a>
-          <a href="#work">work</a>
-          <a href="#talks">public work</a>
+          <a href="#research">research</a>
+          <a href="#work">public work</a>
           <a href="#experience">experience</a>
         </nav>
       </div>
@@ -57,13 +57,14 @@
         <div class="about-copy">
           <h1 id="name"><strong>Xinzhu “Claire”</strong> Wang</h1>
           <p class="position">Statistics PhD Candidate · University of Rochester</p>
-          <p class="focus-line">Experimentation · Ranking · Decision Systems</p>
-          <p>I develop scalable statistical methods for experimentation, ranking, and sequential decision-making. My work asks when limited or imperfect data are sufficient to support a defensible decision.</p>
-          <p>I combine study design, statistical modeling, simulation, and uncertainty quantification, with applications in healthcare and other data-rich settings.</p>
+          <p class="focus-line">Statistical Learning · Optimization · Decision Systems</p>
+          <p>I develop statistically rigorous, computationally efficient methods for learning and decision-making under uncertainty.</p>
+          <p>My work combines theory, simulation, numerical implementation, and reproducibility across computational statistics, high-dimensional learning, sequential optimization, and causal study design.</p>
+          <p>I am interested in data science and quantitative research roles centered on modeling, optimization, and uncertainty-aware decision support.</p>
           <p class="availability">PhD expected May 2027 · Available June 2027</p>
           <p class="recent-link"><strong>Recent:</strong> <a href="https://ww2.amstat.org/meetings/jsm/2026/onlineprogram/abstract.cfm?sid=5838&amp;tid=5840" target="_blank" rel="noreferrer">JSM 2026 invited talk — The Price of Safety in Multi-Objective Optimization ↗</a></p>
           <div class="profile-links" aria-label="Contact and profiles">
-            <a href="#work">selected work</a>
+            <a href="#research">research</a>
             <a href="mailto:xinzhu_wang@urmc.rochester.edu">email</a>
             <a href="https://scholar.google.com/citations?user=-tpkkpYAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">scholar</a>
             <a href="https://github.com/clairexinzhuwang" target="_blank" rel="noreferrer">github</a>
@@ -76,28 +77,35 @@
         </aside>
       </section>
 
-      <section class="section interests" aria-labelledby="interests-title">
-        <h2 id="interests-title">Questions I work on</h2>
-        <ul>
-          <li><strong>Ranking at scale:</strong> Can pairwise models remain reliable without enumerating every possible comparison?</li>
-          <li><strong>Sequential decisions:</strong> Which objective should a learning policy optimize, and what safety or feasibility constraints must it respect?</li>
-          <li><strong>Credible comparisons:</strong> When can experimental or observational data support a causal conclusion—and when should the claim be narrowed?</li>
-        </ul>
-      </section>
-
-      <section class="section" id="work" aria-labelledby="work-title">
-        <h2 id="work-title">Selected work</h2>
-        <p class="section-note">Decision questions first; methods and public evidence second. Ongoing collaborations are summarized only at the level appropriate for public sharing.</p>
+      <section class="section" id="research" aria-labelledby="research-title">
+        <h2 id="research-title">Research in progress</h2>
+        <p class="section-note">Some current manuscripts are not linked while public release is pending faculty and coauthor review. The descriptions below are intentionally high-level.</p>
         <div class="research-list">
           <article class="research-item">
             <div class="item-heading">
-              <h3>Reliable Inference for Ranking at Scale</h3>
-              <span>Ongoing research · public summary only</span>
+              <h3>Reliable Statistical Learning Under Computational Constraints</h3>
+              <span>Ongoing research · public overview only</span>
             </div>
-            <p class="question"><strong>Question:</strong> Can a pairwise model remain reliable without enumerating every possible comparison?</p>
-            <p>I develop computationally efficient methods for high-dimensional pairwise objectives, with uncertainty quantification designed to remain reliable when only a subset of comparisons can be processed. The practical question is when additional computation is still worth its cost.</p>
-            <p class="methods"><strong>Methods:</strong> Pairwise learning, stochastic optimization, high-dimensional inference, Python</p>
+            <p>I study statistically rigorous methods for model fitting and uncertainty quantification when computation is approximate or resource-constrained. The work combines theoretical analysis, reproducible implementation, simulation-based validation, and robustness auditing.</p>
+            <p class="relevance"><strong>Applied relevance:</strong> Model diagnostics and uncertainty-aware decisions under computational constraints.</p>
+            <p class="methods"><strong>Methods:</strong> Statistical inference, computational statistics, stochastic optimization, model validation, Python</p>
           </article>
+          <article class="research-item">
+            <div class="item-heading">
+              <h3>Scalable Learning from Pairwise Data</h3>
+              <span>Ongoing research · public overview only</span>
+            </div>
+            <p>My current research includes computationally efficient statistical learning for high-dimensional pairwise data, with an emphasis on variable selection and uncertainty quantification.</p>
+            <p class="relevance"><strong>Applied relevance:</strong> Sparse modeling and interpretable feature selection for structured comparison data.</p>
+            <p class="methods"><strong>Methods:</strong> Pairwise learning, high-dimensional statistics, feature selection, uncertainty quantification</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <h2 id="work-title">Public and applied work</h2>
+        <p class="section-note">Linked artifacts are public; unlinked collaborations are summarized only at the level appropriate for public sharing.</p>
+        <div class="research-list">
           <article class="research-item">
             <div class="item-heading">
               <h3>Learning Safely Under Unknown Constraints</h3>
