@@ -1,12 +1,13 @@
 # clairexinzhuwang.github.io
 
-Public portfolio for Xinzhu (Claire) Wang.
+Public academic website for Xinzhu (Claire) Wang.
 
-The site centers two independent, reproducible public projects: a conventional
-intention-to-treat analysis of the Hillstrom randomized email experiment and a
-standard MovieLens BPR-SGD training-budget benchmark.
+The homepage centers Claire's doctoral research while keeping manuscripts under
+faculty and coauthor review private. A conventional intention-to-treat analysis
+of the Hillstrom randomized email experiment appears later as a supporting
+product-data-science case.
 
-Each project includes data provenance, SQL checks, analysis code, tests,
-aggregate outputs, and a decision memo. Raw source datasets are not committed.
+The public case includes data provenance, SQL checks, analysis code, tests,
+aggregate outputs, and a decision memo. The raw source dataset is not committed.
 
-Run the site checks with node --check lab.js and node --test tests/site.test.mjs.
+Run the site checks with `node --test tests/site.test.mjs`.

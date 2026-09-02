@@ -4,24 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
-    <title>Xinzhu “Claire” Wang | Data Science &amp; Statistical Learning</title>
-    <meta name="description" content="Statistics PhD candidate building reproducible experimentation, recommender-evaluation, and statistical-learning projects." />
+    <title>Xinzhu “Claire” Wang | Statistics &amp; Data Science</title>
+    <meta name="description" content="Statistics PhD candidate working on statistical learning, computational statistics, experimentation, and reproducible research." />
     <link rel="canonical" href="https://clairexinzhuwang.github.io/" />
     <link rel="preload" href="claire-wang-portrait.jpg" as="image" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="lab.js" defer></script>
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://clairexinzhuwang.github.io/" />
-    <meta property="og:title" content="Xinzhu “Claire” Wang | Data Science &amp; Statistical Learning" />
-    <meta property="og:description" content="Reproducible experiments, inspectable analyses, and careful decisions." />
+    <meta property="og:title" content="Xinzhu “Claire” Wang | Statistics &amp; Data Science" />
+    <meta property="og:description" content="Statistical learning, computational statistics, experimentation, and reproducible research." />
     <meta property="og:image" content="https://clairexinzhuwang.github.io/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Xinzhu Claire Wang — Data Science and Statistical Learning" />
+    <meta property="og:image:alt" content="Xinzhu Claire Wang — Statistics and Data Science" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Xinzhu “Claire” Wang | Data Science &amp; Statistical Learning" />
-    <meta name="twitter:description" content="Reproducible experiments, inspectable analyses, and careful decisions." />
+    <meta name="twitter:title" content="Xinzhu “Claire” Wang | Statistics &amp; Data Science" />
+    <meta name="twitter:description" content="Statistical learning, computational statistics, experimentation, and reproducible research." />
     <meta name="twitter:image" content="https://clairexinzhuwang.github.io/og.png" />
 
     <script type="application/ld+json">
@@ -46,8 +45,9 @@
       <div class="header-inner">
         <nav aria-label="Primary navigation">
           <a class="active" href="#about">about</a>
-          <a href="#projects">projects</a>
           <a href="#research">research</a>
+          <a href="#public-work">public work</a>
+          <a href="#product">product</a>
           <a href="#background">background</a>
         </nav>
       </div>
@@ -58,14 +58,14 @@
         <div class="about-copy">
           <h1 id="name"><strong>Xinzhu “Claire”</strong> Wang</h1>
           <p class="position">Statistics PhD Candidate · University of Rochester</p>
-          <p class="focus-line">Experimentation · Recommender Evaluation · Statistical Learning</p>
-          <p class="lead">I build reproducible statistical-learning and experimentation workflows that turn data into decisions.</p>
-          <p>The public projects below include the data checks, analysis code, tests, machine-readable results, and decision notes behind each conclusion.</p>
-          <p>I am seeking 2027 data science and quantitative research roles centered on modeling, experimentation, optimization, and careful decision support.</p>
+          <p class="focus-line">Statistical Learning · Experimentation · Reproducible Data Science</p>
+          <p class="lead">I develop statistical methods and reproducible computational workflows for reliable learning and decision-making.</p>
+          <p>My work combines mathematical theory, algorithm development, simulation, implementation, and careful empirical validation.</p>
+          <p>I am seeking 2027 data science roles centered on experimentation, statistical modeling, and reliable decision support.</p>
           <p class="availability">PhD expected May 2027 · Available June 2027</p>
 
           <div class="profile-links" aria-label="Contact and profiles">
-            <a href="#projects">explore projects</a>
+            <a href="#research">research</a>
             <a href="mailto:xinzhu_wang@urmc.rochester.edu">email</a>
             <a href="https://github.com/clairexinzhuwang" target="_blank" rel="noreferrer">github</a>
             <a href="https://www.linkedin.com/in/xinzhu-w-961035158/" target="_blank" rel="noreferrer">linkedin</a>
@@ -80,157 +80,12 @@
         </aside>
       </section>
 
-      <section class="section projects-section" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Inspectable public work</p>
-            <h2 id="projects-title">Selected projects</h2>
-          </div>
-          <p>Both projects use public data and standard published methods. The linked materials make the results inspectable and the analyses rerunnable.</p>
-        </div>
-
-        <div class="featured-projects">
-          <article class="featured-project" aria-labelledby="email-project-title">
-            <div class="project-intro">
-              <p class="eyebrow">Featured project 01 · Experimentation</p>
-              <h3 id="email-project-title">Email Campaign Experiment</h3>
-              <p class="project-summary">A reproducible intention-to-treat analysis of a public 64,000-customer, three-arm randomized campaign. The analysis uses an explicitly stated comparison plan; the recommendation states what the data cannot answer.</p>
-              <dl class="project-facts" aria-label="Email experiment summary">
-                <div><dt>Sample</dt><dd>64,000 customers</dd></div>
-                <div><dt>Design</dt><dd>3 randomized arms</dd></div>
-                <div><dt>Balance</dt><dd>max |SMD| 0.016</dd></div>
-              </dl>
-            </div>
-
-            <div class="interactive-lab" aria-label="Explore email experiment results">
-              <div class="lab-controls">
-                <div>
-                  <span class="control-label">Campaign</span>
-                  <div class="segmented-control" role="group" aria-label="Campaign comparison">
-                    <button class="email-arm" type="button" data-arm="Mens E-Mail" aria-pressed="true">Mens</button>
-                    <button class="email-arm" type="button" data-arm="Womens E-Mail" aria-pressed="false">Womens</button>
-                  </div>
-                </div>
-                <div>
-                  <span class="control-label">Outcome</span>
-                  <div class="segmented-control" role="group" aria-label="Outcome metric">
-                    <button class="email-outcome" type="button" data-outcome="visit" aria-pressed="false">Visit</button>
-                    <button class="email-outcome" type="button" data-outcome="conversion" aria-pressed="false">Conversion</button>
-                    <button class="email-outcome" type="button" data-outcome="spend" aria-pressed="true">Mean spend</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="metric-readout" aria-live="polite">
-                <div><span>Estimated lift</span><strong id="email-lift">+0.770</strong></div>
-                <div><span>95% confidence interval</span><strong id="email-ci">+0.485 to +1.055</strong></div>
-                <div><span>Holm-adjusted p</span><strong id="email-p">&lt; 0.0001</strong></div>
-              </div>
-
-              <div class="comparison-bars" id="email-bars" aria-label="Mean spend by campaign arm">
-                <div class="bar-row">
-                  <span id="email-treatment-label">Mens</span>
-                  <div class="bar-track" aria-hidden="true"><span id="email-treatment-bar" style="width:89.29%"></span></div>
-                  <strong id="email-treatment-value">1.423</strong>
-                </div>
-                <div class="bar-row">
-                  <span>No email</span>
-                  <div class="bar-track" aria-hidden="true"><span id="email-control-bar" style="width:40.97%"></span></div>
-                  <strong id="email-control-value">0.653</strong>
-                </div>
-              </div>
-            </div>
-
-            <div class="decision-note">
-              <strong>Decision</strong>
-              <p>Advance Mens E-Mail as the candidate for a monitored rollout. It produced the largest observed two-week lift across visits, conversions, and spend, but a profit decision still needs campaign cost, margin, deliverability, and unsubscribe guardrails. The single planned newbie check did not support a targeting rule.</p>
-            </div>
-
-            <div class="artifact-links" aria-label="Email experiment artifacts">
-              <a href="https://github.com/clairexinzhuwang/clairexinzhuwang.github.io/tree/main/projects/email-campaign-experiment" target="_blank" rel="noreferrer">code &amp; tests ↗</a>
-              <a href="artifacts/email-campaign-decision-memo.pdf" target="_blank">decision memo ↗</a>
-              <a href="data/email-experiment.json" target="_blank">results JSON ↗</a>
-              <a href="https://blog.minethatdata.com/2008/03/minethatdata-e-mail-analytics-and-data.html" target="_blank" rel="noreferrer">public data source ↗</a>
-            </div>
-          </article>
-
-          <article class="featured-project" aria-labelledby="ranking-project-title">
-            <div class="project-intro">
-              <p class="eyebrow">Featured project 02 · Recommender evaluation</p>
-              <h3 id="ranking-project-title">Training-Budget Trade-offs in a Standard Recommender</h3>
-              <p class="project-summary">An independent MovieLens benchmark using conventional BPR-SGD. It evaluates how epochs and sampled negatives change held-out ranking quality, descriptive cross-seed agreement, and measured CPU training time.</p>
-              <dl class="project-facts" aria-label="Recommender benchmark summary">
-                <div><dt>Data</dt><dd>100,836 ratings</dd></div>
-                <div><dt>Catalog</dt><dd>9,742 movies</dd></div>
-                <div><dt>Runs</dt><dd>4 settings × 3 seeds</dd></div>
-              </dl>
-            </div>
-
-            <div class="interactive-lab" aria-label="Explore recommender benchmark results">
-              <div class="lab-controls single-line">
-                <div>
-                  <span class="control-label">Metric</span>
-                  <div class="segmented-control metric-selector" role="group" aria-label="Ranking metric">
-                    <button class="ranking-metric" type="button" data-metric="ndcg_at_10" aria-pressed="true">NDCG@10</button>
-                    <button class="ranking-metric" type="button" data-metric="hit_rate_at_10" aria-pressed="false">HR@10</button>
-                    <button class="ranking-metric" type="button" data-metric="heldout_pairwise_accuracy" aria-pressed="false">Pairwise accuracy</button>
-                    <button class="ranking-metric" type="button" data-metric="runtime_seconds" aria-pressed="false">Training time</button>
-                    <button class="ranking-metric" type="button" data-metric="ranking_stability" aria-pressed="false">Top-10 agreement</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="benchmark-bars" id="ranking-bars" aria-label="NDCG@10 across training settings">
-                <button type="button" class="benchmark-row" data-setting="2ep_1neg" aria-pressed="false">
-                  <span class="setting-name">2 epochs · 1 negative</span>
-                  <span class="benchmark-track" aria-hidden="true"><span style="--bar-width:63.33%"></span></span>
-                  <strong>0.385</strong>
-                </button>
-                <button type="button" class="benchmark-row active" data-setting="5ep_1neg" aria-pressed="true">
-                  <span class="setting-name">5 epochs · 1 negative</span>
-                  <span class="benchmark-track" aria-hidden="true"><span style="--bar-width:68.74%"></span></span>
-                  <strong>0.388</strong>
-                </button>
-                <button type="button" class="benchmark-row" data-setting="5ep_3neg" aria-pressed="false">
-                  <span class="setting-name">5 epochs · 3 negatives</span>
-                  <span class="benchmark-track" aria-hidden="true"><span style="--bar-width:100%"></span></span>
-                  <strong>0.404</strong>
-                </button>
-                <button type="button" class="benchmark-row" data-setting="10ep_1neg" aria-pressed="false">
-                  <span class="setting-name">10 epochs · 1 negative</span>
-                  <span class="benchmark-track" aria-hidden="true"><span style="--bar-width:74.47%"></span></span>
-                  <strong>0.391</strong>
-                </button>
-              </div>
-
-              <div class="selected-setting" aria-live="polite">
-                <strong id="ranking-setting-label">5 epochs · 1 negative per positive</strong>
-                <span id="ranking-updates">239,855 updates</span>
-                <span id="ranking-range">0.385–0.391 across seeds</span>
-              </div>
-            </div>
-
-            <div class="decision-note">
-              <strong>Decision</strong>
-              <p>Use the 5-epoch, 1-negative setting for routine iteration: it trained in 4.57 seconds with NDCG@10 of 0.388 and the strongest mean top-10 agreement. Use the 5-epoch, 3-negative setting for a quality-focused final run when a +0.016 NDCG@10 and +2.08 percentage-point HR@10 gain justify 2.88× the training time. This is a result for this development benchmark, not a universal stopping rule.</p>
-            </div>
-
-            <div class="artifact-links" aria-label="Recommender benchmark artifacts">
-              <a href="https://github.com/clairexinzhuwang/clairexinzhuwang.github.io/tree/main/projects/recommender-training-benchmark" target="_blank" rel="noreferrer">code &amp; tests ↗</a>
-              <a href="artifacts/recommender-decision-memo.pdf" target="_blank">decision memo ↗</a>
-              <a href="data/recommender-benchmark.json" target="_blank">results JSON ↗</a>
-              <a href="https://grouplens.org/datasets/movielens/latest/" target="_blank" rel="noreferrer">MovieLens source ↗</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
       <section class="section" id="research" aria-labelledby="research-title">
         <div class="section-heading compact">
-          <div><p class="eyebrow">Faculty and coauthor review</p><h2 id="research-title">Doctoral research</h2></div>
+          <div><p class="eyebrow">Current research</p><h2 id="research-title">Doctoral research</h2></div>
         </div>
         <div class="research-note">
-          <p>My current doctoral research includes scalable statistical learning and uncertainty quantification. Technical details and results are not public.</p>
+          <p>My doctoral research focuses on scalable statistical learning and uncertainty quantification. My work spans theoretical development, algorithm design, simulation studies, and numerical implementation. Selected materials will be linked as they become publicly available.</p>
           <p class="methods">Research activities: mathematical theory · algorithm development · simulation design · numerical implementation · reproducibility auditing</p>
         </div>
       </section>
@@ -263,6 +118,44 @@
         </div>
       </section>
 
+      <section class="section" id="product" aria-labelledby="product-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Supporting public case</p>
+            <h2 id="product-title">Product data science</h2>
+          </div>
+          <p>A compact public demonstration of experimentation, reproducibility, and decision communication, separate from my doctoral research.</p>
+        </div>
+
+        <div class="supporting-cases">
+          <article class="supporting-case" aria-labelledby="email-project-title">
+            <div class="project-intro">
+              <p class="eyebrow">Public demonstration · Experimentation</p>
+              <h3 id="email-project-title">Randomized Campaign Analysis</h3>
+              <p class="project-summary">A conventional intention-to-treat analysis of a public 64,000-customer, three-arm randomized email campaign. The case checks treatment balance, estimates visit, conversion, and spend effects, and distinguishes observed revenue lift from the information required for a profit decision.</p>
+              <dl class="project-facts" aria-label="Campaign analysis summary">
+                <div><dt>Sample</dt><dd>64,000 customers</dd></div>
+                <div><dt>Design</dt><dd>3 randomized arms</dd></div>
+                <div><dt>Artifacts</dt><dd>Python · SQL · tests</dd></div>
+              </dl>
+            </div>
+
+            <div class="decision-note">
+              <strong>Decision note</strong>
+              <p>Mens E-Mail produced the largest observed two-week lift and is treated as a monitored-rollout candidate. A profit decision still requires margin, send cost, deliverability, and customer-experience guardrails.</p>
+            </div>
+
+            <p class="methods">Demonstrates: randomized-experiment analysis · multiplicity-aware inference · business guardrails · reproducible analysis</p>
+
+            <div class="artifact-links" aria-label="Campaign analysis artifacts">
+              <a href="https://github.com/clairexinzhuwang/clairexinzhuwang.github.io/tree/main/projects/email-campaign-experiment" target="_blank" rel="noreferrer">code &amp; tests ↗</a>
+              <a href="artifacts/email-campaign-decision-memo.pdf" target="_blank">decision memo ↗</a>
+              <a href="https://blog.minethatdata.com/2008/03/minethatdata-e-mail-analytics-and-data.html" target="_blank" rel="noreferrer">public data source ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="background" aria-labelledby="background-title">
         <div class="section-heading compact">
           <div><p class="eyebrow">Experience and education</p><h2 id="background-title">Background</h2></div>
@@ -291,6 +184,5 @@
         <span><a href="mailto:xinzhu_wang@urmc.rochester.edu">xinzhu_wang@urmc.rochester.edu</a></span>
       </div>
     </footer>
-    <noscript><p class="noscript">Interactive controls require JavaScript; all results remain available through the linked JSON files and decision memos.</p></noscript>
   </body>
 </html>
