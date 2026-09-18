@@ -30,25 +30,25 @@ test("all generated routes exist and contain no local paths", async () => {
 
 test("homepage presents a quiet, high-level research profile", async () => {
   const html = await read("index.html");
-  assert.match(html, /Reliable inference for modern statistical learning/);
+  assert.match(html, /Statistical research for reliable decisions/);
   assert.match(html, /Two manuscripts in preparation/);
-  assert.match(html, /Inference after high-dimensional variable selection/);
-  assert.match(html, /Inference after stochastic optimization/);
+  assert.match(html, /High-Dimensional Pairwise U-Statistic M-Estimation: Support Recovery and Post-Recovery Simultaneous Inference/);
+  assert.match(html, /Inference from replay-corrected stochastic gradient descent for U-statistics/);
   assert.match(html, /The Price of Safety in Multi-Objective Optimization/);
   assert.doesNotMatch(html, /downloads\/|results\.json/i);
 });
 
-test("doctoral research pages remain preprint-stage teasers", async () => {
+test("doctoral research pages describe unpublished work with explicit release restrictions", async () => {
   const overview = await read("research/index.html");
   const compute = await read("research/computation-aware-inference/index.html");
   const dimension = await read("research/high-dimensional-inference/index.html");
   const html = [overview, compute, dimension].join("\n");
 
-  assert.match(overview, /technical materials will follow an approved public release/i);
+  assert.match(overview, /public release of manuscripts, preprints, and research code is subject to advisor approval/i);
   assert.match(compute, /inferential gap/i);
   assert.match(compute, /computation–precision tradeoffs/i);
   assert.match(dimension, /statistically dependent contributions/i);
-  assert.match(dimension, /post-selection uncertainty/i);
+  assert.match(dimension, /post-recovery simultaneous inference/i);
   assert.match(compute, /Manuscript in preparation/i);
   assert.match(dimension, /Manuscript in preparation/i);
   assert.doesNotMatch(html, /<table\b|<figure\b|\.zip\b|\.json\b|arxiv\.org/i);
@@ -57,7 +57,7 @@ test("doctoral research pages remain preprint-stage teasers", async () => {
 test("code page exposes only the cleared public case", async () => {
   const html = await read("code/index.html");
   assert.match(html, /Public code and reproducible analyses/);
-  assert.match(html, /Manuscript code will follow an approved public release/);
+  assert.match(html, /Manuscripts and research code are not publicly released/);
   assert.match(html, /Randomized campaign experiment/);
   assert.match(html, /email-campaign-experiment/);
   assert.doesNotMatch(html, /download code archive|result table|\.zip\b/i);
@@ -79,7 +79,7 @@ test("the current public bundle contains only cleared data and documents", async
   assert.deepEqual(dataFiles.sort(), ["email-experiment.json"]);
   assert.deepEqual(artifactFiles.sort(), ["email-campaign-decision-memo.pdf"]);
 
-  const entries = await readdir(new URL(".", root), { recursive: true });
+  const entries = (await readdir(new URL(".", root), { recursive: true })).filter((entry) => entry !== ".git" && !entry.startsWith(".git/"));
   const restrictedTechnicalFiles = entries.filter((entry) => /\.(?:zip|tex|parquet)$/i.test(entry));
   const publicDocuments = entries.filter((entry) => /\.pdf$/i.test(entry)).sort();
   assert.deepEqual(restrictedTechnicalFiles, []);
@@ -87,4 +87,19 @@ test("the current public bundle contains only cleared data and documents", async
     "artifacts/email-campaign-decision-memo.pdf",
     "claire-wang-sip-2026-poster.pdf",
   ]);
+});
+
+
+test("name, current contributions, and observational interpretation stay consistent", async () => {
+  const home = await read("index.html");
+  const health = await read("health/index.html");
+  const cv = await read("cv/index.html");
+  assert.match(home, /<h1 id="name"><strong>Xinzhu Wang \(Claire\)<\/strong><\/h1>/);
+  for (const html of [health, cv]) {
+    assert.match(html, /overlap weighting/);
+    assert.match(html, /unmeasured confounding/);
+    assert.match(html, /computational evaluator/);
+    assert.match(html, /advisor approval/);
+    assert.doesNotMatch(html, /only 13|318 patients|13 of 318|Workstream Lead/);
+  }
 });

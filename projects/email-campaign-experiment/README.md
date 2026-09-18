@@ -7,8 +7,9 @@ show the uncertainty around it, and state what the data cannot answer.
 
 ## Decision in one minute
 
-Use the **Mens E-Mail** treatment as the default candidate for a monitored
-rollout, subject to unit economics and customer-experience guardrails.
+Use **Mens E-Mail** as the historical benchmark candidate for a new randomized
+validation. A present-day rollout requires fresh evidence, unit economics, and
+customer-experience guardrails.
 
 - Versus no email, Mens E-Mail increased visits by **7.66 percentage points**
   (95% CI 7.00 to 8.32), conversions by **0.68 points** (0.50 to 0.86), and
@@ -28,9 +29,10 @@ rollout, subject to unit economics and customer-experience guardrails.
 
 These are revenue effects, not profit effects. Campaign cost, gross margin,
 unsubscribe risk, and deliverability are absent. If the gross-margin rate is
-`m` and marginal send cost is `c` per assigned customer, even the lower end of
-the Mens revenue interval supports a positive incremental contribution only
-when `c < m × 0.485`, before accounting for longer-term customer costs.
+`m` and marginal send cost is `c` per assigned customer, the historical pointwise
+lower interval endpoint gives `c < m × 0.485` as a sensitivity calculation.
+It does not adjust for treatment selection or establish profitability in a new
+campaign, and it excludes longer-term customer costs.
 
 See [decision_memo.md](decision_memo.md) for the concise recommendation.
 
@@ -65,8 +67,9 @@ is run. It is **not** presented as an externally time-stamped preregistration.
    significance labels across strata would not establish heterogeneity.
 
 Effects use unpooled difference-in-means (Neyman/Welch) standard errors and
-large-sample normal 95% confidence intervals. For binary outcomes this is the
-risk difference. Spend is zero-inflated and right-skewed, but mean spend is the
+pointwise, unadjusted 95% normal confidence intervals. Holm adjusts p-values
+within each declared family; the displayed intervals are not simultaneous bands.
+For binary outcomes this is the risk difference. Spend is zero-inflated and right-skewed, but mean spend is the
 decision-relevant estimand and each arm has more than 21,000 observations.
 
 ## Reproduce it
