@@ -1,6 +1,6 @@
 {
-  "sourceRevision": "307510ce3cc2fca8bfabdd796e622912851370d2",
-  "exportedAt": "2026-09-25T14:39:12.159Z",
+  "sourceRevision": "fc22d129396894d6f87bad1cd212b0a08ef738b8",
+  "exportedAt": "2026-09-25T14:41:20.507Z",
   "origin": "https://clairexinzhuwang.github.io",
   "routes": [
     "/",
@@ -14,15 +14,13 @@
     "/code",
     "/talks"
   ],
-  "workerSha256": "76dbaf0980c798d39ccc03f71432af36ae7121bf77ce6f0be0e593e82f4f5bdf",
+  "workerSha256": "8ec48c98143e1511983c841401b983d6d5a177882fcd81478cd1f865018002e9",
   "transformations": [
     "Use the GitHub Pages origin",
     "Label approved research summaries for public display"
   ],
   "files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "_next/static/0bec4239-831b-4d72-af4f-b7e9cccb2fe3/_buildManifest.js": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
-    "_next/static/0bec4239-831b-4d72-af4f-b7e9cccb2fe3/_ssgManifest.js": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-001175b1.woff2": "58a6b173d5ca1dec92166ea3c6cb1a84a4144556d10928ac14e8e6b40e4787bd",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-52306abf.woff2": "f689f638f29fff460a2d5749edb5d5c38d7bef0389f32032d871f23fc6ebb008",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-875ccdd4.woff2": "6129fc8571c3e0cb0a4c41f5160c974a843b055009dc4ad8858bd808e18a2d86",
@@ -34,12 +32,14 @@
     "_next/static/_vinext_fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2": "75b3bedbebc35f347c0ae3b416aa871941555357e7b0f83767eb5987875589ed",
     "_next/static/_vinext_fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2": "16e1d48b6dd29eb240aec5db36184eb182933c082cd43de7f35af686d58087d2",
     "_next/static/_vinext_fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2": "e27f657e38d52887baa3b6b2f812bef93dfdd356f0810e40edd4ee284cc7e9f6",
+    "_next/static/c045b145-836f-426e-8ed4-76b7f36fcf52/_buildManifest.js": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
+    "_next/static/c045b145-836f-426e-8ed4-76b7f36fcf52/_ssgManifest.js": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
     "_next/static/chunks/bo-workbench-3xEwP21I.js": "bb6f905a1dcc90b626f5a1718c1ff18718ca0e18d376faf977875303a4c565d5",
     "_next/static/chunks/framework-BgSIrAUN.js": "a8e611453a742bf422100cc5f20f7f4139295740492196303a191d9f17033206",
     "_next/static/chunks/highdim-workbench-wqxgYG7c.js": "a008998bccd5b93de798da00ab9c19e40dcf2c5011c8edc421cbda8ae084734d",
-    "_next/static/chunks/index-H20lu4XL.js": "5a7ee8adbf65763141083c12b12e5f84c0722018731933e6eda6f453f2a2964f",
+    "_next/static/chunks/index-D_3kLC-B.js": "1021a43a7476147849e2e76c77761e79914d9e602a11e82f03d155ffab07ddd3",
     "_next/static/chunks/inference-workbench-C1HRwAsp.js": "cf085c7f541c7be3ba4d1f8d4c1d1be43bac8cfa942472a219f6a124499d3637",
-    "_next/static/chunks/layout-segment-context-7tf64dsl.js": "cfb6115ae6615e2a52d276c9e552138e6a6e1dd09808c2074ad036b7f90c0862",
+    "_next/static/chunks/layout-segment-context-GMvOCbnx.js": "ae010a8c1b2e2d77b42060f36519d28089a1b4245a5ebf3875550060c41994e6",
     "_next/static/chunks/lowdim-math-8xFa9MrU.js": "84b7812e0c1993dc72439a8eaff8e855fc2598405fa6ef0c3a9f5f4b5f78c66d",
     "_next/static/chunks/rolldown-runtime-C60lm6uB.js": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75",
     "_next/static/chunks/sma-study-explorer-Bt0tt2E9.js": "a3f2b12ecab6c06668b5c7843012bf23afa76e7f808bb85d9b3937e57e3e1082",
@@ -107,15 +107,15 @@
     "_next/static/media/KaTeX_Typewriter-Regular.CO6r4hn1.woff2": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
     "_next/static/media/KaTeX_Typewriter-Regular.D3Ib7_Hf.ttf": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
     "claire-wang-portrait.jpg": "311d0074ac1536e6c613ad913685c1fe7fb8bc1cd08c9bf322892e06f9511f4a",
-    "code/index.html": "46436c365d636f5fd4b1ff26a7ad42be8cdb511ad7844002ea49aed170caed57",
-    "health/index.html": "845562cb24b3078690bd21ff23ffad9e1bbcb754f3a14a9468374f1d5b9199d2",
-    "index.html": "9d2ab0fe1d5b6afabe9989a0342434e8875edeee252782cd03d14cc348fc65dd",
+    "code/index.html": "6b231c3e1cd5dc566170e18bbb4ff4da26383d534a00c9dbcbe6ef94dd1b49b0",
+    "health/index.html": "bfccf613d8690e0f31f266cdf135be9cab8255247e75737dca053b2d121ec968",
+    "index.html": "2512f28094279150669ad6ba0429b3cf783fd4f1839e2a58bab25e78d948b7b6",
     "og.png": "323ca06a64b238193872d2e475c81d53447696f13289b86c1c94c0312e3eb02e",
-    "product/index.html": "4da5f55e38a0d0438baa0f8decc8d34fea8018f5a8059c16b6b15b5e7cbe0d2b",
-    "research/bayesian-dose-finding/index.html": "6dc0518788109c5399b46745179eebb8244bae34c70e4ffb241aaa1b170fb967",
-    "research/computation-aware-inference/index.html": "3573c4f72934cd2fd9943767d27b09ab4b3f904e44537a97b2f1ffb5a0408846",
-    "research/high-dimensional-inference/index.html": "70684bf110f156278820e04233e6264588ab17910c4706395778c3064118dbaf",
-    "research/index.html": "ad8b2245876b6680a924c55588ff5b15e79359822fbd8f99be51ddf7b9087ff7",
+    "product/index.html": "65fc1af20b29514938faa66bede316804b6fe0cb56d48fba47a725ffd26ff684",
+    "research/bayesian-dose-finding/index.html": "47b87a47ee40212c7204b0647b306770f98bb469fd5c1866fee95a7822482318",
+    "research/computation-aware-inference/index.html": "648238862118ae74f0e030dad6d9edd22e98f1c10e6f790eb5f96100f1542cc0",
+    "research/high-dimensional-inference/index.html": "23d0f68e3c63a98f8169a17dc5d40146d27dbbf08e505728be202b29994a1330",
+    "research/index.html": "2091e37413946f286ea484cd8f9a7d2af76f65e379716dad876da52eb0a3cb1e",
     "research/r72-budget-coverage.svg": "6c25076807c8d430c1d9f7b10375a0eb6a08cd4740956601067089d0b82a9a22",
     "research/r72-figure1-auc-bias.svg": "2cfd60693261feb68fb1c18150d830982cf1929df37eb38d15d78a7a9d737312",
     "research/r72-figure1-auc-coverage.svg": "948cbf1c8afeb7bc237dcbec93acdce530d4de8d4f860be82eaae33a3d3a02bc",
@@ -127,7 +127,7 @@
     "research/r72-figure1-triplet-coverage.svg": "72ef8b03c4877f752f01b3810e05b9247ff6b3a60e81c9864accc7777e07c2f7",
     "research/r72-figure1-triplet-variance_ratio.svg": "495fc6f6d43d35b3d750c5558419cebe37e8a527d52c7a47ae91ae003127f580",
     "research/sma-figure-5-model-equations.png": "18bbf0820c5ad2037485c1c36efc8147907b0722ad21dd61ae329596481bc131",
-    "research/sma-treatment-comparisons/index.html": "3fd6dcde827a160b32bebd0247e5a406d79a80e87049405c266405007693bfab",
-    "talks/index.html": "989e7fe95ac9bcaf52bbfa3d2cab22c3ffbb0876dcecc54543abc37d9b841b98"
+    "research/sma-treatment-comparisons/index.html": "b79ba1a3ecb73d1542c0dad19dc6468e2fac0fd56571f6bed440a7c356cc7be7",
+    "talks/index.html": "0a55a7b4dbeb552ccb81d7206b9436d02158d21442b3185866d717aaee8e3d0e"
   }
 }
