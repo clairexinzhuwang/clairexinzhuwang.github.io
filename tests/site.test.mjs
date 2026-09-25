@@ -1,105 +1,97 @@
 import assert from "node:assert/strict";
 import { access, readFile, readdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import test from "node:test";
 
 const root = new URL("../", import.meta.url);
-const routeFiles = [
-  "index.html",
-  "research/index.html",
-  "research/computation-aware-inference/index.html",
-  "research/high-dimensional-inference/index.html",
-  "product/index.html",
-  "health/index.html",
-  "code/index.html",
-  "talks/index.html",
-  "cv/index.html",
-];
+const read = path => readFile(new URL(path, root), "utf8");
+const manifest = JSON.parse(await read("site-manifest.json"));
+const routeFile = route => route === "/" ? "index.html" : route.replace(/^\/+|\/+$/g, "") + "/index.html";
+const pages = new Map(await Promise.all(manifest.routes.map(async route => [route, await read(routeFile(route))])));
 
-async function read(relativePath) {
-  return readFile(new URL(relativePath, root), "utf8");
-}
-
-test("all generated routes exist and contain no local paths", async () => {
-  for (const route of routeFiles) {
-    const html = await read(route);
-    assert.match(html, /Generated from claire-wang-portfolio/);
-    assert.match(html, /Xinzhu Wang/);
-    assert.doesNotMatch(html, /file:\/\/|\/Users\//i);
+test("all eleven current pages are exported from one reviewed revision", () => {
+  assert.equal(pages.size, 11);
+  assert.match(manifest.sourceRevision, /^[a-f0-9]{40}$/);
+  for (const [route, html] of pages) {
+    assert.match(html, /Generated from claire-wang-portfolio/, route);
+    assert.match(html, /Xinzhu Wang/, route);
+    assert.doesNotMatch(html, /file:\/\/|\/Users\/|localhost:|katex-error|chatgpt\.site|Private manuscript preview/, route);
+    assert.match(html, /<script[^>]+type="module"/, route);
   }
 });
 
-test("homepage presents a quiet, high-level research profile", async () => {
-  const html = await read("index.html");
-  assert.match(html, /Statistical research for reliable decisions/);
-  assert.match(html, /Two manuscripts in preparation/);
-  assert.match(html, /High-Dimensional Pairwise U-Statistic M-Estimation: Support Recovery and Post-Recovery Simultaneous Inference/);
-  assert.match(html, /Inference from replay-corrected stochastic gradient descent for U-statistics/);
-  assert.match(html, /The Price of Safety in Multi-Objective Optimization/);
-  assert.doesNotMatch(html, /downloads\/|results\.json/i);
-});
-
-test("doctoral research pages describe unpublished work with explicit release restrictions", async () => {
-  const overview = await read("research/index.html");
-  const compute = await read("research/computation-aware-inference/index.html");
-  const dimension = await read("research/high-dimensional-inference/index.html");
-  const html = [overview, compute, dimension].join("\n");
-
-  assert.match(overview, /public release of manuscripts, preprints, and research code is subject to advisor approval/i);
-  assert.match(compute, /inferential gap/i);
-  assert.match(compute, /computation–precision tradeoffs/i);
-  assert.match(dimension, /statistically dependent contributions/i);
-  assert.match(dimension, /post-recovery simultaneous inference/i);
-  assert.match(compute, /Manuscript in preparation/i);
-  assert.match(dimension, /Manuscript in preparation/i);
-  assert.doesNotMatch(html, /<table\b|<figure\b|\.zip\b|\.json\b|arxiv\.org/i);
-});
-
-test("code page exposes only the cleared public case", async () => {
-  const html = await read("code/index.html");
-  assert.match(html, /Public code and reproducible analyses/);
-  assert.match(html, /Manuscripts and research code are not publicly released/);
-  assert.match(html, /Randomized campaign experiment/);
-  assert.match(html, /email-campaign-experiment/);
-  assert.doesNotMatch(html, /download code archive|result table|\.zip\b/i);
-});
-
-test("static assets referenced by the HTML are present", async () => {
-  const html = await read("index.html");
-  const cssHref = html.match(/href="(\/_next\/static\/css\/[^"]+\.css)"/)?.[1];
-  assert.ok(cssHref);
-  await access(new URL(cssHref.slice(1), root));
-  await access(new URL("claire-wang-portrait.jpg", root));
-  await access(new URL("claire-wang-sip-2026-poster.pdf", root));
+test("every exported file matches the synchronized bundle", async () => {
+  for (const [file, expected] of Object.entries(manifest.files)) {
+    const actual = createHash("sha256").update(await readFile(new URL(file, root))).digest("hex");
+    assert.equal(actual, expected, file);
+  }
   await access(new URL(".nojekyll", root));
 });
 
-test("the current public bundle contains only cleared data and documents", async () => {
-  const dataFiles = await readdir(new URL("data/", root));
-  const artifactFiles = await readdir(new URL("artifacts/", root));
-  assert.deepEqual(dataFiles.sort(), ["email-experiment.json"]);
-  assert.deepEqual(artifactFiles.sort(), ["email-campaign-decision-memo.pdf"]);
-
-  const entries = (await readdir(new URL(".", root), { recursive: true })).filter((entry) => entry !== ".git" && !entry.startsWith(".git/"));
-  const restrictedTechnicalFiles = entries.filter((entry) => /\.(?:zip|tex|parquet)$/i.test(entry));
-  const publicDocuments = entries.filter((entry) => /\.pdf$/i.test(entry)).sort();
-  assert.deepEqual(restrictedTechnicalFiles, []);
-  assert.deepEqual(publicDocuments, [
-    "artifacts/email-campaign-decision-memo.pdf",
-    "claire-wang-sip-2026-poster.pdf",
-  ]);
+test("local navigation, anchors, scripts and styles resolve on static hosting", async () => {
+  for (const [route, html] of pages) {
+    for (const match of html.matchAll(/<(?:a|link|script|img)\b[^>]*?\b(?:href|src)="([^"]+)"/g)) {
+      const value = match[1].replaceAll("&amp;", "&");
+      const url = new URL(value, manifest.origin + route);
+      if (url.origin !== manifest.origin) continue;
+      const targetRoute = url.pathname.replace(/\/$/, "") || "/";
+      const target = pages.get(targetRoute);
+      if (target !== undefined) {
+        if (url.hash) assert.ok(target.includes('id="' + decodeURIComponent(url.hash.slice(1)) + '"'), `${route}: ${value}`);
+      } else {
+        await access(new URL(url.pathname.slice(1), root)).catch(() => assert.fail(`${route}: missing ${value}`));
+      }
+    }
+  }
+  for (const file of Object.keys(manifest.files).filter(file => file.endsWith(".css"))) {
+    for (const match of (await read(file)).matchAll(/url\(["']?([^\s)'"?]+)(?:\?[^)'"\s]*)?["']?\)/g)) {
+      if (/^(data:|https?:)/.test(match[1])) continue;
+      const url = match[1].startsWith("/") ? new URL(match[1].slice(1), root) : new URL(match[1], new URL(file, root));
+      await access(url);
+    }
+  }
 });
 
+test("homepage includes the current work and removes retired content", () => {
+  const html = pages.get("/");
+  for (const text of ["Thesis work", "Bayesian optimization", "Clinical research", "Seeking full-time roles beginning June 2027",
+    "Inference from stochastic gradient descent for U-statistics", "High-Dimensional Pairwise U-Statistic M-Estimation",
+    "I work on safe multi-objective Bayesian optimization; the manuscript has passed AAAI Phase I and remains under review",
+    "Bayesian Optimization for Dose Finding with Two Agents", "Emory COVID-19 Health Equity Dashboard", "MSPH thesis"])
+    assert.ok(html.includes(text), text);
+  assert.ok(html.indexOf("Inference from stochastic gradient descent") < html.indexOf("High-Dimensional Pairwise"));
+  assert.doesNotMatch(html, /Randomized Campaign Analysis|replay-corrected|email-campaign-experiment/);
+});
 
-test("name, current contributions, and observational interpretation stay consistent", async () => {
-  const home = await read("index.html");
-  const health = await read("health/index.html");
-  const cv = await read("cv/index.html");
-  assert.match(home, /<h1 id="name"><strong>Xinzhu Wang \(Claire\)<\/strong><\/h1>/);
-  for (const html of [health, cv]) {
-    assert.match(html, /overlap weighting/);
-    assert.match(html, /unmeasured confounding/);
-    assert.match(html, /computational evaluator/);
-    assert.match(html, /advisor approval/);
-    assert.doesNotMatch(html, /only 13|318 patients|13 of 318|Workstream Lead/);
+test("research pages preserve results, interactive controls and release boundaries", () => {
+  assert.ok(!pages.has("/research/safe-multi-objective-optimization"));
+  assert.ok(!Object.keys(manifest.files).some(file => /safe-mobo|safe-multi-objective-optimization/.test(file)));
+  for (const html of pages.values()) assert.doesNotMatch(html, /safe-multi-objective-optimization|certified hypervolume/i);
+  const low = pages.get("/research/computation-aware-inference");
+  for (const text of ["without a prespecified likelihood model", "SGD and Full-Data Newton", "95.3%", "79.3%", "class=\"katex\"", "<math"])
+    assert.ok(low.includes(text), text);
+  assert.match(pages.get("/research/sma-treatment-comparisons"), /Selected manuscript findings/);
+  for (const [route, html] of pages) {
+    if (route.startsWith("/research/")) {
+      assert.match(html, /advisor approval/, route);
+      assert.doesNotMatch(html, /href="\/[^\"]*\.(?:pdf|docx|tex|zip)"|arxiv\.org/, route);
+    }
   }
+});
+
+test("public bundle excludes source, unpublished documents and obsolete assets", async () => {
+  async function walk(directory, prefix = "") {
+    const paths = [];
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+      if (entry.name === ".git") continue;
+      const path = prefix + entry.name;
+      if (entry.isDirectory()) paths.push(...await walk(new URL(entry.name + "/", directory), path + "/"));
+      else paths.push(path);
+    }
+    return paths;
+  }
+  const paths = await walk(root);
+  assert.deepEqual(paths.filter(path => /\.(?:pdf|docx?|tex|zip|parquet|csv|map)$/i.test(path)), []);
+  assert.deepEqual(paths.filter(path => /^(?:app|dist|\.openai|node_modules|projects|artifacts|data|downloads|research-code)\//.test(path)), []);
+  assert.ok(!paths.some(path => /sip-2026-poster|email-campaign|email-experiment/.test(path)));
 });
