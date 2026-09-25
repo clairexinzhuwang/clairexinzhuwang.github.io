@@ -6,7 +6,7 @@ Research in statistical inference, U-statistic and pairwise learning methods,
 Bayesian optimization, and clinical statistics, alongside applied data work.
 
 The site includes research summaries, selected findings, interactive illustrations,
-clinical projects, professional background, and a CV. Manuscripts, patient-level data,
+clinical projects and professional background. Manuscripts, patient-level data,
 and unreleased research implementations are not distributed in this repository.
 Examples and reported findings retain their qualifications and source captions.
 

@@ -23,7 +23,7 @@ const sourceOrigin = "https://xinzhu-claire-wang.nhz2d6wgt7.chatgpt.site";
 const routes = ["/", "/research", "/research/computation-aware-inference",
   "/research/high-dimensional-inference", "/research/bayesian-dose-finding",
   "/research/sma-treatment-comparisons",
-  "/product", "/health", "/code", "/talks", "/cv"];
+  "/product", "/health", "/code", "/talks"];
 const stage = await mkdtemp(join(tmpdir(), "reviewed-portfolio-"));
 const digest = data => createHash("sha256").update(data).digest("hex");
 async function files(directory, prefix = "") {

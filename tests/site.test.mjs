@@ -9,8 +9,8 @@ const manifest = JSON.parse(await read("site-manifest.json"));
 const routeFile = route => route === "/" ? "index.html" : route.replace(/^\/+|\/+$/g, "") + "/index.html";
 const pages = new Map(await Promise.all(manifest.routes.map(async route => [route, await read(routeFile(route))])));
 
-test("all eleven current pages are exported from one reviewed revision", () => {
-  assert.equal(pages.size, 11);
+test("all ten current pages are exported from one reviewed revision", () => {
+  assert.equal(pages.size, 10);
   assert.match(manifest.sourceRevision, /^[a-f0-9]{40}$/);
   for (const [route, html] of pages) {
     assert.match(html, /Generated from claire-wang-portfolio/, route);
