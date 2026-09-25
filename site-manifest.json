@@ -1,6 +1,6 @@
 {
-  "sourceRevision": "c1b1b05d4a61c7f4409942219635dabb60caf44a",
-  "exportedAt": "2026-09-25T14:31:11.807Z",
+  "sourceRevision": "fd9b7de8614fbdb89bca96f56d26f2ebd3672ef6",
+  "exportedAt": "2026-09-25T14:37:04.554Z",
   "origin": "https://clairexinzhuwang.github.io",
   "routes": [
     "/",
@@ -14,13 +14,15 @@
     "/code",
     "/talks"
   ],
-  "workerSha256": "c8aa5430749788ec48c556463cb7272eb158354b301af4e6b74fe29da4e16eae",
+  "workerSha256": "9f27a0b3c1d73ad804680c297649e7407e2f7133cdba614d9cbb8a8df5f099b8",
   "transformations": [
     "Use the GitHub Pages origin",
     "Label approved research summaries for public display"
   ],
   "files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_next/static/599caacf-0ec6-4157-be0b-52414f4d68e7/_buildManifest.js": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
+    "_next/static/599caacf-0ec6-4157-be0b-52414f4d68e7/_ssgManifest.js": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-001175b1.woff2": "58a6b173d5ca1dec92166ea3c6cb1a84a4144556d10928ac14e8e6b40e4787bd",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-52306abf.woff2": "f689f638f29fff460a2d5749edb5d5c38d7bef0389f32032d871f23fc6ebb008",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-875ccdd4.woff2": "6129fc8571c3e0cb0a4c41f5160c974a843b055009dc4ad8858bd808e18a2d86",
@@ -35,9 +37,9 @@
     "_next/static/chunks/bo-workbench-3xEwP21I.js": "bb6f905a1dcc90b626f5a1718c1ff18718ca0e18d376faf977875303a4c565d5",
     "_next/static/chunks/framework-BgSIrAUN.js": "a8e611453a742bf422100cc5f20f7f4139295740492196303a191d9f17033206",
     "_next/static/chunks/highdim-workbench-wqxgYG7c.js": "a008998bccd5b93de798da00ab9c19e40dcf2c5011c8edc421cbda8ae084734d",
-    "_next/static/chunks/index-BKOyHIcx.js": "e9297902508f316c75fafda7a4314e0ee315b281a18615d08c619d71ba2e979b",
+    "_next/static/chunks/index-K7eTXAvh.js": "83d3da50940975cd20c12bc9a432b937f51f4b0f8a6e66a4f9397f057776658d",
     "_next/static/chunks/inference-workbench-C1HRwAsp.js": "cf085c7f541c7be3ba4d1f8d4c1d1be43bac8cfa942472a219f6a124499d3637",
-    "_next/static/chunks/layout-segment-context-BxWZCh_m.js": "df85497755a16af2a407ffb6838c496e66ead6379fbb23f8a8d19b94390db4f9",
+    "_next/static/chunks/layout-segment-context-CRYa4Z7i.js": "f03beaad46444df244b28183b19d4e23674d743bc54cc4bac15027fb659799fc",
     "_next/static/chunks/lowdim-math-8xFa9MrU.js": "84b7812e0c1993dc72439a8eaff8e855fc2598405fa6ef0c3a9f5f4b5f78c66d",
     "_next/static/chunks/rolldown-runtime-C60lm6uB.js": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75",
     "_next/static/chunks/sma-study-explorer-Bt0tt2E9.js": "a3f2b12ecab6c06668b5c7843012bf23afa76e7f808bb85d9b3937e57e3e1082",
@@ -45,8 +47,6 @@
     "_next/static/css/index.C2YI41m5.css": "478bc2ad03e70520d0eb53dab73f82964e5c147b39a5e5083e8dbd64c4bc05eb",
     "_next/static/css/page.7MntxwX4.css": "83478cb8e370b4aa584bac861f3c0b007c0e417004a37d0f619258abc77d550c",
     "_next/static/css/page.WScaibEm.css": "253736a404d692eb02d8b8a3bc297b0a0c9ab7e92735b4b7186391bc8a898920",
-    "_next/static/d7101497-b603-4c73-890c-7c71c690753e/_buildManifest.js": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
-    "_next/static/d7101497-b603-4c73-890c-7c71c690753e/_ssgManifest.js": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
     "_next/static/media/KaTeX_AMS-Regular.BQhdFMY1.woff2": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
     "_next/static/media/KaTeX_AMS-Regular.DMm9YOAa.woff": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251",
     "_next/static/media/KaTeX_AMS-Regular.DRggAlZN.ttf": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13",
@@ -107,15 +107,15 @@
     "_next/static/media/KaTeX_Typewriter-Regular.CO6r4hn1.woff2": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
     "_next/static/media/KaTeX_Typewriter-Regular.D3Ib7_Hf.ttf": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
     "claire-wang-portrait.jpg": "311d0074ac1536e6c613ad913685c1fe7fb8bc1cd08c9bf322892e06f9511f4a",
-    "code/index.html": "1f318b9c9ba2eaaeea0a342c776ac4441c373e9b7b71d85e05b09300e0de0314",
-    "health/index.html": "c6cd22ede21f8398f42f85a22d64b967e72cd388309231aa771ddfbb160c9ae4",
-    "index.html": "39bba733b731b382ab9ab1b7c2c4d1e13f7d3e7b9fbce13be18ce0b522c8b2c2",
+    "code/index.html": "ce2e016247805784413f23a7ac2cbf14fbba91412ffaea1f77b9b879cd8dcff1",
+    "health/index.html": "f0621939c2c3dfaecf76bbc3ed48cbab5faf452c47f38b9386b660df30987e69",
+    "index.html": "a63cd87f17e0892536481090d1bb25cfbd5610b41d812006125d64b83c92e82b",
     "og.png": "323ca06a64b238193872d2e475c81d53447696f13289b86c1c94c0312e3eb02e",
-    "product/index.html": "24898644d470f7eaeb55bfe53dc6bd98e17743e5dbdb8815a265fb536364a413",
-    "research/bayesian-dose-finding/index.html": "9088099ee531c7b7b5798d5d6b94bbe84f4237c7c06ea34558b11e5b251d5cd8",
-    "research/computation-aware-inference/index.html": "bf35b8b64a804113144ed323cc2655e677f3d6ce7e202431d9070c6df1f0553b",
-    "research/high-dimensional-inference/index.html": "676c204603a631b6707c8e2b99c06b6b8070d8ea6dd36ce7ca5fec4814524d5b",
-    "research/index.html": "1c57468c5fd90a12ce2dce5b8b4372032ee05b76e7d80d4e5cd867542bfa91cb",
+    "product/index.html": "4c9a7cff4dfefc7fb4c8c8b3d4d55d3a603581c77b471c7e2105ac557402129f",
+    "research/bayesian-dose-finding/index.html": "2875cf59a9050e6caef797755f615f200fbc2d8c76fc14d320645908152e5fb6",
+    "research/computation-aware-inference/index.html": "a2f3e32836fb43f3f184096983561aa5fb8f04ddd06ced145484093ad39b3c68",
+    "research/high-dimensional-inference/index.html": "bf6552da74b527e4eb564b04b8ceeb81cf4d294a5d916e717ce12bd29e41dc21",
+    "research/index.html": "55133194ab6184779fca9f6fe93276442f3bc27ddaa917a7400fe2f057ac031c",
     "research/r72-budget-coverage.svg": "6c25076807c8d430c1d9f7b10375a0eb6a08cd4740956601067089d0b82a9a22",
     "research/r72-figure1-auc-bias.svg": "2cfd60693261feb68fb1c18150d830982cf1929df37eb38d15d78a7a9d737312",
     "research/r72-figure1-auc-coverage.svg": "948cbf1c8afeb7bc237dcbec93acdce530d4de8d4f860be82eaae33a3d3a02bc",
@@ -127,7 +127,7 @@
     "research/r72-figure1-triplet-coverage.svg": "72ef8b03c4877f752f01b3810e05b9247ff6b3a60e81c9864accc7777e07c2f7",
     "research/r72-figure1-triplet-variance_ratio.svg": "495fc6f6d43d35b3d750c5558419cebe37e8a527d52c7a47ae91ae003127f580",
     "research/sma-figure-5-model-equations.png": "18bbf0820c5ad2037485c1c36efc8147907b0722ad21dd61ae329596481bc131",
-    "research/sma-treatment-comparisons/index.html": "ee10bd2cc43e95b040b3ed8a94d00aeb4da8a242029fbfaa79f7b4a965b48824",
-    "talks/index.html": "177d1532c02d17b40d4b9bc1f12d148d4a5fca9b5299066d7917be7e51dbc12a"
+    "research/sma-treatment-comparisons/index.html": "d5f0747c3f4854ef462a235ca916439232ff1a999ccd515693af6f84ec4227a0",
+    "talks/index.html": "18a796a359367942e4e21d6dc64a9d751709a92d6b7d3942d3b4376a32dd60b5"
   }
 }
