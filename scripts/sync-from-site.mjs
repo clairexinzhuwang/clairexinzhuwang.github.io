@@ -60,9 +60,11 @@ try {
 
   const exported = await files(stage);
   const hashes = {};
+  // The owner explicitly authorized this exact conference poster on 2026-09-28.
+  const approvedDocuments = {"research/SIP2026_Wang_Love.pdf": "053115403e2915581a894365b68221452b745f9bfab71f9e4ee853ea38475436"};
   for (const file of exported) {
-    if (/\.(pdf|docx?|zip|tex|parquet|csv|map)$/i.test(file)) throw new Error(`Document or raw-data asset requires separate review: ${file}`);
     hashes[file] = digest(await readFile(join(stage, file)));
+    if (/\.(pdf|docx?|zip|tex|parquet|csv|map)$/i.test(file) && approvedDocuments[file] !== hashes[file]) throw new Error(`Document or raw-data asset requires separate review: ${file}`);
   }
   const manifest = {
     sourceRevision: approvedRevision,

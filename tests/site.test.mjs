@@ -74,7 +74,7 @@ test("research pages preserve results, interactive controls and release boundari
   for (const [route, html] of pages) {
     if (route.startsWith("/research/")) {
       assert.match(html, /advisor approval/, route);
-      assert.doesNotMatch(html, /href="\/[^\"]*\.(?:pdf|docx|tex|zip)"|arxiv\.org/, route);
+      assert.doesNotMatch(html.replaceAll('/research/SIP2026_Wang_Love.pdf', 'approved-conference-poster'), /href="\/[^\"]*\.(?:pdf|docx|tex|zip)"|arxiv\.org/, route);
     }
   }
 });
@@ -91,7 +91,8 @@ test("public bundle excludes source, unpublished documents and obsolete assets",
     return paths;
   }
   const paths = await walk(root);
-  assert.deepEqual(paths.filter(path => /\.(?:pdf|docx?|tex|zip|parquet|csv|map)$/i.test(path)), []);
+  assert.deepEqual(paths.filter(path => /\.(?:pdf|docx?|tex|zip|parquet|csv|map)$/i.test(path)), ["research/SIP2026_Wang_Love.pdf"]);
+  assert.equal(createHash("sha256").update(await readFile(new URL("research/SIP2026_Wang_Love.pdf", root))).digest("hex"), "053115403e2915581a894365b68221452b745f9bfab71f9e4ee853ea38475436");
   assert.deepEqual(paths.filter(path => /^(?:app|dist|\.openai|node_modules|projects|artifacts|data|downloads|research-code)\//.test(path)), []);
   assert.ok(!paths.some(path => /sip-2026-poster|email-campaign|email-experiment/.test(path)));
 });
