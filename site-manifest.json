@@ -1,6 +1,6 @@
 {
-  "sourceRevision": "d48dac519227f228047b5eefbcbb1437e69f19c2",
-  "exportedAt": "2026-09-30T20:30:02.950Z",
+  "sourceRevision": "595c74dffab9d853493c660afa2c7b0a7553e0cb",
+  "exportedAt": "2026-10-02T22:58:43.644Z",
   "origin": "https://clairexinzhuwang.github.io",
   "routes": [
     "/",
@@ -14,15 +14,15 @@
     "/code",
     "/talks"
   ],
-  "workerSha256": "ff81f72df8e7a7cca270ea1b3c6c5b3dc2734fb833955756e006fa8c2d8df5a6",
+  "workerSha256": "0d336de56e1ceabbb737a95d01b2d8ffb42f585d14b931bb297227271a2e6ee6",
   "transformations": [
     "Use the GitHub Pages origin",
     "Label approved research summaries for public display"
   ],
   "files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "_next/static/0c082381-43ac-43b9-9992-13a90c49f824/_buildManifest.js": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
-    "_next/static/0c082381-43ac-43b9-9992-13a90c49f824/_ssgManifest.js": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
+    "_next/static/3360a0c4-19cd-44a2-8858-1206527bb67f/_buildManifest.js": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
+    "_next/static/3360a0c4-19cd-44a2-8858-1206527bb67f/_ssgManifest.js": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-001175b1.woff2": "58a6b173d5ca1dec92166ea3c6cb1a84a4144556d10928ac14e8e6b40e4787bd",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-52306abf.woff2": "f689f638f29fff460a2d5749edb5d5c38d7bef0389f32032d871f23fc6ebb008",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-875ccdd4.woff2": "6129fc8571c3e0cb0a4c41f5160c974a843b055009dc4ad8858bd808e18a2d86",
@@ -34,12 +34,12 @@
     "_next/static/_vinext_fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2": "75b3bedbebc35f347c0ae3b416aa871941555357e7b0f83767eb5987875589ed",
     "_next/static/_vinext_fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2": "16e1d48b6dd29eb240aec5db36184eb182933c082cd43de7f35af686d58087d2",
     "_next/static/_vinext_fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2": "e27f657e38d52887baa3b6b2f812bef93dfdd356f0810e40edd4ee284cc7e9f6",
-    "_next/static/chunks/bo-workbench-3xEwP21I.js": "bb6f905a1dcc90b626f5a1718c1ff18718ca0e18d376faf977875303a4c565d5",
+    "_next/static/chunks/bo-workbench-13d1PIaU.js": "f06d86800cf52f8179d9e239332c6640786378b63e4db8515b121bba249d2ae5",
     "_next/static/chunks/framework-BgSIrAUN.js": "a8e611453a742bf422100cc5f20f7f4139295740492196303a191d9f17033206",
     "_next/static/chunks/highdim-workbench-wqxgYG7c.js": "a008998bccd5b93de798da00ab9c19e40dcf2c5011c8edc421cbda8ae084734d",
-    "_next/static/chunks/index-D1motZ5A.js": "c1d88b49604030c722ae62afe32a5a9a6b3cf84b3905f096850b7424ec0b2da4",
+    "_next/static/chunks/index-DfaJflo7.js": "280b0b94eb4d11137ab5cb2f1faa1a3b8a023e32075b193bdc145aa623c6227a",
     "_next/static/chunks/inference-workbench-MKGoyObt.js": "5a3d9dd0893ab4a2262b130ebaf409d923c77f89c4c2e1b851a69f52395e9368",
-    "_next/static/chunks/layout-segment-context-aCJ7Rd_F.js": "5fa6d33ef35537cdf8fcfac7ba254fce527030528b8d2dcae6d9a9704bfe09c5",
+    "_next/static/chunks/layout-segment-context-DBYK4eYQ.js": "2960ca5d40579b712da765b743f1f883d14a837284dda3ddcfe6b95e223ede11",
     "_next/static/chunks/lowdim-math-8xFa9MrU.js": "84b7812e0c1993dc72439a8eaff8e855fc2598405fa6ef0c3a9f5f4b5f78c66d",
     "_next/static/chunks/rolldown-runtime-C60lm6uB.js": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75",
     "_next/static/chunks/sma-study-explorer-r2-k7pVU.js": "3033ed0fdbf13eeece370feaf1871407c1939bb3b89160cc9aaa56041fae95a7",
@@ -108,16 +108,16 @@
     "_next/static/media/KaTeX_Typewriter-Regular.CO6r4hn1.woff2": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
     "_next/static/media/KaTeX_Typewriter-Regular.D3Ib7_Hf.ttf": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
     "claire-wang-portrait.jpg": "86cc2f41ae6b6832f12fa68413ff8fffd7cd6236509334e303398d84a23b56f4",
-    "code/index.html": "fc75c8cc2f739b1a7e593dbdc919a3704c00c80db5d685fd482227720c0e95f6",
-    "health/index.html": "f234ffd0e2f1386f1853720d960b14dba21653889d18bbff0bd63ea6e77ee45f",
-    "index.html": "8c55ae209264a764de5e975149aab9466d768512f8d2296b578b413cac27eb5a",
+    "code/index.html": "962d0ebbd1d919a0203a036f30577584c16e395dc19f51a39fa9444e138b9d7d",
+    "health/index.html": "b80b6d755d10dd14a90d4b79c2019899b2c1754716c9a69d8cb8f3d0bcdec75f",
+    "index.html": "20575619569318d8c8605d570f736c917b6cbcc890cf200d690ef0e2809a48b2",
     "og.png": "323ca06a64b238193872d2e475c81d53447696f13289b86c1c94c0312e3eb02e",
-    "product/index.html": "66a31081a5c31b57e4b62877d14f6f792cf413b068f77e927445dceb06a7c3d1",
+    "product/index.html": "39fbe07182cde767eb85562a9f2b0e2f942ffaaaeb115f56b08dbb305da67833",
     "research/SIP2026_Wang_Love.pdf": "053115403e2915581a894365b68221452b745f9bfab71f9e4ee853ea38475436",
-    "research/bayesian-dose-finding/index.html": "564b0f557310b700af781844cbc3288be822ad7fd0ba222cccee5b3f43760a61",
-    "research/computation-aware-inference/index.html": "34652556ee8e6bb7f1733ea90674d180312861be1a2d56b886843886b56c8071",
-    "research/high-dimensional-inference/index.html": "bf24e255e8886199b3be19f5b0314c1aae49868cd83b739e41621a9c28d946bf",
-    "research/index.html": "e2c4eb86610a2ef938022a146ef510d09f48228beb78961dd32fde2e34a42cfe",
+    "research/bayesian-dose-finding/index.html": "d505990e634e72d6b337f3ff8dbdd42bb930d3d56d93d52a4dd70cc05f1f3df8",
+    "research/computation-aware-inference/index.html": "d16edcaa2736c8d7eb2ab5ab741b42e230b3131a975712c34383fc15896f42ee",
+    "research/high-dimensional-inference/index.html": "63a0220f46025032a18f4a703eb4dc25c5f7bbefc9370afce8361c5b79405108",
+    "research/index.html": "67987a03e34f45a2f270be0e9954247ef8f91d2e2f9e17b172b72dd9da979745",
     "research/r72-budget-coverage.svg": "6c25076807c8d430c1d9f7b10375a0eb6a08cd4740956601067089d0b82a9a22",
     "research/r72-figure1-auc-bias.svg": "2cfd60693261feb68fb1c18150d830982cf1929df37eb38d15d78a7a9d737312",
     "research/r72-figure1-auc-coverage.svg": "948cbf1c8afeb7bc237dcbec93acdce530d4de8d4f860be82eaae33a3d3a02bc",
@@ -129,7 +129,7 @@
     "research/r72-figure1-triplet-coverage.svg": "72ef8b03c4877f752f01b3810e05b9247ff6b3a60e81c9864accc7777e07c2f7",
     "research/r72-figure1-triplet-variance_ratio.svg": "495fc6f6d43d35b3d750c5558419cebe37e8a527d52c7a47ae91ae003127f580",
     "research/sma-r10-inline-figure-2.png": "3f25ef679c51c6a5cabb102531d7c9289e85dae5f6f3f53d20399933da012198",
-    "research/sma-treatment-comparisons/index.html": "e578139b6cc14ca9fb5667674b449185731f2bc8ad7971ae1aee1787a68151f1",
-    "talks/index.html": "ce32fd3e5e997f9809c4bd16570c61503e9895604fd25e7434ca20a870b04971"
+    "research/sma-treatment-comparisons/index.html": "94e7a5dcbc96403122fc26e3c89e3945c0c59646c382726b00537074beb07fcd",
+    "talks/index.html": "ea848e890854f70109f81d00c1407ec92faff63e93645c1e4196e00066dcb8ac"
   }
 }
