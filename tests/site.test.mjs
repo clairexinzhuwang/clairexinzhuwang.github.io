@@ -14,7 +14,7 @@ test("all ten current pages are exported from one reviewed revision", () => {
   assert.match(manifest.sourceRevision, /^[a-f0-9]{40}$/);
   for (const [route, html] of pages) {
     assert.match(html, /Generated from claire-wang-portfolio/, route);
-    assert.match(html, /Xinzhu Wang/, route);
+    assert.match(html, /Xinzhu(?: Claire| “Claire”)? Wang/, route);
     assert.doesNotMatch(html, /file:\/\/|\/Users\/|localhost:|katex-error|chatgpt\.site|Private manuscript preview/, route);
     assert.match(html, /<script[^>]+type="module"/, route);
   }
@@ -26,6 +26,33 @@ test("every exported file matches the synchronized bundle", async () => {
     assert.equal(actual, expected, file);
   }
   await access(new URL(".nojekyll", root));
+});
+
+test("search engines receive canonical identity and discovery files", async () => {
+  const origin = "https://clairexinzhuwang.github.io";
+  for (const [route, html] of pages) {
+    const canonical = origin + (route === "/" ? "" : route + "/");
+    assert.ok(html.includes('<link rel="canonical" href="' + canonical + '"/>'), route);
+    assert.match(html, /<meta name="robots" content="index, follow"\/>/, route);
+  }
+
+  const home = pages.get("/");
+  const jsonLdMatch = home.match(/<script type="application\/ld\+json">([^<]+)<\/script>/);
+  assert.ok(jsonLdMatch);
+  const person = JSON.parse(jsonLdMatch[1]);
+  assert.equal(person["@type"], "Person");
+  assert.equal(person["@id"], origin + "/#person");
+  assert.equal(person.name, "Xinzhu Claire Wang");
+  assert.ok(person.sameAs.includes("https://github.com/clairexinzhuwang"));
+
+  const robots = await read("robots.txt");
+  assert.match(robots, /User-agent: \*/);
+  assert.match(robots, /Sitemap: https:\/\/clairexinzhuwang\.github\.io\/sitemap\.xml/);
+
+  const sitemap = await read("sitemap.xml");
+  const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
+  const expected = manifest.routes.map(route => origin + (route === "/" ? "/" : route + "/")).sort();
+  assert.deepEqual(listed, expected);
 });
 
 test("local navigation, anchors, scripts and styles resolve on static hosting", async () => {

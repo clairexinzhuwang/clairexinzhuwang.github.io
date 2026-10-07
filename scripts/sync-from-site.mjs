@@ -79,7 +79,7 @@ try {
 
   // Replace generated output as a unit; retain repository tooling and history.
   const managed = ["_next", "research", "product", "health", "code", "talks", "cv", "index.html",
-    "og.png", "claire-wang-portrait.jpg", ".nojekyll", "site-manifest.json",
+    "og.png", "claire-wang-portrait.jpg", "robots.txt", "sitemap.xml", ".nojekyll", "site-manifest.json",
     "projects", "data", "artifacts", "downloads", "research-code", "claire-wang-sip-2026-poster.pdf"];
   for (const name of managed) await rm(join(output, name), { recursive: true, force: true });
   await cp(stage, output, { recursive: true });

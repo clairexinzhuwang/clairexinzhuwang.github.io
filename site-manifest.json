@@ -1,6 +1,6 @@
 {
-  "sourceRevision": "595c74dffab9d853493c660afa2c7b0a7553e0cb",
-  "exportedAt": "2026-10-02T22:58:43.644Z",
+  "sourceRevision": "007b8a1e0028c29153e52a55f84716e540250a88",
+  "exportedAt": "2026-10-07T17:15:49.723Z",
   "origin": "https://clairexinzhuwang.github.io",
   "routes": [
     "/",
@@ -14,15 +14,15 @@
     "/code",
     "/talks"
   ],
-  "workerSha256": "0d336de56e1ceabbb737a95d01b2d8ffb42f585d14b931bb297227271a2e6ee6",
+  "workerSha256": "6f8f941f610d49144ffb55a8225b23e3db3d6fbb7e74740d08e9a5cc54fbbedf",
   "transformations": [
     "Use the GitHub Pages origin",
     "Label approved research summaries for public display"
   ],
   "files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "_next/static/3360a0c4-19cd-44a2-8858-1206527bb67f/_buildManifest.js": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
-    "_next/static/3360a0c4-19cd-44a2-8858-1206527bb67f/_ssgManifest.js": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
+    "_next/static/3734d18c-9f49-4d02-bb9d-4cbdfd1b5716/_buildManifest.js": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
+    "_next/static/3734d18c-9f49-4d02-bb9d-4cbdfd1b5716/_ssgManifest.js": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-001175b1.woff2": "58a6b173d5ca1dec92166ea3c6cb1a84a4144556d10928ac14e8e6b40e4787bd",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-52306abf.woff2": "f689f638f29fff460a2d5749edb5d5c38d7bef0389f32032d871f23fc6ebb008",
     "_next/static/_vinext_fonts/geist-8ac0455e797f/geist-875ccdd4.woff2": "6129fc8571c3e0cb0a4c41f5160c974a843b055009dc4ad8858bd808e18a2d86",
@@ -37,9 +37,9 @@
     "_next/static/chunks/bo-workbench-13d1PIaU.js": "f06d86800cf52f8179d9e239332c6640786378b63e4db8515b121bba249d2ae5",
     "_next/static/chunks/framework-BgSIrAUN.js": "a8e611453a742bf422100cc5f20f7f4139295740492196303a191d9f17033206",
     "_next/static/chunks/highdim-workbench-wqxgYG7c.js": "a008998bccd5b93de798da00ab9c19e40dcf2c5011c8edc421cbda8ae084734d",
-    "_next/static/chunks/index-DfaJflo7.js": "280b0b94eb4d11137ab5cb2f1faa1a3b8a023e32075b193bdc145aa623c6227a",
+    "_next/static/chunks/index-Bu5Hy17g.js": "0378edaa44b8bd7657cfbba291d207d04eecd1a1833e3a5dc5fd8573dd306c14",
     "_next/static/chunks/inference-workbench-MKGoyObt.js": "5a3d9dd0893ab4a2262b130ebaf409d923c77f89c4c2e1b851a69f52395e9368",
-    "_next/static/chunks/layout-segment-context-DBYK4eYQ.js": "2960ca5d40579b712da765b743f1f883d14a837284dda3ddcfe6b95e223ede11",
+    "_next/static/chunks/layout-segment-context-BOuCPgVh.js": "554019c633700fb42386fc6bd9a02034bd0b34b63df8812a5d66dbcb71b12758",
     "_next/static/chunks/lowdim-math-8xFa9MrU.js": "84b7812e0c1993dc72439a8eaff8e855fc2598405fa6ef0c3a9f5f4b5f78c66d",
     "_next/static/chunks/rolldown-runtime-C60lm6uB.js": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75",
     "_next/static/chunks/sma-study-explorer-r2-k7pVU.js": "3033ed0fdbf13eeece370feaf1871407c1939bb3b89160cc9aaa56041fae95a7",
@@ -108,16 +108,16 @@
     "_next/static/media/KaTeX_Typewriter-Regular.CO6r4hn1.woff2": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
     "_next/static/media/KaTeX_Typewriter-Regular.D3Ib7_Hf.ttf": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
     "claire-wang-portrait.jpg": "86cc2f41ae6b6832f12fa68413ff8fffd7cd6236509334e303398d84a23b56f4",
-    "code/index.html": "962d0ebbd1d919a0203a036f30577584c16e395dc19f51a39fa9444e138b9d7d",
-    "health/index.html": "b80b6d755d10dd14a90d4b79c2019899b2c1754716c9a69d8cb8f3d0bcdec75f",
-    "index.html": "20575619569318d8c8605d570f736c917b6cbcc890cf200d690ef0e2809a48b2",
+    "code/index.html": "1059084eb083fcec7b2d523ae7ef6657a8d6ff67f7c13655c0d20c40b4187936",
+    "health/index.html": "bead645e6e33f5bc5b54f7564f662bfa4f37a4ef06da8b1fa9606d4ec93fffbb",
+    "index.html": "581ff717753b47e8cf5be32b89040f1389705c6741c220aa215761f2af62be01",
     "og.png": "323ca06a64b238193872d2e475c81d53447696f13289b86c1c94c0312e3eb02e",
-    "product/index.html": "39fbe07182cde767eb85562a9f2b0e2f942ffaaaeb115f56b08dbb305da67833",
+    "product/index.html": "a898c5f2071c11c2fff9b47462f6f24371383202e0397a89db3010ab830a371e",
     "research/SIP2026_Wang_Love.pdf": "053115403e2915581a894365b68221452b745f9bfab71f9e4ee853ea38475436",
-    "research/bayesian-dose-finding/index.html": "d505990e634e72d6b337f3ff8dbdd42bb930d3d56d93d52a4dd70cc05f1f3df8",
-    "research/computation-aware-inference/index.html": "d16edcaa2736c8d7eb2ab5ab741b42e230b3131a975712c34383fc15896f42ee",
-    "research/high-dimensional-inference/index.html": "63a0220f46025032a18f4a703eb4dc25c5f7bbefc9370afce8361c5b79405108",
-    "research/index.html": "67987a03e34f45a2f270be0e9954247ef8f91d2e2f9e17b172b72dd9da979745",
+    "research/bayesian-dose-finding/index.html": "f219a7ede39511e63df8006b6718b1fdb95422e34e1361e915a148dea3552ba7",
+    "research/computation-aware-inference/index.html": "3d5814e693e70a403ee53a3286babf5f8d723169d469c254576e69aa9263012b",
+    "research/high-dimensional-inference/index.html": "f2ef7618575adb4a2fa9b2f7857c3ff2e975812d2cac9ff7a9706e43e1d91b32",
+    "research/index.html": "60fa846038d54206a55c075dc5658ac95099660922d653ab2cf836804ac61fcb",
     "research/r72-budget-coverage.svg": "6c25076807c8d430c1d9f7b10375a0eb6a08cd4740956601067089d0b82a9a22",
     "research/r72-figure1-auc-bias.svg": "2cfd60693261feb68fb1c18150d830982cf1929df37eb38d15d78a7a9d737312",
     "research/r72-figure1-auc-coverage.svg": "948cbf1c8afeb7bc237dcbec93acdce530d4de8d4f860be82eaae33a3d3a02bc",
@@ -129,7 +129,9 @@
     "research/r72-figure1-triplet-coverage.svg": "72ef8b03c4877f752f01b3810e05b9247ff6b3a60e81c9864accc7777e07c2f7",
     "research/r72-figure1-triplet-variance_ratio.svg": "495fc6f6d43d35b3d750c5558419cebe37e8a527d52c7a47ae91ae003127f580",
     "research/sma-r10-inline-figure-2.png": "3f25ef679c51c6a5cabb102531d7c9289e85dae5f6f3f53d20399933da012198",
-    "research/sma-treatment-comparisons/index.html": "94e7a5dcbc96403122fc26e3c89e3945c0c59646c382726b00537074beb07fcd",
-    "talks/index.html": "ea848e890854f70109f81d00c1407ec92faff63e93645c1e4196e00066dcb8ac"
+    "research/sma-treatment-comparisons/index.html": "751219ca7bb5450935ac161057a0e22f50bde27e91e6e2a1f9b8048236cde257",
+    "robots.txt": "0d546c56b93672f7900e45369ca62881820248a135fd2913c39f9f80af5a4c1f",
+    "sitemap.xml": "cec92704dddb13ed29bcecb4c52ad28f0747f0f771be39d11878ebc58a941199",
+    "talks/index.html": "6f1c0f78d34562e8e74754cbfcb7128c7969ccc26170c687a061aa254e398760"
   }
 }
