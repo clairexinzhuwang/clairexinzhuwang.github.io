@@ -49,6 +49,9 @@ test("search engines receive canonical identity and discovery files", async () =
   assert.match(robots, /User-agent: \*/);
   assert.match(robots, /Sitemap: https:\/\/clairexinzhuwang\.github\.io\/sitemap\.xml/);
 
+  const verification = await read("googlec1172d0f4f61b72c.html");
+  assert.equal(verification.trim(), "google-site-verification: googlec1172d0f4f61b72c.html");
+
   const sitemap = await read("sitemap.xml");
   const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
   const expected = manifest.routes.map(route => origin + (route === "/" ? "/" : route + "/")).sort();
