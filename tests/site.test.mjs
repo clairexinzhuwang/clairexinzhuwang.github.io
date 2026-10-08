@@ -44,6 +44,7 @@ test("search engines receive canonical identity and discovery files", async () =
   assert.equal(person["@id"], origin + "/#person");
   assert.equal(person.name, "Xinzhu Claire Wang");
   assert.ok(person.sameAs.includes("https://github.com/clairexinzhuwang"));
+  assert.ok(person.subjectOf.some(item => item.identifier === "arXiv:2610.09245"));
 
   const robots = await read("robots.txt");
   assert.match(robots, /User-agent: \*/);
@@ -56,6 +57,7 @@ test("search engines receive canonical identity and discovery files", async () =
   const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
   const expected = manifest.routes.map(route => origin + (route === "/" ? "/" : route + "/")).sort();
   assert.deepEqual(listed, expected);
+  assert.match(sitemap, /research\/bayesian-dose-finding\/<\/loc><lastmod>2026-10-07<\/lastmod>/);
 });
 
 test("local navigation, anchors, scripts and styles resolve on static hosting", async () => {
@@ -101,12 +103,24 @@ test("research pages preserve results, interactive controls and release boundari
   for (const text of ["without a prespecified likelihood model", "SGD and Full-Data Newton", "95.3%", "79.3%", "class=\"katex\"", "<math"])
     assert.ok(low.includes(text), text);
   assert.match(pages.get("/research/sma-treatment-comparisons"), /Selected manuscript findings/);
-  for (const [route, html] of pages) {
-    if (route.startsWith("/research/")) {
-      assert.match(html, /advisor approval/, route);
-      assert.doesNotMatch(html.replaceAll('/research/SIP2026_Wang_Love.pdf', 'approved-conference-poster'), /href="\/[^\"]*\.(?:pdf|docx|tex|zip)"|arxiv\.org/, route);
-    }
+  for (const route of [
+    "/research/computation-aware-inference",
+    "/research/high-dimensional-inference",
+    "/research/sma-treatment-comparisons",
+  ]) {
+    const html = pages.get(route);
+    assert.match(html, /advisor approval/, route);
+    assert.doesNotMatch(html, /href="\/[^\"]*\.(?:pdf|docx|tex|zip)"|arxiv\.org/, route);
   }
+
+  for (const route of ["/", "/research", "/health", "/research/bayesian-dose-finding"]) {
+    assert.match(pages.get(route), /href="https:\/\/arxiv\.org\/abs\/2610\.09245"/, route);
+  }
+  const dose = pages.get("/research/bayesian-dose-finding");
+  assert.match(dose, /href="https:\/\/arxiv\.org\/pdf\/2610\.09245"/);
+  assert.match(dose, /"@type":"ScholarlyArticle"/);
+  assert.match(dose, /"identifier":"arXiv:2610\.09245"/);
+  assert.doesNotMatch(dose, /Unpublished manuscript|data-private-research-preview="true"/i);
 });
 
 test("public bundle excludes source, unpublished documents and obsolete assets", async () => {
