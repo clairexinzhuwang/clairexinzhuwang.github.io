@@ -44,7 +44,11 @@ test("search engines receive canonical identity and discovery files", async () =
   assert.equal(person["@id"], origin + "/#person");
   assert.equal(person.name, "Xinzhu Claire Wang");
   assert.ok(person.sameAs.includes("https://github.com/clairexinzhuwang"));
-  assert.ok(person.subjectOf.some(item => item.identifier === "arXiv:2610.09245"));
+  const dosePaper = person.subjectOf.find(item => item.name.includes("Bayesian Optimization for Dose Finding"));
+  assert.ok(dosePaper);
+  assert.ok(dosePaper.identifier.some(item => item.propertyID === "DOI" && item.value === "10.48550/arXiv.2610.09245"));
+  assert.ok(dosePaper.identifier.some(item => item.propertyID === "arXiv" && item.value === "2610.09245"));
+  assert.ok(dosePaper.sameAs.includes("https://doi.org/10.48550/arXiv.2610.09245"));
 
   const robots = await read("robots.txt");
   assert.match(robots, /User-agent: \*/);
@@ -57,7 +61,7 @@ test("search engines receive canonical identity and discovery files", async () =
   const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
   const expected = manifest.routes.map(route => origin + (route === "/" ? "/" : route + "/")).sort();
   assert.deepEqual(listed, expected);
-  assert.match(sitemap, /research\/bayesian-dose-finding\/<\/loc><lastmod>2026-10-07<\/lastmod>/);
+  assert.match(sitemap, /research\/bayesian-dose-finding\/<\/loc><lastmod>2026-10-08<\/lastmod>/);
 });
 
 test("local navigation, anchors, scripts and styles resolve on static hosting", async () => {
@@ -114,13 +118,16 @@ test("research pages preserve results, interactive controls and release boundari
   }
 
   for (const route of ["/", "/research", "/health", "/research/bayesian-dose-finding"]) {
+    assert.match(pages.get(route), /href="https:\/\/doi\.org\/10\.48550\/arXiv\.2610\.09245"/, route);
     assert.match(pages.get(route), /href="https:\/\/arxiv\.org\/abs\/2610\.09245"/, route);
     assert.match(pages.get(route), /href="https:\/\/github\.com\/clairexinzhuwang\/dose-combination-bo"/, route);
   }
   const dose = pages.get("/research/bayesian-dose-finding");
+  assert.match(dose, /<meta name="citation_doi" content="10\.48550\/arXiv\.2610\.09245"\/>/);
   assert.match(dose, /href="https:\/\/arxiv\.org\/pdf\/2610\.09245"/);
   assert.match(dose, /"@type":"ScholarlyArticle"/);
-  assert.match(dose, /"identifier":"arXiv:2610\.09245"/);
+  assert.match(dose, /"propertyID":"DOI","value":"10\.48550\/arXiv\.2610\.09245"/);
+  assert.match(dose, /"propertyID":"arXiv","value":"2610\.09245"/);
   assert.match(dose, /"codeRepository":"https:\/\/github\.com\/clairexinzhuwang\/dose-combination-bo"/);
   assert.doesNotMatch(dose, /Unpublished manuscript|data-private-research-preview="true"/i);
   assert.match(pages.get("/code"), /dose-combination-bo/);
