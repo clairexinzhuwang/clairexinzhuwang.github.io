@@ -115,12 +115,15 @@ test("research pages preserve results, interactive controls and release boundari
 
   for (const route of ["/", "/research", "/health", "/research/bayesian-dose-finding"]) {
     assert.match(pages.get(route), /href="https:\/\/arxiv\.org\/abs\/2610\.09245"/, route);
+    assert.match(pages.get(route), /href="https:\/\/github\.com\/clairexinzhuwang\/dose-combination-bo"/, route);
   }
   const dose = pages.get("/research/bayesian-dose-finding");
   assert.match(dose, /href="https:\/\/arxiv\.org\/pdf\/2610\.09245"/);
   assert.match(dose, /"@type":"ScholarlyArticle"/);
   assert.match(dose, /"identifier":"arXiv:2610\.09245"/);
+  assert.match(dose, /"codeRepository":"https:\/\/github\.com\/clairexinzhuwang\/dose-combination-bo"/);
   assert.doesNotMatch(dose, /Unpublished manuscript|data-private-research-preview="true"/i);
+  assert.match(pages.get("/code"), /dose-combination-bo/);
 });
 
 test("public bundle excludes source, unpublished documents and obsolete assets", async () => {
