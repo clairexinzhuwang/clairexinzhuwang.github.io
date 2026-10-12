@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="270" viewBox="0 0 400 270" role="img" aria-labelledby="title desc">
+<title id="title">Bipartite ranking: |Bias| / empirical SD</title>
+<desc id="desc">V51 Figure 1 under with-replacement sampling. Each setting has 1,000 replications. Small dots show all 3 coefficients; large markers show equal-weight coordinate means. Sample sizes are 10,000, 100,000 and 1,000,000, on a logarithmic axis; batch sizes are 1, 10 and 100. Absolute standardized bias is descriptive and has no error bars.</desc>
+<g font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#53616b">
+<line x1="55" x2="383" y1="226.000" y2="226.000" stroke="#e3e8eb"/>
+<text x="46" y="230.000" text-anchor="end">0.00</text>
+<line x1="55" x2="383" y1="157.333" y2="157.333" stroke="#e3e8eb"/>
+<text x="46" y="161.333" text-anchor="end">0.04</text>
+<line x1="55" x2="383" y1="88.667" y2="88.667" stroke="#e3e8eb"/>
+<text x="46" y="92.667" text-anchor="end">0.08</text>
+<line x1="55" x2="383" y1="20.000" y2="20.000" stroke="#e3e8eb"/>
+<text x="46" y="24.000" text-anchor="end">0.12</text>
+<path d="M55 20V226H383" stroke="#abbac3" fill="none"/>
+<line x1="74.612" x2="74.612" y1="226" y2="231" stroke="#abbac3"/><text x="74.612" y="248" text-anchor="middle">10⁴</text>
+<line x1="218.100" x2="218.100" y1="226" y2="231" stroke="#abbac3"/><text x="218.100" y="248" text-anchor="middle">10⁵</text>
+<line x1="361.589" x2="361.589" y1="226" y2="231" stroke="#abbac3"/><text x="361.589" y="248" text-anchor="middle">10⁶</text>
+<text x="219" y="267" text-anchor="middle">Sample size n</text>
+<polyline points="65.213,208.524 208.701,206.275 352.190,154.614" fill="none" stroke="#1f77b4" stroke-width="1.3"/>
+<circle cx="62.630" cy="194.153" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="65.213" cy="207.353" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="67.796" cy="224.066" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="65.213" cy="208.524" r="4.2" fill="#1f77b4"/>
+<circle cx="206.119" cy="222.244" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="208.701" cy="196.028" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="211.284" cy="200.553" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="208.701" cy="206.275" r="4.2" fill="#1f77b4"/>
+<circle cx="349.607" cy="162.214" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="352.190" cy="138.396" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="354.773" cy="163.233" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="352.190" cy="154.614" r="4.2" fill="#1f77b4"/>
+<polyline points="74.612,202.456 218.100,207.908 361.589,154.080" fill="none" stroke="#ff7f0e" stroke-width="1.3" stroke-dasharray="5 4"/>
+<circle cx="72.029" cy="182.118" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="74.612" cy="209.734" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="77.194" cy="215.517" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<rect x="70.612" y="198.456" width="8" height="8" fill="#ff7f0e"/>
+<circle cx="215.517" cy="224.951" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="218.100" cy="195.488" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="220.683" cy="203.286" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<rect x="214.100" y="203.908" width="8" height="8" fill="#ff7f0e"/>
+<circle cx="359.006" cy="161.456" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="361.589" cy="138.270" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="364.172" cy="162.514" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<rect x="357.589" y="150.080" width="8" height="8" fill="#ff7f0e"/>
+<polyline points="83.861,111.680 227.349,198.081 370.838,147.362" fill="none" stroke="#2ca02c" stroke-width="1.3" stroke-dasharray="2 3"/>
+<circle cx="81.278" cy="43.531" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="83.861" cy="217.150" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="86.443" cy="74.359" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<path d="M83.861,106.880L79.061,115.480L88.661,115.480Z" fill="#2ca02c"/>
+<circle cx="224.766" cy="191.830" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="227.349" cy="188.966" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="229.932" cy="213.446" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<path d="M227.349,193.281L222.549,201.881L232.149,201.881Z" fill="#2ca02c"/>
+<circle cx="368.255" cy="152.122" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="370.838" cy="136.478" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="373.421" cy="153.488" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<path d="M370.838,142.562L366.038,151.162L375.638,151.162Z" fill="#2ca02c"/>
+</g></svg>

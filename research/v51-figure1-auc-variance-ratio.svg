@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="270" viewBox="0 0 400 270" role="img" aria-labelledby="title desc">
+<title id="title">Bipartite ranking: Variance ratio</title>
+<desc id="desc">V51 Figure 1 under with-replacement sampling. Each setting has 1,000 replications. Small dots show all 3 coefficients; large markers show equal-weight coordinate means. Sample sizes are 10,000, 100,000 and 1,000,000, on a logarithmic axis; batch sizes are 1, 10 and 100. Bars are analytic pointwise 95% Monte Carlo intervals for the coordinate means, retaining dependence within each replication.</desc>
+<g font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#53616b">
+<line x1="55" x2="383" y1="226.000" y2="226.000" stroke="#e3e8eb"/>
+<text x="46" y="230.000" text-anchor="end">0.90</text>
+<line x1="55" x2="383" y1="184.800" y2="184.800" stroke="#e3e8eb"/>
+<text x="46" y="188.800" text-anchor="end">0.95</text>
+<line x1="55" x2="383" y1="143.600" y2="143.600" stroke="#e3e8eb"/>
+<text x="46" y="147.600" text-anchor="end">1.00</text>
+<line x1="55" x2="383" y1="102.400" y2="102.400" stroke="#e3e8eb"/>
+<text x="46" y="106.400" text-anchor="end">1.05</text>
+<line x1="55" x2="383" y1="61.200" y2="61.200" stroke="#e3e8eb"/>
+<text x="46" y="65.200" text-anchor="end">1.10</text>
+<line x1="55" x2="383" y1="20.000" y2="20.000" stroke="#e3e8eb"/>
+<text x="46" y="24.000" text-anchor="end">1.15</text>
+<line x1="55" x2="383" y1="143.600" y2="143.600" stroke="#7f8c94" stroke-width="1.2" stroke-dasharray="3 4"/>
+<path d="M55 20V226H383" stroke="#abbac3" fill="none"/>
+<line x1="74.612" x2="74.612" y1="226" y2="231" stroke="#abbac3"/><text x="74.612" y="248" text-anchor="middle">10⁴</text>
+<line x1="218.100" x2="218.100" y1="226" y2="231" stroke="#abbac3"/><text x="218.100" y="248" text-anchor="middle">10⁵</text>
+<line x1="361.589" x2="361.589" y1="226" y2="231" stroke="#abbac3"/><text x="361.589" y="248" text-anchor="middle">10⁶</text>
+<text x="219" y="267" text-anchor="middle">Sample size n</text>
+<polyline points="65.213,110.288 208.701,141.062 352.190,142.156" fill="none" stroke="#1f77b4" stroke-width="1.3"/>
+<circle cx="62.630" cy="144.665" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="65.213" cy="149.967" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="67.796" cy="36.232" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<path d="M65.213,153.028V67.548M62.213,153.028H68.213M62.213,67.548H68.213" fill="none" stroke="#1f77b4" stroke-width="1.1"/>
+<circle cx="65.213" cy="110.288" r="4.2" fill="#1f77b4"/>
+<circle cx="206.119" cy="164.144" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="208.701" cy="167.079" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="211.284" cy="91.963" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<path d="M208.701,182.818V99.306M205.701,182.818H211.701M205.701,99.306H211.701" fill="none" stroke="#1f77b4" stroke-width="1.1"/>
+<circle cx="208.701" cy="141.062" r="4.2" fill="#1f77b4"/>
+<circle cx="349.607" cy="174.120" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="352.190" cy="102.207" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<circle cx="354.773" cy="150.141" r="2.1" fill="#1f77b4" fill-opacity=".52"/>
+<path d="M352.190,182.193V102.119M349.190,182.193H355.190M349.190,102.119H355.190" fill="none" stroke="#1f77b4" stroke-width="1.1"/>
+<circle cx="352.190" cy="142.156" r="4.2" fill="#1f77b4"/>
+<polyline points="74.612,112.034 218.100,141.285 361.589,142.175" fill="none" stroke="#ff7f0e" stroke-width="1.3" stroke-dasharray="5 4"/>
+<circle cx="72.029" cy="146.073" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="74.612" cy="151.132" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="77.194" cy="38.897" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<path d="M74.612,154.645V69.423M71.612,154.645H77.612M71.612,69.423H77.612" fill="none" stroke="#ff7f0e" stroke-width="1.1"/>
+<rect x="70.612" y="108.034" width="8" height="8" fill="#ff7f0e"/>
+<circle cx="215.517" cy="164.391" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="218.100" cy="167.167" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="220.683" cy="92.296" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<path d="M218.100,183.030V99.540M215.100,183.030H221.100M215.100,99.540H221.100" fill="none" stroke="#ff7f0e" stroke-width="1.1"/>
+<rect x="214.100" y="137.285" width="8" height="8" fill="#ff7f0e"/>
+<circle cx="359.006" cy="174.164" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="361.589" cy="102.215" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<circle cx="364.172" cy="150.145" r="2.1" fill="#ff7f0e" fill-opacity=".52"/>
+<path d="M361.589,182.209V102.140M358.589,182.209H364.589M358.589,102.140H364.589" fill="none" stroke="#ff7f0e" stroke-width="1.1"/>
+<rect x="357.589" y="138.175" width="8" height="8" fill="#ff7f0e"/>
+<polyline points="83.861,122.723 227.349,142.775 370.838,142.349" fill="none" stroke="#2ca02c" stroke-width="1.3" stroke-dasharray="2 3"/>
+<circle cx="81.278" cy="158.482" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="83.861" cy="156.954" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="86.443" cy="52.733" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<path d="M83.861,164.750V80.696M80.861,164.750H86.861M80.861,80.696H86.861" fill="none" stroke="#2ca02c" stroke-width="1.1"/>
+<path d="M83.861,117.923L79.061,126.523L88.661,126.523Z" fill="#2ca02c"/>
+<circle cx="224.766" cy="166.094" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="227.349" cy="167.872" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="229.932" cy="94.358" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<path d="M227.349,184.440V101.109M224.349,184.440H230.349M224.349,101.109H230.349" fill="none" stroke="#2ca02c" stroke-width="1.1"/>
+<path d="M227.349,137.975L222.549,146.575L232.149,146.575Z" fill="#2ca02c"/>
+<circle cx="368.255" cy="174.314" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="370.838" cy="102.322" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<circle cx="373.421" cy="150.411" r="2.1" fill="#2ca02c" fill-opacity=".52"/>
+<path d="M370.838,182.374V102.324M367.838,182.374H373.838M367.838,102.324H373.838" fill="none" stroke="#2ca02c" stroke-width="1.1"/>
+<path d="M370.838,137.549L366.038,146.149L375.638,146.149Z" fill="#2ca02c"/>
+</g></svg>

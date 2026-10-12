@@ -104,8 +104,25 @@ test("research pages preserve results, interactive controls and release boundari
   assert.ok(!Object.keys(manifest.files).some(file => /safe-mobo|safe-multi-objective-optimization/.test(file)));
   for (const html of pages.values()) assert.doesNotMatch(html, /safe-multi-objective-optimization|certified hypervolume/i);
   const low = pages.get("/research/computation-aware-inference");
-  for (const text of ["without a prespecified likelihood model", "SGD and Full-Data Newton", "95.3%", "79.3%", "class=\"katex\"", "<math"])
+  for (const text of ["without a prespecified likelihood model", "58.8% of estimated total variance", "6.6% at BT/n = 20",
+    "95.05%", "94.25%", "analytic Monte Carlo standard errors", "Small dots: individual coefficients",
+    "Absolute standardized bias has no error bars", "23,571 policies with exactly one recorded claim and 31 coefficients",
+    "41,984 training patients and 40 ranking-score coefficients", "These comparisons measure numerical agreement, not population coverage",
+    "main fit is 275 Newton SEs away", "0.6362 (95% DeLong interval: 0.6248–0.6476)", "class=\"katex\"", "<math"])
     assert.ok(low.includes(text), text);
+  for (const family of ["rank", "auc", "triplet"]) {
+    for (const metric of ["coverage", "standardized-bias", "variance-ratio"]) {
+      assert.ok(low.includes(`src="/research/v51-figure1-${family}-${metric}.svg"`));
+    }
+  }
+  assert.doesNotMatch(low, /r72-figure1-|r72-budget-coverage|79\.3%|Data-only coverage|500 bootstrap refits|7\.169 s|0\.0027 s|Mean of five isolated single-thread runs|covariance pass through stored tuples/);
+  const earlierBenchmark = low.match(/<details\b[^>]*><summary>SGD and Full-Data Newton · earlier proposal benchmark<\/summary>[\s\S]*?<\/details>/)?.[0];
+  assert.ok(earlierBenchmark, 'historical benchmark stays in a labeled details disclosure');
+  assert.doesNotMatch(earlierBenchmark, /^<details\b[^>]*\bopen(?:[\s=>])/);
+  assert.match(earlierBenchmark, /3\.32 s/);
+  assert.match(earlierBenchmark, /These times do not benchmark the V51 one-pass method/);
+  assert.match(earlierBenchmark, /Hardware, timing aggregation and included stages are unspecified/);
+  assert.match(low, /The V51 archive does not isolate a timing benchmark for fitting plus one-pass covariance estimation/);
   assert.match(pages.get("/research/sma-treatment-comparisons"), /Selected manuscript findings/);
   for (const route of [
     "/research/computation-aware-inference",
