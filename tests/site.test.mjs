@@ -115,6 +115,24 @@ test("research pages preserve results, interactive controls and release boundari
       assert.ok(low.includes(`src="/research/v51-figure1-${family}-${metric}.svg"`));
     }
   }
+  const rankFocus = low.match(/<figure\b[^>]*data-inference-focus="rank"[^>]*>[\s\S]*?<\/figure>/)?.[0];
+  assert.ok(rankFocus, 'default rank view explains the inferential workflow');
+  for (const phrase of ['From sampled comparisons to coefficient intervals', 'Pairwise criterion.', 'Sampled SGD updates.',
+    'Last-iterate inference.', 'marginal Wald intervals for the population loss minimizer', 'Data-sampling uncertainty',
+    'drawing the observed policies from the population', 'Algorithmic uncertainty', 'observed dataset held fixed',
+    'Both covariance components are estimated during the same SGD run', 'accounting for shared policies',
+    'Conceptual workflow, not an additional fitted example']) assert.ok(rankFocus.includes(phrase), phrase);
+  assert.doesNotMatch(rankFocus, /<svg\b|<path\b|<math\b|class="katex"|rank-gap|type="range"|<output\b|\bbandwidth\b/);
+  assert.doesNotMatch(rankFocus.replace(/<[^>]+>/g, ''), /\d/, 'conceptual workflow shows no invented numerical values');
+  const rankTechnical = low.match(/<details\b[^>]*data-rank-technical="true"[^>]*>[\s\S]*?<\/details>/)?.[0];
+  assert.ok(rankTechnical, 'rank-loss mechanics remain available on demand');
+  assert.doesNotMatch(rankTechnical, /^<details\b[^>]*\bopen(?:[\s=>])/);
+  assert.equal((rankTechnical.match(/<details\b/g) ?? []).length, 1, 'rank disclosure has no nested disclosure');
+  assert.match(rankTechnical, /<summary>Rank-regression loss and bandwidth<\/summary>/);
+  assert.match(rankTechnical, /id="rank-gap"[^>]*type="range"/);
+  assert.match(rankTechnical, /Normalized loss/);
+  assert.match(rankTechnical, /aria-label="Normalized loss shown in the rank-regression graph"/);
+  assert.match(rankTechnical, /<mi>h<\/mi>/);
   assert.doesNotMatch(low, /r72-figure1-|r72-budget-coverage|79\.3%|Data-only coverage|500 bootstrap refits|7\.169 s|0\.0027 s|Mean of five isolated single-thread runs|covariance pass through stored tuples/);
   const earlierBenchmark = low.match(/<details\b[^>]*><summary>SGD and Full-Data Newton · earlier proposal benchmark<\/summary>[\s\S]*?<\/details>/)?.[0];
   assert.ok(earlierBenchmark, 'historical benchmark stays in a labeled details disclosure');
