@@ -117,22 +117,40 @@ test("research pages preserve results, interactive controls and release boundari
   }
   const rankFocus = low.match(/<figure\b[^>]*data-inference-focus="rank"[^>]*>[\s\S]*?<\/figure>/)?.[0];
   assert.ok(rankFocus, 'default rank view explains the inferential workflow');
-  for (const phrase of ['From sampled comparisons to coefficient intervals', 'Pairwise criterion.', 'Sampled SGD updates.',
-    'Last-iterate inference.', 'marginal Wald intervals for the population loss minimizer', 'Data-sampling uncertainty',
-    'drawing the observed policies from the population', 'Algorithmic uncertainty', 'observed dataset held fixed',
-    'Both covariance components are estimated during the same SGD run', 'accounting for shared policies',
-    'Conceptual workflow, not an additional fitted example']) assert.ok(rankFocus.includes(phrase), phrase);
+  for (const phrase of ['Last-iterate inference', 'Sampled comparisons', 'Last SGD iterate', 'Marginal Wald intervals',
+    'Data uncertainty', 'Sampling policies', 'Algorithmic uncertainty', 'Sampling comparisons, dataset fixed.',
+    'Population loss coefficients · conceptual workflow.']) assert.ok(rankFocus.includes(phrase), phrase);
   assert.doesNotMatch(rankFocus, /<svg\b|<path\b|<math\b|class="katex"|rank-gap|type="range"|<output\b|\bbandwidth\b/);
-  assert.doesNotMatch(rankFocus.replace(/<[^>]+>/g, ''), /\d/, 'conceptual workflow shows no invented numerical values');
+  const rankFocusText = rankFocus.replace(/<[^>]+>/g, ' ').trim();
+  assert.doesNotMatch(rankFocusText, /\d/, 'conceptual workflow shows no invented numerical values');
+  assert.ok(rankFocusText.split(/\s+/).length <= 45, 'default rank workflow stays concise');
+  const applicationSelect = low.match(/<select\b[^>]*id="inference-application"[^>]*>[\s\S]*?<\/select>/)?.[0];
+  assert.ok(applicationSelect, 'application selection uses a native select');
+  assert.match(low, /<label\b[^>]*for="inference-application"[^>]*>Application/);
+  for (const [value, name, structure] of [['rank', 'Insurance claim severity', 'One sample · order 2'],
+    ['auc', 'Thirty-day readmission', 'Two samples · order (1,1)'], ['triplet', 'Metric learning', 'One sample · order 3']]) {
+    const option = applicationSelect.match(new RegExp(`<option\\b[^>]*value="${value}"[^>]*>[\\s\\S]*?<\\/option>`))?.[0];
+    assert.ok(option, value);
+    assert.ok(option.includes(`aria-label="${name}, ${structure}"`));
+    assert.ok(option.endsWith(`>${name}</option>`), 'visible option contains only the application name');
+  }
+  assert.doesNotMatch(low, /class="inference-family-buttons"/);
   const rankTechnical = low.match(/<details\b[^>]*data-rank-technical="true"[^>]*>[\s\S]*?<\/details>/)?.[0];
   assert.ok(rankTechnical, 'rank-loss mechanics remain available on demand');
   assert.doesNotMatch(rankTechnical, /^<details\b[^>]*\bopen(?:[\s=>])/);
   assert.equal((rankTechnical.match(/<details\b/g) ?? []).length, 1, 'rank disclosure has no nested disclosure');
-  assert.match(rankTechnical, /<summary>Rank-regression loss and bandwidth<\/summary>/);
+  assert.match(rankTechnical, /<summary>Application details<\/summary>/);
+  assert.match(rankTechnical, /Data-sampling uncertainty/);
+  assert.match(rankTechnical, /observed dataset held fixed/);
+  assert.match(rankTechnical, /Both covariance components are estimated during the same SGD run/);
+  assert.match(rankTechnical, /accounting for shared policies/);
+  assert.match(rankTechnical, /23,571 single-claim policies and 31 rating variables/);
   assert.match(rankTechnical, /id="rank-gap"[^>]*type="range"/);
   assert.match(rankTechnical, /Normalized loss/);
   assert.match(rankTechnical, /aria-label="Normalized loss shown in the rank-regression graph"/);
   assert.match(rankTechnical, /<mi>h<\/mi>/);
+  const lowSummary = low.match(/<p\b[^>]*data-research-summary="low-dimensional"[^>]*>([\s\S]*?)<\/p>/)?.[1];
+  assert.equal(lowSummary, 'We develop Wald intervals for the population minimizer of a U-statistic loss from the last SGD iterate. One pass estimates both data-sampling and algorithmic uncertainty, without evaluating the complete criterion or revisiting sampled terms.');
   assert.doesNotMatch(low, /r72-figure1-|r72-budget-coverage|79\.3%|Data-only coverage|500 bootstrap refits|7\.169 s|0\.0027 s|Mean of five isolated single-thread runs|covariance pass through stored tuples/);
   const earlierBenchmark = low.match(/<details\b[^>]*><summary>SGD and Full-Data Newton · earlier proposal benchmark<\/summary>[\s\S]*?<\/details>/)?.[0];
   assert.ok(earlierBenchmark, 'historical benchmark stays in a labeled details disclosure');
