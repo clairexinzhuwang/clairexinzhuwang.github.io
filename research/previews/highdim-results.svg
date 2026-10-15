@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="245" viewBox="0 0 320 245" role="img" aria-labelledby="highdim-title highdim-desc">
+  <title id="highdim-title">Support recovery and joint success in registered adaptive-cap simulations</title>
+  <desc id="highdim-desc">Simulation frequencies across all 180,000 runs: exact support recovery 99.99 percent; primary joint success 95.4 percent. Joint success requires exact support recovery, a reportable fit, and simultaneous coverage of every nonzero population coefficient, using sampled sandwich covariance. Every run remains in the denominator. Both rows share a percentage axis from 80 to 100; its truncation is explicit. Dashed marks indicate the nominal 95 percent joint confidence level. These frequencies are adaptive-cap simulation results, not coefficient intervals or a claim under the fixed-cap theorem.</desc>
+  <rect width="320" height="245" fill="#ffffff"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#233347">
+    <text x="14" y="26" font-size="20" font-weight="600">Simulation frequencies</text>
+    <text x="14" y="51" font-size="18">Adaptive caps · 180,000 runs</text>
+    <text x="14" y="84" font-size="18">Exact recovery</text>
+    <text x="306" y="84" font-size="20" font-weight="600" text-anchor="end">99.99%</text>
+    <text x="14" y="135" font-size="18">Joint success</text>
+    <text x="306" y="135" font-size="20" font-weight="600" text-anchor="end">95.4%</text>
+    <g stroke="#d5dce3" stroke-width="2">
+      <line x1="28" y1="103" x2="292" y2="103"/>
+      <line x1="28" y1="154" x2="292" y2="154"/>
+    </g>
+    <g stroke="#667788" stroke-width="1.5" stroke-dasharray="4 4">
+      <line x1="226" y1="92" x2="226" y2="114"/>
+      <line x1="226" y1="143" x2="226" y2="165"/>
+    </g>
+    <g fill="#175b9b" stroke="#ffffff" stroke-width="1.5">
+      <circle cx="291.8548" cy="103" r="6"/>
+      <circle cx="231.3460" cy="154" r="6"/>
+    </g>
+    <g stroke="#8a98a7" stroke-width="1.2">
+      <line x1="28" y1="180" x2="292" y2="180"/>
+      <line x1="28" y1="180" x2="28" y2="185"/>
+      <line x1="160" y1="180" x2="160" y2="185"/>
+      <line x1="292" y1="180" x2="292" y2="185"/>
+    </g>
+    <g font-size="18">
+      <text x="28" y="204" text-anchor="middle">80%</text>
+      <text x="160" y="204" text-anchor="middle">90%</text>
+      <text x="292" y="204" text-anchor="middle">100%</text>
+      <text x="14" y="237">Axis starts at 80%</text>
+      <line x1="183" y1="231" x2="198" y2="231" stroke="#667788" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <text x="205" y="237">Nominal 95%</text>
+    </g>
+  </g>
+</svg>

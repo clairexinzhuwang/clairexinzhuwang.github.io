@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="245" viewBox="0 0 320 245" role="img" aria-labelledby="sma-title sma-desc">
+<title id="sma-title">Adjusted time-averaged HFMSE comparison</title><desc id="sma-desc">Risdiplam minus nusinersen: 0.88 HFMSE points; 95 percent patient-bootstrap interval -3.18 to 4.79. The vertical reference line marks no difference. This adjusted observational comparison establishes neither superiority nor equivalence.</desc><rect width="320" height="245" fill="white"/>
+<g font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#263039"><text x="8" y="23" font-weight="600">Risdiplam − nusinersen</text>
+<text x="164" y="72" text-anchor="middle" font-size="23" font-weight="600">+0.88</text>
+<line x1="142" x2="142" y1="46" y2="158" stroke="#7c8992" stroke-dasharray="5 4"/>
+<line x1="62.5" x2="261.75" y1="104" y2="104" stroke="#315f75" stroke-width="3"/>
+<line x1="62.5" x2="62.5" y1="95" y2="113" stroke="#315f75" stroke-width="2"/><text x="62.5" y="138" text-anchor="middle">−3.18</text><line x1="261.75" x2="261.75" y1="95" y2="113" stroke="#315f75" stroke-width="2"/><text x="261.75" y="138" text-anchor="middle">+4.79</text>
+<circle cx="164" cy="104" r="6" fill="#315f75"/>
+<line x1="42" x2="292" y1="160" y2="160" stroke="#c0cbd2"/>
+<line x1="42" x2="42" y1="160" y2="165" stroke="#8c9da8"/><text x="42" y="187" text-anchor="middle">−4</text><line x1="142" x2="142" y1="160" y2="165" stroke="#8c9da8"/><text x="142" y="187" text-anchor="middle">0</text><line x1="242" x2="242" y1="160" y2="165" stroke="#8c9da8"/><text x="242" y="187" text-anchor="middle">4</text><line x1="292" x2="292" y1="160" y2="165" stroke="#8c9da8"/><text x="292" y="187" text-anchor="middle">6</text>
+<text x="167" y="214" text-anchor="middle">HFMSE points</text><text x="160" y="240" text-anchor="middle">95% patient-bootstrap interval</text>
+</g></svg>
