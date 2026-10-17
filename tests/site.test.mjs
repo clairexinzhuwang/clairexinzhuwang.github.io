@@ -92,11 +92,12 @@ test("homepage includes the current work and removes retired content", () => {
   const html = pages.get("/");
   for (const text of ["Thesis work", "Bayesian optimization", "Clinical research", "Seeking full-time roles beginning June 2027",
     "Inference from stochastic gradient descent for U-statistics", "High-Dimensional Pairwise U-Statistic M-Estimation",
-    "I work on safe multi-objective Bayesian optimization; the manuscript has passed AAAI Phase I and remains under review",
+    "I work on safe multi-objective Bayesian optimization.",
     "Bayesian Optimization for Dose Finding with Two Agents", "Emory COVID-19 Health Equity Dashboard", "MSPH thesis"])
     assert.ok(html.includes(text), text);
   assert.ok(html.indexOf("Inference from stochastic gradient descent") < html.indexOf("High-Dimensional Pairwise"));
   assert.doesNotMatch(html, /Randomized Campaign Analysis|replay-corrected|email-campaign-experiment/);
+  for (const page of pages.values()) assert.doesNotMatch(page, /AAAI/);
 });
 
 test("research pages preserve results, interactive controls and release boundaries", () => {
