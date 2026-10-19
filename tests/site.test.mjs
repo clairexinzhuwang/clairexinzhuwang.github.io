@@ -161,13 +161,10 @@ test("research pages preserve results, interactive controls and release boundari
   assert.match(earlierBenchmark, /Hardware, timing aggregation and included stages are unspecified/);
   assert.match(low, /The V51 archive does not isolate a timing benchmark for fitting plus one-pass covariance estimation/);
   const sma = pages.get("/research/sma-treatment-comparisons");
-  assert.match(sma, /Methods overview/);
-  assert.match(sma, /full baseline reference cohort/);
-  assert.match(sma, /Four models, one target per outcome/);
-  assert.match(sma, /Conditions for causal interpretation/);
-  assert.match(sma, /Weighted marginal likelihood/);
-  assert.match(sma, /Cohort-standardized contrast/);
-  assert.doesNotMatch(sma, /3\.53|0\.48|151 HFMSE|150 RULM|12 risdiplam|5,000|sma-2026/);
+  for (const phrase of ['Treatment differences','Hammersmith Functional Motor Scale–Expanded',
+    'Revised Upper Limb Module','full baseline reference cohort','Technical specification',
+    'Causal interpretation and assumptions','3.53','7.49','0.48','2.73','1.62']) assert.ok(sma.includes(phrase),phrase);
+  assert.doesNotMatch(sma, /sma-design-matrix|Illustrative patient records/);
   assert.ok(!Object.keys(manifest.files).some(file => /sma-comparison|sma-study-explorer|sma-treatment-window/.test(file)));
   for (const route of [
     "/research/computation-aware-inference",
@@ -175,7 +172,9 @@ test("research pages preserve results, interactive controls and release boundari
     "/research/sma-treatment-comparisons",
   ]) {
     const html = pages.get(route);
-    assert.match(html, /advisor approval/, route);
+    assert.match(html, route === "/research/sma-treatment-comparisons"
+      ? /The full manuscript and patient-level data are not public/
+      : /advisor approval/, route);
     assert.doesNotMatch(html, /href="\/[^\"]*\.(?:pdf|docx|tex|zip)"|arxiv\.org/, route);
   }
 
