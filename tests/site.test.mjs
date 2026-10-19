@@ -163,7 +163,7 @@ test("research pages preserve results, interactive controls and release boundari
   const sma = pages.get("/research/sma-treatment-comparisons");
   assert.match(sma, /Methods overview/);
   assert.match(sma, /full baseline reference cohort/);
-  assert.match(sma, /Estimation and the comparison target/);
+  assert.match(sma, /Four models, one target per outcome/);
   assert.match(sma, /Conditions for causal interpretation/);
   assert.match(sma, /Weighted marginal likelihood/);
   assert.match(sma, /Cohort-standardized contrast/);
