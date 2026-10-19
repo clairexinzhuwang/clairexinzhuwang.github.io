@@ -161,11 +161,11 @@ test("research pages preserve results, interactive controls and release boundari
   assert.match(earlierBenchmark, /Hardware, timing aggregation and included stages are unspecified/);
   assert.match(low, /The V51 archive does not isolate a timing benchmark for fitting plus one-pass covariance estimation/);
   const sma = pages.get("/research/sma-treatment-comparisons");
-  for (const phrase of ['Treatment differences','Hammersmith Functional Motor Scale–Expanded',
-    'Revised Upper Limb Module','All eligible baseline patients','Technical specification',
-    'Causal interpretation and assumptions','3.53','7.49','0.48','2.73','1.62']) assert.ok(sma.includes(phrase),phrase);
-  assert.doesNotMatch(sma, /sma-design-matrix|Illustrative patient records/);
-  assert.ok(!Object.keys(manifest.files).some(file => /sma-comparison|sma-study-explorer|sma-treatment-window/.test(file)));
+  for (const phrase of ['Hammersmith Functional Motor Scale–Expanded', 'Revised Upper Limb Module',
+    'Methods overview', 'Causal challenges in SMA', 'Causal interpretation',
+    'Results, cohort details and study materials are withheld']) assert.ok(sma.includes(phrase),phrase);
+  assert.doesNotMatch(sma, /sma-results-figure|sma-forest|sma-analytic-figure|Technical specification|baseline patients|bootstrap fits|zero random-intercept variance|R25|R26/);
+  assert.ok(!Object.keys(manifest.files).some(file => /sma-comparison|sma-study-explorer|sma-treatment-window|sma-summary-results/.test(file)));
   for (const route of [
     "/research/computation-aware-inference",
     "/research/high-dimensional-inference",
@@ -173,7 +173,7 @@ test("research pages preserve results, interactive controls and release boundari
   ]) {
     const html = pages.get(route);
     assert.match(html, route === "/research/sma-treatment-comparisons"
-      ? /The full manuscript and patient-level data are not public/
+      ? /Results, cohort details and study materials are withheld/
       : /advisor approval/, route);
     assert.doesNotMatch(html, /href="\/[^\"]*\.(?:pdf|docx|tex|zip)"|arxiv\.org/, route);
   }
