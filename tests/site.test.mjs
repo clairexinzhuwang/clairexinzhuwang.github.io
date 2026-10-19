@@ -162,7 +162,7 @@ test("research pages preserve results, interactive controls and release boundari
   assert.match(low, /The V51 archive does not isolate a timing benchmark for fitting plus one-pass covariance estimation/);
   const sma = pages.get("/research/sma-treatment-comparisons");
   for (const phrase of ['Treatment differences','Hammersmith Functional Motor Scale–Expanded',
-    'Revised Upper Limb Module','full baseline reference cohort','Technical specification',
+    'Revised Upper Limb Module','All eligible baseline patients','Technical specification',
     'Causal interpretation and assumptions','3.53','7.49','0.48','2.73','1.62']) assert.ok(sma.includes(phrase),phrase);
   assert.doesNotMatch(sma, /sma-design-matrix|Illustrative patient records/);
   assert.ok(!Object.keys(manifest.files).some(file => /sma-comparison|sma-study-explorer|sma-treatment-window/.test(file)));
