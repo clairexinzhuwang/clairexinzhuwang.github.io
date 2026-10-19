@@ -160,7 +160,13 @@ test("research pages preserve results, interactive controls and release boundari
   assert.match(earlierBenchmark, /These times do not benchmark the V51 one-pass method/);
   assert.match(earlierBenchmark, /Hardware, timing aggregation and included stages are unspecified/);
   assert.match(low, /The V51 archive does not isolate a timing benchmark for fitting plus one-pass covariance estimation/);
-  assert.match(pages.get("/research/sma-treatment-comparisons"), /Selected manuscript findings/);
+  const sma = pages.get("/research/sma-treatment-comparisons");
+  assert.match(sma, /Methods overview/);
+  assert.match(sma, /full baseline reference cohort/);
+  assert.match(sma, /Causal structure and interpretation/);
+  assert.match(sma, /Explore the causal pathways/);
+  assert.doesNotMatch(sma, /3\.53|0\.48|151 HFMSE|150 RULM|12 risdiplam|5,000|sma-2026/);
+  assert.ok(!Object.keys(manifest.files).some(file => /sma-comparison|sma-study-explorer|sma-treatment-window/.test(file)));
   for (const route of [
     "/research/computation-aware-inference",
     "/research/high-dimensional-inference",
