@@ -163,8 +163,10 @@ test("research pages preserve results, interactive controls and release boundari
   const sma = pages.get("/research/sma-treatment-comparisons");
   assert.match(sma, /Methods overview/);
   assert.match(sma, /full baseline reference cohort/);
-  assert.match(sma, /Causal structure and interpretation/);
-  assert.match(sma, /Explore the causal pathways/);
+  assert.match(sma, /Where the comparison begins/);
+  assert.match(sma, /Conditions for causal interpretation/);
+  assert.match(sma, /Design schematic · no patient data/);
+  assert.match(sma, /Fitting weights ≠ the reference population/);
   assert.doesNotMatch(sma, /3\.53|0\.48|151 HFMSE|150 RULM|12 risdiplam|5,000|sma-2026/);
   assert.ok(!Object.keys(manifest.files).some(file => /sma-comparison|sma-study-explorer|sma-treatment-window/.test(file)));
   for (const route of [
