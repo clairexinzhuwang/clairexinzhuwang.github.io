@@ -91,13 +91,53 @@ test("local navigation, anchors, scripts and styles resolve on static hosting", 
 test("homepage includes the current work and removes retired content", () => {
   const html = pages.get("/");
   for (const text of ["Thesis work", "Bayesian optimization", "Clinical research", "Seeking full-time roles beginning June 2027",
-    "Inference from stochastic gradient descent for U-statistics", "High-Dimensional Pairwise U-Statistic M-Estimation",
+    "Inference from stochastic gradient descent for U-statistics", "High-dimensional inference for U-statistic models",
     "I work on safe multi-objective Bayesian optimization.",
     "Bayesian Optimization for Dose Finding with Two Agents", "Emory COVID-19 Health Equity Dashboard", "MSPH thesis"])
     assert.ok(html.includes(text), text);
-  assert.ok(html.indexOf("Inference from stochastic gradient descent") < html.indexOf("High-Dimensional Pairwise"));
+  assert.ok(html.indexOf("Inference from stochastic gradient descent") < html.indexOf("High-dimensional inference for U-statistic models"));
+  assert.doesNotMatch(html, /research\/previews\/highdim-results\.svg|High-Dimensional Pairwise U-Statistic M-Estimation/);
   assert.doesNotMatch(html, /Randomized Campaign Analysis|replay-corrected|email-campaign-experiment/);
   for (const page of pages.values()) assert.doesNotMatch(page, /AAAI/);
+});
+
+test("high-dimensional research publishes current scope and aggregate evidence without private methods", async () => {
+  const html = pages.get("/research/high-dimensional-inference");
+  const numericHtml = html.replace(/<!--[\s\S]*?-->/g, '');
+  assert.match(html, /<h1>High-dimensional inference for U-statistic models<\/h1>/);
+  assert.match(html, /class="[^"]*highdim-page/);
+  assert.match(html, /prespecified/i);
+  assert.match(html, /population/i);
+  assert.match(html, /(?:without|does not require|not requir)[^<.]*exact[^<.]*support recovery/i);
+  assert.match(html, /id="scope"/);
+  assert.match(html, /asymptotic/i);
+  assert.match(html, /fixed.order/i);
+  assert.match(html, /pairwise rank.regression/i);
+  assert.match(numericHtml, /95\.6%/);
+  assert.match(numericHtml, /1,817/);
+  assert.match(numericHtml, /1,900/);
+  assert.match(numericHtml, /92%[\s\S]{0,80}100%/);
+  const evidence = html.match(/<section\b[^>]*id="evaluation"[^>]*>[\s\S]*?<\/section>/)?.[0];
+  assert.ok(evidence);
+  const context = evidence.match(/<details\b[^>]*>[\s\S]*?<\/details>/)?.[0];
+  assert.ok(context, 'study context stays available in a native disclosure');
+  assert.doesNotMatch(context, /^<details\b[^>]*\bopen(?:[\s=>])/);
+  assert.match(evidence, /9,000/);
+  assert.match(evidence, /all five prespecified coefficient intervals/i);
+  assert.match(context, /fixed set of five/i);
+  assert.match(context, /20/);
+  assert.match(evidence, /(?:reported|summary|summaries)/i);
+  assert.match(evidence, /(?:varied|varies|vary|range|design)/i);
+  assert.doesNotMatch(html, /99\.99%|95\.4%|90\.1%|stock-signals|id="walkthrough"|<math\b|class="katex"|<select\b|<input\b|<canvas\b|<svg\b/);
+  assert.doesNotMatch(html, /tail-averaged SGD|adaptive-cap|known.count reference|High-dimensional inference walkthrough|X-only|learned subspace|three-vector|four-vector|Hessian adjustment|Hessian-based direction|nodewise|FISTA|coordinate descent|overlap.based|Bonferroni|Gaussian Monte Carlo draws approximate/i);
+  for (const route of ['/', '/research', '/code']) {
+    assert.doesNotMatch(pages.get(route), /High-Dimensional Pairwise U-Statistic M-Estimation|Support Recovery and Post-Recovery|99\.99%|Joint success ·|high-dimensional-inference#walkthrough|research\/previews\/highdim-results\.svg/);
+  }
+  const forbidden = /High-Dimensional Pairwise U-Statistic M-Estimation|tail-averaged SGD|adaptive-cap|candidate_contains|cov_sandwich|cov_pooled|X-only|learned subspace|three-vector|four-vector|Hessian adjustment|Hessian-based direction|nodewise|FISTA|coordinate descent|Ustat_Professor_|FINAL_RESULTS_2026-10-30/i;
+  for (const file of Object.keys(manifest.files)) {
+    assert.doesNotMatch(file, /highdim-results\.svg|pairwise-preview|highdim-preview-data|highdim-workbench|stock-signal|Ustat_Professor_|SOURCE_MAP|source\/equations/);
+    if (/\.(?:html|js|json|svg|css|txt|xml)$/.test(file)) assert.doesNotMatch(await read(file), forbidden, file);
+  }
 });
 
 test("research pages preserve results, interactive controls and release boundaries", () => {
@@ -111,9 +151,21 @@ test("research pages preserve results, interactive controls and release boundari
     "41,984 training patients and 40 ranking-score coefficients", "These comparisons measure numerical agreement, not population coverage",
     "main fit is 275 Newton SEs away", "0.6362 (95% DeLong interval: 0.6248–0.6476)", "class=\"katex\"", "<math"])
     assert.ok(low.includes(text), text);
+  const fullSizeFigures = low.match(/<a\b[^>]*class="figure-fullsize"[^>]*>[\s\S]*?<\/a>/g) ?? [];
+  assert.equal(fullSizeFigures.length, 9, 'every Figure 1 panel opens its original SVG');
+  assert.equal((low.match(/<img\b[^>]*src="\/research\/v51-figure1-[^"]+"[^>]*>/g) ?? []).length, 9);
   for (const family of ["rank", "auc", "triplet"]) {
     for (const metric of ["coverage", "standardized-bias", "variance-ratio"]) {
-      assert.ok(low.includes(`src="/research/v51-figure1-${family}-${metric}.svg"`));
+      const url = `/research/v51-figure1-${family}-${metric}.svg`;
+      const link = fullSizeFigures.find(panel => panel.includes(`href="${url}"`));
+      assert.ok(link, url);
+      assert.match(link, /target="_blank"/);
+      assert.match(link, /rel="noreferrer"/);
+      assert.match(link, /aria-label="Open full-size figure:/);
+      const image = link.match(/<img\b[^>]*>/)?.[0];
+      assert.ok(image?.includes(`src="${url}"`), 'full-size link and displayed image use the same original SVG');
+      assert.match(image, /\bwidth="400"/);
+      assert.match(image, /\bheight="270"/);
     }
   }
   const rankFocus = low.match(/<figure\b[^>]*data-inference-focus="rank"[^>]*>[\s\S]*?<\/figure>/)?.[0];
