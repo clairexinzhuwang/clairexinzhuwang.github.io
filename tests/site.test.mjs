@@ -167,28 +167,18 @@ test("research pages preserve results, interactive controls and release boundari
   for (const html of pages.values()) assert.doesNotMatch(html, /safe-multi-objective-optimization|certified hypervolume/i);
   const low = pages.get("/research/computation-aware-inference");
   for (const text of ["without a prespecified likelihood model", "58.8% of estimated total variance", "6.6% at BT/n = 20",
-    "95.05%", "94.25%", "analytic Monte Carlo standard errors", "Small dots: individual coefficients",
-    "Absolute standardized bias has no error bars", "23,571 policies with exactly one recorded claim and 31 coefficients",
+    "95.05%", "94.25%", "Small markers: individual coefficients", "No connecting lines or error bars are shown",
+    "0.0078 for coverage and 0.0529 for variance ratios", "23,571 policies with exactly one recorded claim and 31 coefficients",
     "41,984 training patients and 40 ranking-score coefficients", "These comparisons measure numerical agreement, not population coverage",
     "main fit is 275 Newton SEs away", "0.6362 (95% DeLong interval: 0.6248–0.6476)", "class=\"katex\"", "<math"])
     assert.ok(low.includes(text), text);
   const fullSizeFigures = low.match(/<a\b[^>]*class="figure-fullsize"[^>]*>[\s\S]*?<\/a>/g) ?? [];
-  assert.equal(fullSizeFigures.length, 9, 'every Figure 1 panel opens its original SVG');
-  assert.equal((low.match(/<img\b[^>]*src="\/research\/v51-figure1-[^"]+"[^>]*>/g) ?? []).length, 9);
-  for (const family of ["rank", "auc", "triplet"]) {
-    for (const metric of ["coverage", "standardized-bias", "variance-ratio"]) {
-      const url = `/research/v51-figure1-${family}-${metric}.svg`;
-      const link = fullSizeFigures.find(panel => panel.includes(`href="${url}"`));
-      assert.ok(link, url);
-      assert.match(link, /target="_blank"/);
-      assert.match(link, /rel="noreferrer"/);
-      assert.match(link, /aria-label="Open full-size figure:/);
-      const image = link.match(/<img\b[^>]*>/)?.[0];
-      assert.ok(image?.includes(`src="${url}"`), 'full-size link and displayed image use the same original SVG');
-      assert.match(image, /\bwidth="400"/);
-      assert.match(image, /\bheight="270"/);
-    }
-  }
+  assert.equal(fullSizeFigures.length, 1, 'Figure 1 opens the exact V64 six-panel figure');
+  assert.match(fullSizeFigures[0], /href="\/research\/v64-figure1\.svg"/);
+  assert.match(fullSizeFigures[0], /src="\/research\/v64-figure1\.svg"/);
+  assert.match(fullSizeFigures[0], /target="_blank"/);
+  assert.match(fullSizeFigures[0], /Six panels/);
+  assert.doesNotMatch(low, /v51-figure1-|large markers and lines|variance-ratio bars show/);
   const rankFocus = low.match(/<figure\b[^>]*data-inference-focus="rank"[^>]*>[\s\S]*?<\/figure>/)?.[0];
   assert.ok(rankFocus, 'default rank view explains the inferential workflow');
   for (const phrase of ['Last-iterate inference', 'Sampled comparisons', 'Last SGD iterate', 'Marginal Wald intervals',
